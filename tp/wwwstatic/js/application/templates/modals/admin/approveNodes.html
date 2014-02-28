@@ -1,0 +1,30 @@
+<article class="row-fluid">
+    <section class="span12 list">
+        <header class="clearfix">
+            <div class="pull-left">
+                <span>Node IP</span>
+            </div>
+            <div class="pull-right hidden-print">
+                <button class="btn btn-mini disabled" id="list-export">
+                    <span>Export</span>&nbsp;<i class="icon-download-alt"></i>
+                </button>
+            </div>
+        </header>
+        <div class="items">
+            <% if (data.length !== 0) { %>
+                <% _.each(data, function (csr, i) { %>
+                    <div class="item row-fluid">
+                        <div class="span9"><% print(csr.displayname || csr.hostname || csr.ip) %></div>
+                        <div class="span3 alignRight">
+                            <input type="checkbox" name="csr" value="<%= csr.node_id %>" <% csr.enabled ? print('checked') : '' %>/>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="item rowfluid">
+                    <div class="span9"><em>No nodes available.</em></div>
+                </div>
+            <% } %>
+        </div>
+    </section>
+</article>

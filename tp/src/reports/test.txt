@@ -1,0 +1,41 @@
+from agent import *
+import logging
+import logging.config
+from utils.common import *
+from agent.agents import *
+from plugins.patching import * 
+
+def system_os_details(agent_info):
+data={
+"Computer Name":agent_info.get(AgentKey.ComputerName), 
+ 12             "OS Type":agent_info.get(AgentKey.OsCode), 
+ 13             "OS Name":agent_info.get(AgentKey.OsString), 
+ 14             "System Arch":agent_info.get('bit_type'), 
+ 15             "Machine Type":agent_info.get(AgentKey.MachineType), 
+ 16             } 
+ 17     return(data) 
+ 18  
+ 19 def system_hardware_details(agent_info): 
+ 20     hardware_info=agent_info.get(AgentKey.Hardware) 
+ 21     data={ 
+ 22             "Computer Name":agent_info.get(AgentKey.ComputerName), 
+ 23             "Network":hardware_info.get('nic'), 
+ 24             "CPU":hardware_info.get('cpu'), 
+ 25             "Disk":hardware_info.get('storage'), 
+ 26             "Display":hardware_info.get('display'), 
+ 27             "RAM":hardware_info.get('memory'), 
+ 28             } 
+ 29     return(data) 
+ 30  
+ 31 def system_monit_stats(agent_info): 
+ 32  
+ 33  
+ 34  
+ 35  
+ 36  
+ 37 def agents_os_details(os_code=None,tag_id=None, customer_name=None): 
+ 38     if os_code and not customer_name and not tag_id: 
+ 39         agentids=get_all_agent_ids(agent_os=os_code) 
+ 40         for agentid in agentids: 
+ 41             agent_info=get_agent_info(agentid=agentid)
+

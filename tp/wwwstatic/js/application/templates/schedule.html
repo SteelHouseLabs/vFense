@@ -1,0 +1,30 @@
+<article class="row-fluid">
+    <div class="well clearfix">
+        <dl>
+            <dt>Schedule Name:</dt>
+            <dd><%= model.job_name || 'N/A' %></dd>
+
+            <dt>Customer Name:</dt>
+            <dd><%= model.customer_name || 'N/A' %></dd>
+
+            <dt>Operation:</dt>
+            <dd><%= viewHelpers.capitaliseFirstLetter(viewHelpers.parseOperationName(model.operation)) %></dd>
+
+        <% if (model.pkg_type) { %>
+            <dt>Package Type:</dt>
+            <dd><%= viewHelpers.parseOperationName(model.pkg_type) %></dd>
+        <% } %>
+
+            <dt>Schedule Type:</dt>
+            <dd><%= model.schedule_type || 'N/A' %></dd>
+
+            <dt>Created By:</dt>
+            <dd><%= model.username || 'N/A' %></dd>
+
+            <dt>Total Runs:</dt>
+            <dd><%= model.runs %></dd>
+        </dl>
+    </div>
+    <%= viewHelpers.renderItems(model.tags, 'Tags', '#tags') %>
+    <%= viewHelpers.renderItems(model.agents, 'Agents', '#nodes') %>
+</article>

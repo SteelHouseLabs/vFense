@@ -1,0 +1,111 @@
+<article class="row-fluid">
+    <section class="span12 list">
+        <header class="clearfix">
+            <div class="pull-left span6">
+                <strong class="span5">Edit users for customer: </strong>
+                <span class="span6">
+                    <select id="customerContext" name="customers">
+                        <%= viewHelpers.getOptions(customers, currentCustomer) %>
+                    </select>
+                </span>
+            </div>
+            <div class="pull-right hidden-print">
+                <button id="addUser" class="btn btn-mini">Add new user...</button>
+            </div>
+        </header>
+        <div class="accordion items">
+            <form id="newUserDiv" class="item hide row-fluid">
+                <div class="span12">
+                    <table style="width: 100%">
+                        <tr>
+                            <td class="control-group" style="width: 50%; max-width: 50%;">
+                                <label class="control-label">Full Name:</label>
+                                <div class="controls">
+                                    <input id="fullname" name="fullname" type="text" style="width: 100%" required />
+                                </div>
+                            </td>
+                            <td class="control-group" style="width: 50%">
+                                <label class="control-label">E-mail:</label>
+                                <div class="controls">
+                                    <input id="email" name="email" type="text" style="width: 100%" required/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="control-group">
+                                <label class="control-label">Username:</label>
+                                <div class="controls">
+                                    <input id="username" name="username" type="text" style="width: 100%" required/>
+                                </div>
+                            </td>
+                            <td class="control-group">
+                                <label class="control-label">Password:</label>
+                                <div class="controls">
+                                    <input id="password" name="password" type="password" style="width: 100%" required/>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="control-group">
+                                <label class="control-label">Groups:</label>
+                                <select name="groups" multiple="multiple" placeholder="Add to group">
+                                    <%= viewHelpers.getOptions(groups) %>
+                                </select>
+                            </td>
+                            <td class="control-group">
+                                <label class="control-label">Customers:</label>
+                                <select name="customers" multiple="multiple" placeholder="Add to Customer" class="span6 noMargin">
+                                    <%= viewHelpers.getOptions(customers) %>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <span class="help-online hide"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="control-group alignRight">
+                                <button id="cancelNewUser" class="btn btn-mini">Cancel</button>
+                                <button id="submitUser" class="btn btn-mini btn-primary">Confirm</button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            <% if (data.length) { %>
+                <% _.each(data, function (user) { %>
+                    <div class="accordion-group item clearfix">
+                        <div class="accordion-heading row-fluid">
+                            <div class="span9">
+                                <div class="pull-left">
+                                    <%= viewHelpers.renderUserLink(user) %>
+                                </div>
+                            </div>
+                            <div class="span3 alignRight">
+                                <%= viewHelpers.renderDeleteButton(user) %>
+                                <button name="deleteUser" class="btn btn-mini btn-danger hide" value="<%= user.username %>">Delete</button>
+                                <button name="toggleDelete" class="btn btn-mini hide">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <label><small>Groups for customer <%= currentCustomer %>:</small></label>
+                                <input type="hidden" name="groupSelect" data-user="<%= user.username %>" data-placeholder="Select a group" data-url="/api/groups" value='<% print(JSON.stringify(user.groups)); %>'>
+                                <label><small>Customers part of:</small></label>
+                                <input type="hidden" name="customerSelect" data-user="<%= user.username %>" data-placeholder="Select a customer" data-url="/api/customers" value='<% print (JSON.stringify(user.customers)); %>'>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="item row-fluid">
+                    <div class="span9"><em>No users available.</em></div>
+                </div>
+            <% } %>
+            <div class="alert alert-block fade in hide">
+                <span class="help-inline"></span>
+            </div>
+        </div>
+    </section>
+</article>

@@ -1,0 +1,86 @@
+<html>
+<head>
+    <title>Pictonic Icon Reference</title>
+    <link rel="stylesheet" href="../../css/bootstrap.css" />
+    <link rel="stylesheet" href="../../css/application.css" />
+    <style type="text/css">
+        HTML {
+            font-size: 28px;
+        }
+        BODY {
+            margin: auto;
+            padding: 0.71428571rem;
+        }
+        UL {
+            list-style-type: none;
+            margin: 0;
+        }
+
+        UL LI {
+            cursor: pointer;
+            line-height: 2.28571429rem;
+            height: 2.28571429rem;
+            padding-left: 0.85714286rem;
+            -webkit-border-radius: 0.42857143rem;
+            -moz-border-radius: 0.42857143rem;
+            border-radius: 0.42857143rem;
+        }
+
+        UL LI [class^="icon-"],
+        UL LI [class*=" icon-"] {
+            width: 2.28571429rem;
+            font-size: 1rem;
+        }
+
+        UL LI:hover {
+            background-color: #fbf4f4
+        }
+
+        UL LI:hover [class^="icon-"],
+        UL LI:hover [class*=" icon-"] {
+            *font-size: 2rem;
+            *vertical-align: middle;
+        }
+
+        UL LI:hover [class^="icon-"]:before,
+        UL LI:hover [class*=" icon-"]:before {
+            font-size: 2rem;
+            vertical-align: -0.35714286rem;
+        }
+    </style>
+</head>
+<body>
+<script type="text/javascript" src="../../js/libs/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+    jQuery(function ($) {
+        "use strict";
+        var $frag = $(document.createDocumentFragment()),
+            $icons = $('<ul>'),
+            iconList;
+
+        iconList = [
+            'icon-os-apple',
+            'icon-lin-ubuntu',
+            'icon-lin-debian',
+            'icon-lin-centos',
+            'icon-lin-redhat',
+            'icon-lin-fedora',
+            'icon-os-win-02',
+            'icon-os-win-03',
+            'icon-os-win-04',
+            'icon-android',
+            'icon-os-linux_1_',
+            'icon-os-ios',
+            'icon-os-osx_1_'
+        ];
+
+        $.each(iconList, function (index, icon) {
+            var $li = $('<li>').append($('<i>').addClass(icon)).append('&nbsp;' + icon);
+            $icons.append($li);
+        });
+
+        $('body').append($frag.append($icons));
+    });
+</script>
+</body>
+</html>

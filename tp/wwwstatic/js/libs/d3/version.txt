@@ -1,0 +1,4 @@
+d3.js
+Home:       http://d3js.org
+GitHub:     https://github.com/mbostock/d3/tags
+Version:    3.1.10

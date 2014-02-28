@@ -1,0 +1,927 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-894-1: Linux kernel vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-894-1: Linux kernel vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-894-1</h2>
+<p><em>4th February, 2010</em></p>
+<h3>linux, linux-source-2.6.15 vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 9.10</li>
+
+    <li>Ubuntu 9.04</li>
+
+    <li>Ubuntu 8.10</li>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+    <li>Ubuntu 6.06 LTS</li>
+
+</ul>
+
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>linux 
+    
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+    <li>linux-ec2 
+    
+    </li>
+  
+
+  
+    <li>linux-fsl-imx51 
+    
+    </li>
+  
+
+  
+    <li>linux-mvl-dove 
+    
+    </li>
+  
+
+  
+    <li>linux-source-2.6.15 
+    
+    </li>
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>Amerigo Wang and Eric Sesterhenn discovered that the HFS and ext4<br />filesystems did not correctly check certain disk structures. If a user<br />were tricked into mounting a specially crafted filesystem, a remote<br />attacker could crash the system or gain root privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4020">CVE-2009-4020</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4308">CVE-2009-4308</a>)</p>
+
+<p>It was discovered that FUSE did not correctly check certain requests.<br />A local attacker with access to FUSE mounts could exploit this to<br />crash the system or possibly gain root privileges.  Ubuntu 9.10 was not<br />affected. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4021">CVE-2009-4021</a>)</p>
+
+<p>It was discovered that KVM did not correctly decode certain guest<br />instructions.  A local attacker in a guest could exploit this to<br />trigger high scheduling latency in the host, leading to a denial of<br />service.  Ubuntu 6.06 was not affected. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4031">CVE-2009-4031</a>)</p>
+
+<p>It was discovered that the OHCI fireware driver did not correctly<br />handle certain ioctls.  A local attacker could exploit this to crash<br />the system, or possibly gain root privileges.  Ubuntu 6.06 was not<br />affected. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4138">CVE-2009-4138</a>)</p>
+
+<p>Tavis Ormandy discovered that the kernel did not correctly handle<br />O_ASYNC on locked files.  A local attacker could exploit this to gain<br />root privileges.  Only Ubuntu 9.04 and 9.10 were affected. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4141">CVE-2009-4141</a>)</p>
+
+<p>Neil Horman and Eugene Teo discovered that the e1000 and e1000e<br />network drivers did not correctly check the size of Ethernet frames.<br />An attacker on the local network could send specially crafted traffic<br />to bypass packet filters, crash the system, or possibly gain root<br />privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4536">CVE-2009-4536</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4538">CVE-2009-4538</a>)</p>
+
+<p>It was discovered that &quot;print-fatal-signals&quot; reporting could show<br />arbitrary kernel memory contents.  A local attacker could exploit<br />this, leading to a loss of privacy.  By default this is disabled in<br />Ubuntu and did not affect Ubuntu 6.06. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0003">CVE-2010-0003</a>)</p>
+
+<p>Olli Jarva and Tuomo Untinen discovered that IPv6 did not correctly<br />handle jumbo frames.  A remote attacker could exploit this to crash the<br />system, leading to a denial of service.  Only Ubuntu 9.04 and 9.10 were<br />affected. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0006">CVE-2010-0006</a>)</p>
+
+<p>Florian Westphal discovered that bridging netfilter rules could be<br />modified by unprivileged users.  A local attacker could disrupt network<br />traffic, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0007">CVE-2010-0007</a>)</p>
+
+<p>Al Viro discovered that certain mremap operations could leak kernel<br />memory.  A local attacker could exploit this to consume all available<br />memory, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0291">CVE-2010-0291</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 9.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-ec2">linux-image-2.6.31-304-ec2</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-ec2/2.6.31-304.10">2.6.31-304.10</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-386</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-fsl-imx51">linux-image-2.6.31-108-imx51</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-fsl-imx51/2.6.31-108.21">2.6.31-108.21</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-powerpc-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-sparc64</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-mvl-dove">linux-image-2.6.31-211-dove-z0</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-mvl-dove/2.6.31-211.22">2.6.31-211.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-virtual</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-server</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-powerpc64-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-generic-pae</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-mvl-dove">linux-image-2.6.31-211-dove</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-mvl-dove/2.6.31-211.22">2.6.31-211.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-generic</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-sparc64-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-powerpc</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-lpia</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.31-19-ia64</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.31-19.56">2.6.31-19.56</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 9.04:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.28-18-generic</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.28-18.59">2.6.28-18.59</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.28-18-server</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.28-18.59">2.6.28-18.59</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.28-18-iop32x</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.28-18.59">2.6.28-18.59</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.28-18-ixp4xx</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.28-18.59">2.6.28-18.59</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.28-18-lpia</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.28-18.59">2.6.28-18.59</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.28-18-virtual</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.28-18.59">2.6.28-18.59</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.28-18-imx51</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.28-18.59">2.6.28-18.59</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.28-18-versatile</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.28-18.59">2.6.28-18.59</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.27-17-generic</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.27-17.45">2.6.27-17.45</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.27-17-virtual</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.27-17.45">2.6.27-17.45</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.27-17-server</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.27-17.45">2.6.27-17.45</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-itanium</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-sparc64</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-lpia</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-hppa32</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-powerpc</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-lpiacompat</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-powerpc-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-386</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-mckinley</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-sparc64-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-xen</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-generic</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-virtual</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-server</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-rt</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-openvz</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-powerpc64-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux">linux-image-2.6.24-27-hppa64</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux/2.6.24-27.65">2.6.24-27.65</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 6.06 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-hppa64</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-mckinley</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-powerpc-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-hppa32-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-686</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-amd64-k8</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-amd64-server</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-386</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-sparc64-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-k7</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-sparc64</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-server</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-powerpc64-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-hppa32</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-mckinley-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-server-bigiron</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-itanium-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-amd64-xeon</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-powerpc</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-amd64-generic</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-hppa64-smp</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15">linux-image-2.6.15-55-itanium</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-source-2.6.15/2.6.15-55.82">2.6.15-55.82</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system upgrade you need to reboot your computer to<br />effect the necessary changes.</p>
+
+<p>ATTENTION: Due to an unavoidable ABI change (except for Ubuntu 6.06)<br />the kernel updates have been given a new version number, which requires<br />you to recompile and reinstall all third party kernel modules you<br />might have installed. If you use linux-restricted-modules, you have to<br />update that package as well to get modules which work with the new kernel<br />version. Unless you manually uninstalled the standard kernel metapackages<br />(e.g. linux-generic, linux-server, linux-powerpc), a standard system<br />upgrade will automatically perform this as well.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4020">CVE-2009-4020</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4021">CVE-2009-4021</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4031">CVE-2009-4031</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4138">CVE-2009-4138</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4141">CVE-2009-4141</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4308">CVE-2009-4308</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4536">CVE-2009-4536</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4538">CVE-2009-4538</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0003">CVE-2010-0003</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0006">CVE-2010-0006</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0007">CVE-2010-0007</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0291">CVE-2010-0291</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

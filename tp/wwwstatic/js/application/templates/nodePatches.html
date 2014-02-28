@@ -1,0 +1,231 @@
+<article class="row-fluid">
+    <div class="alert fade in hide"></div>
+</article>
+<article class="accordion">
+<div class="accordion-group">
+    <div class="accordion-heading">
+        <header>
+            <a class="accordion-toggle" href="#">
+                <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Patches Available</strong>
+                <span class="pull-right">
+                    <select class="btn btn-mini" name="severity">
+                        <option>None</option>
+                        <option>Optional</option>
+                        <option>Recommended</option>
+                        <option>Critical</option>
+                    </select>
+                    <span class="badge badge-inverse"><%= available.total || 'N/A' %></span>
+                </span>
+            </a>
+        </header>
+    </div>
+    <div class="accordion-body collapse">
+        <section class="list accordion-inner">
+            <% if (available.data.length) { %>
+            <form action="/submitForm" method="post" class="form-inline" id="available">
+                <header class="clearfix">
+                    <label class="checkbox inline">
+                        <input type="checkbox" class="toggle-all">Select / Deselect All
+                    </label>
+                    <div class="pull-right noMargin">
+                        <label class="checkbox inline"><small>Schedule this patch</small></label>
+                        <input type="checkbox" name="schedule" value="once"/>&nbsp;
+                        <select type="button" class="btn btn-mini" name="operation">
+                            <option value="install">Install</option>
+                            <option value="hide">Hide</option>
+                        </select>
+                        <select type="button" class="btn btn-mini" name="throttle">
+                            <option>idle</option>
+                            <option value="below_normal">below normal</option>
+                            <option>normal</option>
+                            <option value="above_normal">above normal</option>
+                            <option>high</option>
+                            <!--<option value="real_time">real time</option>-->
+                        </select>
+                        <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                    </div>
+                    <input type="hidden" value="<% print(agent_id); %>" name="node">
+                </header>
+                <div class="items">
+                    <% _.each(available.data, function (patch) { %>
+                    <div class="item clearfix" title="<%= patch.name %>">
+                        <div class="row-fluid">
+                            <span class="desc span8">
+                                <label class="checkbox inline">
+                                    <input type="checkbox" name="patches" value="<%= patch.rv_id %>">
+                                    <%= patch.name %>
+                                </label>
+                            </span>
+                            <span class="span4 alignRight">
+                                <%= patch.version %>&nbsp;
+                                <a href="#patches/<%= patch.rv_id %>"><i class="icon-info-sign" title="More Information" data-placement="left"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                    <% }); %>
+                </div>
+            </form>
+            <% }  else { %>
+            <div class="items">
+                <div class="item">
+                    <em>No patches to display</em>
+                </div>
+            </div>
+            <% } %>
+        </section>
+    </div>
+</div>
+<div class="accordion-group">
+    <div class="accordion-heading">
+        <header>
+            <a class="accordion-toggle" href="#">
+                <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Patches Done</strong>
+                <span class="badge badge-inverse pull-right"><%= installed.total || 'N/A' %></span>
+            </a>
+        </header>
+    </div>
+    <div class="accordion-body collapse">
+        <section class="list accordion-inner">
+            <% if (installed.data.length) { %>
+            <form action="/submitForm" method="post" class="form-inline" id="done">
+                <header class="clearfix">
+                    <label class="checkbox inline">
+                        <input type="checkbox" class="toggle-all">Select / Deselect All
+                    </label>
+                    <div class="pull-right noMargin">
+                        <select type="button" class="btn btn-mini" name="operation">
+                            <option value="uninstall">Uninstall</option>
+                            <option value="update">Update</option>
+                            <option value="hide">hide</option>
+                        </select>
+                        <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                    </div>
+                    <input type="hidden" value="<% print(agent_id); %>" name="node">
+                </header>
+                <div class="items">
+                    <% _.each(installed.data, function (patch) { %>
+                    <div class="item clearfix">
+                        <div class="row-fluid">
+                            <span class="desc span8">
+                                <label class="checkbox inline">
+                                    <input type="checkbox" name="patches" value="<%= patch.rv_id %>" data-update="<%= patch.update || false %>">
+                                    <%= patch.name %>
+                                </label>
+                            </span>
+                            <span class="span4 alignRight">
+                                <% if (patch.os_code && patch.os_code == 'linux') { %>
+                                <!--
+                                    <button type="button" class="btn btn-link" name="dependencies" value="<%= patch.id %>">
+                                        <i style="color: orange;" class="icon-warning-sign"></i>&nbsp;
+                                        <small>Dependencies</small>&nbsp;
+                                    </button>&nbsp;
+                                -->
+                                <% } %>
+                                <% if(patch.update) { %>
+                                    <%= patch.current_version %>&nbsp;
+                                    <button class="btn btn-link noPadding" name="updatePatch" data-value="<%= patch.id %>">
+                                        <i class="icon-upload-alt" title="Update to <%= patch.available_version %> available" data-placement="left" style="color: green"></i>
+                                    </button>&nbsp;
+                                <% } %>
+                                <a href="#patches/<%= patch.rv_id %>"><i class="icon-info-sign" title="More Information on <%= patch.name %>" data-placement="left"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                    <% }); %>
+                </div>
+            </form>
+            <% }  else { %>
+            <div class="items">
+                <div class="item">
+                    <em>No patches to display</em>
+                </div>
+            </div>
+            <% } %>
+        </section>
+    </div>
+</div>
+<div class="accordion-group">
+    <div class="accordion-heading">
+        <header>
+            <a class="accordion-toggle" href="#">
+                <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Patches Pending</strong>
+                <span class="badge badge-inverse pull-right"><%= pending.total || 'N/A' %></span>
+            </a>
+        </header>
+    </div>
+    <div class="accordion-body collapse">
+        <section class="list accordion-inner" id="pending">
+            <div class="items">
+                <% if (pending.data.length) { %>
+                    <% _.each(pending.data, function (patch, i) { %>
+                    <div class="item clearfix" title="<%= patch.name %>">
+                        <div class="row-fluid">
+                            <span class="desc span8"><%= patch.name %></span>
+                            <span class="span4 alignRight"><a href="#patches/<%= patch.rv_id %>"><i class="icon-info-sign" title="More Information." data-placement="left"></i></a></span>
+                        </div>
+                    </div>
+                    <% }); %>
+                <% }  else { %>
+                <div class="item" id="no-pending">
+                    <em>No patches to display</em>
+                </div>
+                <% } %>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="accordion-group">
+    <div class="accordion-heading">
+        <header>
+            <a class="accordion-toggle" href="#">
+                <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Patches Failed</strong>
+                <span class="badge badge-inverse pull-right"><%= failed.total || 'N/A' %></span>
+            </a>
+        </header>
+    </div>
+    <div class="accordion-body collapse">
+        <section class="list accordion-inner">
+            <% if (failed.data.length) { %>
+            <form action="/submitForm" method="post" class="form-inline" id="failed">
+                <header class="clearfix">
+                    <label class="checkbox inline">
+                        <input type="checkbox" class="toggle-all">Select / Deselect All
+                    </label>
+                    <div class="pull-right noMargin">
+                        <select type="button" class="btn btn-mini" name="operation">
+                            <option value="install">Reinstall</option>
+                            <option value="hide">hide</option>
+                        </select>
+                        <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                    </div>
+                    <input type="hidden" value="<% print(agent_id); %>" name="node">
+                </header>
+                <% _.each(failed.data, function (patch) { %>
+                <div class="items">
+                    <div class="item clearfix" title="<%= patch.name %>">
+                        <div class="row-fluid">
+                            <span class="desc span8">
+                                <label class="checkbox inline">
+                                    <input type="checkbox"  name="patches" value="<%= patch.rv_id %>">
+                                    <%= patch.name %>
+                                </label>
+                            </span>
+                            <span class="span4 alignRight">
+                                <a href="#patches/<%= patch.rv_id %>"><i class="icon-info-sign" title="More Information." data-placement="left"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+            </form>
+            <% }  else { %>
+            <div class="items">
+                <div class="item">
+                    <em>No patches to display</em>
+                </div>
+            </div>
+            <% } %>
+        </section>
+    </div>
+</div>
+</article>

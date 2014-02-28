@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Your TopPatch daily report:</h1>
+
+    {% for key, val in message_items %}
+        <p>{{ key }}: {{ val }}</p>
+    {% end %}
+{% end %}

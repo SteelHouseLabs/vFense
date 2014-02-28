@@ -1,0 +1,9 @@
+text.js
+Home:       http://requirejs.org/docs/download.html#text
+GitHub:     https://github.com/requirejs/text/tags
+Version:    2.0.7
+
+json.js
+Home:       https://github.com/millermedeiros/requirejs-plugins
+GitHub:     https://github.com/millermedeiros/requirejs-plugins/tags
+Version:    1.0.1

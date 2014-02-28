@@ -1,0 +1,27 @@
+{
+    "plainText": {
+        "name": "Plain text",
+        "desc": "Text module without formatting",
+        "loc": "reports/modules/plainText/plainText"
+    },
+    "richText": {
+        "name": "Rich text",
+        "desc": "Text module with formatting",
+        "loc": "reports/modules/richText/richText"
+    },
+    "chart": {
+        "name": "Chart",
+        "desc": "Chart module",
+        "loc": "reports/modules/charts/charts"
+    },
+    "list": {
+        "name": "List",
+        "desc": "List module",
+        "loc": "reports/modules/list/list"
+    },
+    "stocks": {
+        "name": "Stocks",
+        "desc": "Highstocks module",
+        "loc": "reports/modules/stocks/stocks"
+    }
+}

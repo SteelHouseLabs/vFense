@@ -1,0 +1,35 @@
+<article class="row-fluid">
+    <section class="list">
+        <div class="legend row-fluid">
+            <strong class="span3">Computer Name</strong>
+            <span class="span2">HDD Name</span>
+            <span class="span2">Mount</span>
+            <span class="span2">Free</span>
+            <span class="span2">Used</span>
+            <span class="span1 alignRight">Total</span>
+        </div>
+        <div class="items">
+            <% if (models.length) { %>
+                <% _.each(models, function (model) { %>
+                    <div class="item">
+                        <span class="span3"><%= model.get('computer-name') %></span>
+                        <% if (model.get('disk-usage').length) { %>
+                            <% _.each(model.get('disk-usage'), function (disk, index) { %>
+                                <% if (index) { %> <span class="span3 noMargin"></span> <% } %>
+                                <span class="span2"><%= disk.name %></span>
+                                <span class="span2"><%= disk.mount %></span>
+                                <span class="span2"><%= helpers.getDriveSize(disk.free) + ' (' + disk.free_percent + '%)' %></span>
+                                <span class="span2"><%= helpers.getDriveSize(disk.used) + ' (' + disk.used_percent + '%)' %></span>
+                                <span class="span1 alignRight"><%= helpers.getDriveSize(disk.total) %></span>
+                            <% }); %>
+                        <% } else { %>
+                            <span class="span8">No HDD info available</span>
+                        <% } %>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="item">No data available</div>
+            <% } %>
+        </div>
+    </section>
+</article>

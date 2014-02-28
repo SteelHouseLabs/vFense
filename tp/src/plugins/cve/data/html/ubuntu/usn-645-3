@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-645-3: Firefox and xulrunner regression | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-645-3: Firefox and xulrunner regression</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-645-3</h2>
+<p><em>25th September, 2008</em></p>
+<h3>firefox-3.0, xulrunner-1.9 regression</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+</ul>
+
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>firefox-3.0 
+    
+    </li>
+  
+
+  
+    <li>xulrunner-1.9 
+    
+    </li>
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>USN-645-1 fixed vulnerabilities in Firefox and xulrunner. The upstream<br />patches introduced a regression in the saved password handling. While<br />password data was not lost, if a user had saved any passwords with<br />non-ASCII characters, Firefox could not access the password database.<br />This update fixes the problem.</p>
+
+<p>We apologize for the inconvenience.</p>
+
+<p>Original advisory details:</p>
+
+<p> Justin Schuh, Tom Cross and Peter Williams discovered errors in the<br /> Firefox URL parsing routines. If a user were tricked into opening a<br /> crafted hyperlink, an attacker could overflow a stack buffer and<br /> execute arbitrary code. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-0016">CVE-2008-0016</a>)<br /> <br /> It was discovered that the same-origin check in Firefox could be<br /> bypassed. If a user were tricked into opening a malicious website,<br /> an attacker may be able to execute JavaScript in the context of a<br /> different website. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-3835">CVE-2008-3835</a>)<br /> <br /> Several problems were discovered in the JavaScript engine. This<br /> could allow an attacker to execute scripts from page content with<br /> chrome privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-3836">CVE-2008-3836</a>)<br /> <br /> Paul Nickerson discovered Firefox did not properly process mouse<br /> click events. If a user were tricked into opening a malicious web<br /> page, an attacker could move the content window, which could<br /> potentially be used to force a user to perform unintended drag and<br /> drop operations. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-3837">CVE-2008-3837</a>)<br /> <br /> Several problems were discovered in the browser engine. This could<br /> allow an attacker to execute code with chrome privileges.<br /> (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4058">CVE-2008-4058</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4059">CVE-2008-4059</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4060">CVE-2008-4060</a>)<br /> <br /> Drew Yao, David Maciejak and other Mozilla developers found several<br /> problems in the browser engine of Firefox. If a user were tricked<br /> into opening a malicious web page, an attacker could cause a denial<br /> of service or possibly execute arbitrary code with the privileges<br /> of the user invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4061">CVE-2008-4061</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4062">CVE-2008-4062</a>,<br /> <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4063">CVE-2008-4063</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4064">CVE-2008-4064</a>)<br /> <br /> Dave Reed discovered a flaw in the JavaScript parsing code when<br /> processing certain BOM characters. An attacker could exploit this<br /> to bypass script filters and perform cross-site scripting attacks.<br /> (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4065">CVE-2008-4065</a>)<br /> <br /> Gareth Heyes discovered a flaw in the HTML parser of Firefox. If a<br /> user were tricked into opening a malicious web page, an attacker<br /> could bypass script filtering and perform cross-site scripting<br /> attacks. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4066">CVE-2008-4066</a>)<br /> <br /> Boris Zbarsky and Georgi Guninski independently discovered flaws in<br /> the resource: protocol. An attacker could exploit this to perform<br /> directory traversal, read information about the system, and prompt<br /> the user to save information in a file. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4067">CVE-2008-4067</a>,<br /> <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4068">CVE-2008-4068</a>)<br /> <br /> Billy Hoffman discovered a problem in the XBM decoder. If a user were<br /> tricked into opening a malicious web page or XBM file, an attacker<br /> may be able to cause a denial of service via application crash.<br /> (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4069">CVE-2008-4069</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox-3.0">firefox</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox-3.0/3.0.3+build1+nobinonly-0ubuntu0.8.04.1">3.0.3+build1+nobinonly-0ubuntu0.8.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9">xulrunner-1.9</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9/1.9.0.3+build1+nobinonly-0ubuntu0.8.04.1">1.9.0.3+build1+nobinonly-0ubuntu0.8.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system upgrade you need to restart Firefox and any<br />applications that use xulrunner, such as Epiphany, to effect the<br />necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="https://launchpad.net/bugs/270429">LP: 270429</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

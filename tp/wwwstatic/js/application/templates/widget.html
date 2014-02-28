@@ -1,0 +1,21 @@
+<% if (showMenu && menuItems.length > 0) { %>
+<nav class="clearfix">
+    <div class="dropdown pull-right">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-list-ul"></i></a>
+        <ul class="dropdown-menu">
+            <% _.each(menuItems, function(value, key) { %>
+            <% if (value === 'divider') { %>
+            <li class="divider"></li>
+            <% } else { %>
+            <li><a href='<%= value.href || "#" + value.name.toLowerCase() %>'><%= value.name %></a></li>
+            <% } %>
+            <% }) %>
+        </ul>
+    </div>
+</nav>
+<% } %>
+<header>
+    <span>Header</span>
+</header>
+<section>Content</section>
+<footer>Footer</footer>

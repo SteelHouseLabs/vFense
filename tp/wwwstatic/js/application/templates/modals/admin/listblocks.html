@@ -1,0 +1,36 @@
+<article>
+    <section class="list">
+        <div class="items">
+            <div class="legend">
+                <span><strong>Label</strong> — </span>
+                <span class="patches pull-right">
+                    <span>Start Time</span> /
+                    <span>End Time</span> /
+                    <span>Days</span> /
+                    <span>Start Date</span> /
+                    <span>End Date</span> /
+                    <span>Enabled</span>
+                </span>
+            </div>
+            <% if(data.length != 0) { %>
+                <% _.each(data, function (timeblock) { %>
+                    <div class="item clearfix">
+                        <span class="desc"><strong><%= timeblock.name %></strong> — </span>
+                        <span class="pull-right">
+                            <%= timeblock.start_time %> /
+                            <%= timeblock.end_time %> /
+                            <% _.each(timeblock.days_enabled, function (day) { print(day.substring(0, 2) + ' '); }) %> /
+                            <%= timeblock.start_date %> /
+                            <%= timeblock.end_date || 'N/A' %> /
+                            <input type="checkbox" name="timeblock" value="<%= timeblock.id %>" <% if(timeblock.enabled) { print('checked="checked"'); } %> />
+                        </span>
+                    </div>
+                <% }); %>
+            <% }  else { %>
+                <div class="item clearfix">
+                    <em>No time blocks.</em>
+                </div>
+            <% } %>
+        </div>
+    </section>
+</article>

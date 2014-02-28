@@ -1,0 +1,102 @@
+<article>
+    <form class="row-fluid">
+        <div class="span5">
+            <span class="btn btn-primary fileinput-button">
+                <i class="icon-plus icon-white"></i>
+                <strong>Add File</strong>
+                <input type="file" name="pkg">
+            </span><br><br>
+            <table class="table table-bordered table-condensed" style="width: 100%; table-layout: fixed;" data-id="fileTable">
+                <tr>
+                    <td>No package selected</td>
+                </tr>
+            </table>
+        </div>
+        <div class="span7">
+            <table style="width: 100%">
+                <tr>
+                    <td class="control-group">
+                        <label class="control-label">Severity:</label>
+                        <div class="controls">
+                            <select name="severity" class="span12">
+                                <option value="0">Select one...</option>
+                                <option>Optional</option>
+                                <option>Recommended</option>
+                                <option>Critical</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td class="control-group">
+                        <label class="control-label">Architecture:</label>
+                        <div class="controls">
+                            <select name="arch" class="span12">
+                                <option value="0">Select one...</option>
+                                <option>32</option>
+                                <option>64</option>
+                                <option>Noarch</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="control-group">
+                        <label class="control-label">Operating System:</label>
+                        <div class="controls">
+                            <select name="operating_system" class="span12">
+                                <option value="0">Select one...</option>
+                                <%= viewHelpers.getOptions(operatingSystems) %>
+                            </select>
+                        </div>
+                    </td>
+                    <td class="control-group">
+                        <label class="control-label">Release Date:</label>
+                        <div class="controls">
+                            <input type="text" name="release_date" class="span12"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="control-group">
+                        <label class="control-label">Major Version:</label>
+                        <div class="controls">
+                            <input type="text" name="major_version" class="span12"/>
+                        </div>
+                    </td>
+                    <td class="control-group">
+                        <label class="control-label">Minor Version:</label>
+                        <div class="controls">
+                            <input type="text" name="minor_version" class="span12"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="control-group">
+                        <label class="control-label">Vendor Name:</label>
+                        <div class="controls">
+                            <input type="text" name="vendor_name" class="span12"/>
+                        </div>
+                    </td>
+                    <td class="control-group">
+                        <label class="control-label">Silent Install Options:</label>
+                        <div class="controls">
+                            <input type="text" name="cli_options" class="span12"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="control-group" colspan="2">
+                        <label class="control-label">Description:</label>
+                        <div class="controls">
+                            <input type="text" name="description" class="span12"/>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <span class="help-online"></span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</article>

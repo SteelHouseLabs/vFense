@@ -1,0 +1,145 @@
+<style>
+    div.ui-datepicker{
+        font-size:12px;
+    }
+</style>
+<% if (data) { %>
+<article>
+    <form>
+        <section class="row-fluid">
+            <div class="control-group span6">
+                <label class="control-label">Operation:</label>
+                <select name="operation">
+                    <option value="-1">Select one</option>
+                    <option value="install">Install</option>
+                    <option value="reboot">Reboot</option>
+                </select>
+            </div>
+            <div class="control-group span4 hide">
+                <label class="control-label">Severity:</label>
+                <select name="severity">
+                    <option value="-1">Select one</option>
+                    <option value="any">Any</option>
+                    <option value="optional">Optional</option>
+                    <option value="recommended">Recommended</option>
+                    <option value="critical">Critical</option>
+                </select>
+            </div>
+        </section>
+        <section class="row-fluid">
+            <div class="control-group span6">
+                <label class="control-label">Job Name:</label>
+                <input type="text" name="jobname" placeholder="Required"/>
+            </div>
+            <div class="control-group span4">
+                <label class="control-label">Start Date:</label>
+                <input type="text" name="start_date" placeholder="Optional"/>
+            </div>
+        </section>
+        <% if (data.tags.length && data.nodes && data.nodes.nodes.length) { %>
+        <section class="row-fluid">
+            <div class="control-group select optional span6">
+                <label class="control-label">Tags:</label>
+                <div class="controls">
+                    <select multiple="multiple" name="tags" size="3">
+                        <option value="any">None</option>
+                        <option value="all">All</option>
+                        <% _.each(data.tags, function (tag) { %>
+                            <option value="<%= tag.tag_id %>"><%= tag.tag_name %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group span6">
+                <label class="control-label">Nodes:</label>
+                <div class="controls">
+                    <select multiple="multiple" name="nodes" size="3">
+                        <option value="any">None</option>
+                        <option value="all">All</option>
+                        <% _.each(data.nodes.nodes, function (node) { %>
+                            <option value="<%= node.id %>"><%= node.displayname || node['computer/name'] || node.hostname || node.ip %></option>
+                        <% }); %>
+                    </select>
+                </div>
+            </div>
+        </section>
+        <% } %>
+        <section class="row-fluid">
+            <div class="control-group span6">
+                <label class="control-label">Month:</label>
+                <select name="month">
+                    <option value="-1">Select one</option>
+                    <option value="any">Any</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+            <div class="control-group span4">
+                <label class="control-label">Day of Week:</label>
+                <select name="day_of_week">
+                    <option value="-1">Select one</option>
+                    <option value="any">Any</option>
+                    <option value="0">Monday</option>
+                    <option value="1">Tuesday</option>
+                    <option value="2">Wednesday</option>
+                    <option value="3">Thursday</option>
+                    <option value="4">Friday</option>
+                    <option value="5">Saturday</option>
+                    <option value="6">Sunday</option>
+                </select>
+            </div>
+        </section>
+        <section class="row-fluid">
+            <div class="control-group span6">
+                <label class="control-label">Day:</label>
+                <select name="day">
+                    <option value="-1">Select one</option>
+                    <option value="any">Any</option>
+                    <% for (var i = 1; i <= 31; i++) { %>
+                        <option value="<%= i %>"><%= i %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="control-group span4">
+                <label class="control-label">Week:</label>
+                <select name="week">
+                    <option value="-1">Select one</option>
+                    <option value="any">Any</option>
+                    <% for (var i = 1; i <= 53; i++) { %>
+                        <option value="<%= i %>"><%= i %></option>
+                    <% } %>
+                </select>
+            </div>
+        </section>
+        <section class="row-fluid">
+            <div class="control-group span10">
+                <label class="control-label">Time: 00:00 AM</label>
+                <div id="slider-range"></div><br>
+            </div>
+        </section>
+        <section class="row-fluid">
+            <div class="span10">
+                <div class="alert alert-block fade in hide">
+                    <span class="help-inline"></span>
+                </div>
+            </div>
+        </section>
+        <section class="row-fluid">
+            <div class="span6"></div>
+            <div class="span4 alignRight">
+                <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+        </section>
+    </form>
+</article>
+<% } %>

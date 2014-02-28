@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>TopPatch Alert!</h1>
+    <h2>{{ message }}</h2>
+
+    {% for key, val in message_items.items() %}
+        {% if key == 'created_by' %}
+            <h2 style="margin-left: 0px;"> Operation Created By: {{ val }}</h2>
+        {% end %}
+        {% if key == 'created_time' %}
+            <h2 style="margin-left: 0px;"> Time Operation was Created: {{ val }}</h2>
+        {% end %}
+        {% if key == 'completed_time' %}
+            <h2 style="margin-left: 0px;"> Time Operation was Completed: {{ val }}</h2>
+        {% end %}
+        {% if key == 'agents' %}
+            {% for agent in val %}
+                <h2 style="margin-left: 40px;"> Alerts for Computer: {{ agent['computer_name'] }}</h2>
+                <h2 style="margin-left: 40px;"> Agent Picked Up Operation: {{ agent['picked_up_time'] }}</h2>
+                <h2 style="margin-left: 40px;"> Agent Completed Operation: {{ agent['completed_time'] }}</h2>
+            {% end %}
+        {% end %}
+    {% end %}
+{% end %}

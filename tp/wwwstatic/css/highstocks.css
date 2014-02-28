@@ -1,0 +1,6 @@
+.stocks text{
+   pointer-events:auto;
+}
+.ui-datepicker {
+    z-index:1051 !important;
+}

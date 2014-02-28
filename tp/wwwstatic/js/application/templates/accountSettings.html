@@ -1,0 +1,151 @@
+<article>
+    <div class="list">
+        <div class="items">
+            <div class="item row-fluid">
+                <span class="span2">
+                    <strong>Username:</strong>
+                </span>
+                <div class="span10" data-type="content">
+                    <span><%= user.username || 'N/A' %></span>
+                </div>
+            </div>
+            <div class="item row-fluid">
+                <span class="span2">
+                    <strong>Full Name:</strong>
+                </span>
+                 <div class="span10" data-type="content">
+                    <span><%= user.full_name || 'N/A' %></span>
+                     <button class="btn btn-link noPadding pull-right" data-id="options">
+                        <i class="icon-pencil" style="color: #daa520"></i>
+                    </button>
+                </div>
+                <div class="span10 hide" data-type="editor">
+                    <form  data-reset="true" data-id="name">
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="text" name="fullname" value="<%= user.full_name %>" data-id="input"/>
+                                <span data-name="message" class="help-online"></span>
+                            </div>
+                        </div>
+                        <%= viewHelpers.controlButtons({requirePass: true}) %>
+                    </form>
+                </div>
+            </div>
+            <div class="item row-fluid">
+                <span class="span2">
+                    <strong>E-mail:</strong>
+                </span>
+                <div class="span10" data-type="content">
+                    <span><%= user.email || 'N/A' %></span>
+                    <button class="btn btn-link noPadding pull-right" data-id="options">
+                        <i class="icon-pencil" style="color: #daa520"></i>
+                    </button>
+                </div>
+                <div class="span10 hide" data-type="editor">
+                    <form data-reset="true" data-id="email">
+                        <div class="control-group">
+                            <div class="controls">
+                                <input type="text" name="email" value="<%= user.email %>" data-id="input"/>
+                                <span data-name="message" class="help-online"></span>
+                            </div>
+                        </div>
+                        <%= viewHelpers.controlButtons() %>
+                    </form>
+                </div>
+            </div>
+            <div class="item row-fluid">
+                <span class="span2">
+                    <strong>Default Customer:</strong>
+                </span>
+                <div class="span10" data-type="content">
+                    <span><%= user.default_customer.name || 'N/A' %></span>
+                    <button class="btn btn-link noPadding pull-right" data-id="options">
+                        <i class="icon-pencil" style="color: #daa520"></i>
+                    </button>
+                </div>
+                <div class="span10 hide" data-type="editor">
+                    <form data-reset="true" data-id="default_customer">
+                        <div class="control-group">
+                            <div class="controls">
+                                <select name="default_customer_id" data-id="input">
+                                    <%= viewHelpers.getOptions(user.customers, user.default_customer.name) %>
+                                </select>
+                            </div>
+                        </div>
+                        <%= viewHelpers.controlButtons() %>
+                    </form>
+                </div>
+            </div>
+            <div class="item row-fluid">
+                <span class="span2">
+                    <strong>Current Customer:</strong>
+                </span>
+                <div class="span10" data-type="content">
+                    <span><%= user.current_customer.name || 'N/A' %></span>
+                </div>
+            </div>
+            <div class="item row-fluid">
+                <span class="span2">
+                    <strong>Permissions:</strong>
+                </span>
+                <div class="span10" data-type="content">
+                    <%= viewHelpers.displayBadges(user.permissions) %>
+                </div>
+            </div>
+            <div class="item row-fluid">
+                <span class="span2">
+                    <strong>Groups:</strong>
+                </span>
+                <div class="span10" data-type="content">
+                    <%= viewHelpers.displayBadges(user.groups, 'badge-info') %>
+                </div>
+            </div>
+            <div class="item row-fluid">
+                <span class="span2">
+                    <strong>Customers:</strong>
+                </span>
+                <div class="span10" data-type="content">
+                    <%= viewHelpers.displayBadges(user.customers) %>
+                </div>
+            </div>
+            <div class="item row-fluid">
+                <span class="span2">
+                    <strong>Password:</strong>
+                </span>
+                <div class="span10" data-type="content">
+                    <span>********</span>
+                    <button class="btn btn-link noPadding pull-right" data-id="options">
+                        <i class="icon-pencil" style="color: #daa520"></i>
+                    </button>
+                </div>
+                <div class="span10 hide" data-type="editor">
+                    <form class="form-horizontal" data-id="password">
+                        <div class="control-group">
+                            <label class="control-label" for="password"><strong>Current:</strong></label>
+                            <div class="controls">
+                                <input type="password" name="password" id="password" placeholder="Current Password" data-id="input">
+                                <span data-name="message" class="help-online"></span>
+                            </div>
+                    </div>
+                        <div class="control-group">
+                            <label class="control-label" for="new_password"><strong>New:</strong></label>
+                            <div class="controls">
+                                <input type="password" name="new_password" id="new_password" placeholder="New Password" data-id="input"/>
+                                <span data-name="message" class="help-online"></span>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="confirmPassword"><strong>Re-type new:</strong></label>
+                            <div class="controls">
+                                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="New Password" data-id="input"/>
+                                <span data-name="message" class="help-online"></span>
+                            </div>
+                        </div>
+                        <div class="alert fade in hide"></div>
+                        <%= viewHelpers.controlButtons() %>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

@@ -1,0 +1,174 @@
+// The vertical grid
+
+.rowheight(@count) {
+    @base: (@baseLineHeight * 3);
+    @height: (@count * @base);
+    @padding: ((@count - 1) * @baseFontSize);
+    font-size: @baseFontSize;
+    line-height: unit(@baseLineHeight/@baseFontSize,);
+    display: block;
+    height: @height + @padding;
+    .centerLine {
+        display: block;
+        text-align: center;
+        line-height: @height + @padding;
+    }
+}
+.rowheight(0) {};
+
+.rowheight1 { .rowheight(1); }
+.rowheight2 { .rowheight(2); }
+.rowheight3 { .rowheight(3); }
+.rowheight4 { .rowheight(4); }
+.rowheight5 { .rowheight(5); }
+.rowheight6 { .rowheight(6); }
+
+.hallotoolbar {
+    .ui-widget {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+.report {
+    .column {
+        .box-sizing(border-box);
+        position: relative;
+        overflow: hidden;
+
+        height: 100%;
+        .module {
+            min-height: inherit;
+            height: inherit;
+            max-height: inherit;
+        }
+
+        .box-shadow(0 0 5px rgba(0, 0, 0, 0.3));
+        &.editing {
+            .box-shadow(0 0 10px rgba(91, 157, 217, 1));
+        }
+
+        .controls {
+            position: absolute;
+            bottom:0;
+            left:  0;
+            right: 0;
+            .clearfix;
+
+            .activate {
+                z-index: 10;
+                position: absolute;
+                bottom: 0.5em;
+                right: 0.5em;
+                color: #AAA;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .content {
+                .at2x('../img/grey_wash_wall/grey_wash_wall.png');
+                @base: @baseFontSize;
+                padding: 4px 28px 2px 5px;
+                box-shadow: inset 0 6px 5px #444;
+                .clearfix;
+            }
+
+            .selector {
+                .box-sizing(border-box);
+                height: 29px;
+                color: #000;
+                width: 125px;
+                margin-bottom: 0;
+            }
+        }
+
+        .plainText, .richText, .charts, .hardwareInfo {
+            display: block;
+            .box-sizing(border-box);
+            min-height: inherit;
+            height: inherit;
+            max-height: inherit;
+            width: 100%;
+        }
+        .plainText, .richText, .charts {
+            padding: 0 5px;
+        }
+        .plainText {
+            white-space: pre-line;
+            word-wrap:break-word;
+        }
+        TEXTAREA.plainText {
+            outline: none;
+            .box-shadow(none);
+            border: none;
+            resize: none;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .nav-tabs {
+            margin-bottom: 0;
+        }
+
+        .tabbable {
+            height: inherit;
+            &.tabs-left {
+                height: inherit;
+                overflow: hidden;
+                .nav-tabs {
+                    height: inherit;
+                    .box-sizing(border-box);
+                    padding: 5px 0 5px 5px;
+                    > li > a {
+                        font-size: 12px;
+                        border-width: 1px;
+                        min-width: 0;
+                    }
+                }
+                .tab-content {
+                    height: inherit;
+                    .box-sizing(border-box);
+                    font-size: 12px;
+                    overflow-y: auto;
+                }
+            }
+        }
+
+        [contentEditable]:focus,
+        .plainText:focus {
+            outline: rgb(0, 157, 217) auto 5px;
+        }
+
+        &.noShadow {
+            .tab-content {
+                overflow: hidden;
+                overflow-y: auto;
+                border: 1px solid #dddddd;
+                border-top: none;
+            }
+        }
+    }
+}
+
+DL {
+    margin: 1em 0;
+    DL {
+       margin: 0;
+    }
+    &.inline {
+        .clearfix();
+        padding-right: 1em;
+        DT {
+            clear: both;
+            float: left;
+        }
+        DD {
+            word-wrap: break-word;
+            word-break: break-all;
+            clear: right;
+            float: right;
+        }
+    }
+}

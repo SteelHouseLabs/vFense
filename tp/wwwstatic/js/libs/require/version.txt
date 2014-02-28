@@ -1,0 +1,4 @@
+require.js
+Home:       http://requirejs.org
+GitHub:     https://github.com/jrburke/requirejs
+Version:    2.1.6

@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-288-2: PostgreSQL server/client vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-288-2: PostgreSQL server/client vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-288-2</h2>
+<p><em>9th June, 2006</em></p>
+<h3>postgresql-8.1 vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 6.06 LTS</li>
+
+</ul>
+
+
+
+
+
+<h3>Details</h3>
+<p>USN-288-1 fixed two vulnerabilities in Ubuntu 5.04 and Ubuntu 5.10.<br />This update fixes the same vulnerabilities for Ubuntu 6.06 LTS.</p>
+
+<p>For reference, these are the details of the original USN:</p>
+
+<p>  <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-2313">CVE-2006-2313</a>:<br />    Akio Ishida and Yasuo Ohgaki discovered a weakness in the handling of<br />    invalidly-encoded multibyte text data. If a client application<br />    processed untrusted input without respecting its encoding and applied<br />    standard string escaping techniques (such as replacing a single quote<br />    &gt;&gt;&#39;&lt;&lt; with &gt;&gt;\&#39;&lt;&lt; or &gt;&gt;&#39;&#39;&lt;&lt;), the PostgreSQL server could interpret the<br />    resulting string in a way that allowed an attacker to inject arbitrary<br />    SQL commands into the resulting SQL query. The PostgreSQL server has<br />    been modified to reject such invalidly encoded strings now, which<br />    completely fixes the problem for some &#39;safe&#39; multibyte encodings like<br />    UTF-8.<br />  <br />  <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-2314">CVE-2006-2314</a>:<br />    However, there are some less popular and client-only multibyte<br />    encodings (such as SJIS, BIG5, GBK, GB18030, and UHC) which contain<br />    valid multibyte characters that end with the byte 0x5c, which is the<br />    representation of the backslash character &gt;&gt;\&lt;&lt; in ASCII. Many client<br />    libraries and applications use the non-standard, but popular way of<br />    escaping the &gt;&gt;&#39;&lt;&lt; character by replacing all occurences of it with<br />    &gt;&gt;\&#39;&lt;&lt;. If a client application uses one of the affected encodings and<br />    does not interpret multibyte characters, and an attacker supplies a<br />    specially crafted byte sequence as an input string parameter, this<br />    escaping method would then produce a validly-encoded character and<br />    an excess &gt;&gt;&#39;&lt;&lt; character which would end the string. All subsequent<br />    characters would then be interpreted as SQL code, so the attacker<br />    could execute arbitrary SQL commands.<br />  <br />    To fix this vulnerability end-to-end, client-side applications must<br />    be fixed to properly interpret multibyte encodings and use &gt;&gt;&#39;&#39;&lt;&lt;<br />    instead of &gt;&gt;\&#39;&lt;&lt;. However, as a precautionary measure, the sequence<br />    &gt;&gt;\&#39;&lt;&lt; is now regarded as invalid when one of the affected client<br />    encodings is in use. If you depend on the previous behaviour, you<br />    can restore it by setting &#39;backslash_quote = on&#39; in postgresql.conf.<br />    However, please be aware that this could render you vulnerable<br />    again.<br />  <br />    This issue does not affect you if you only use single-byte (like<br />    SQL_ASCII or the ISO-8859-X family) or unaffected multibyte (like<br />    UTF-8) encodings.<br />  <br />  Please see http://www.postgresql.org/docs/techdocs.50 for further<br />  details.</p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 6.06 LTS:</dt>
+  
+    
+  <dd>postgresql-8.1 <span>8.1.4-0ubuntu1</span></dd>
+    
+  
+    
+  <dd>postgresql-client-8.1 <span>8.1.4-0ubuntu1</span></dd>
+    
+  
+    
+  <dd>postgresql-contrib-8.1 <span>8.1.4-0ubuntu1</span></dd>
+    
+  
+    
+  <dd>libpq4 <span>8.1.4-0ubuntu1</span></dd>
+    
+  
+    
+  <dd>libpq-dev <span>8.1.4-0ubuntu1</span></dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system upgrade you need to restart all services that<br />use PostgreSQL to effect the necessary changes. If you can afford it,<br />rebooting the computer is the easiest way of ensuring that all running<br />services use the updated client library.</p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-2313">CVE-2006-2313</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-2314">CVE-2006-2314</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

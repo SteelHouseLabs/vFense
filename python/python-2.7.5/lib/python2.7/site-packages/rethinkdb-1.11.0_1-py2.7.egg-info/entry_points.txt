@@ -1,0 +1,6 @@
+[console_scripts]
+rethinkdb-dump = rethinkdb._dump:main
+rethinkdb-import = rethinkdb._import:main
+rethinkdb-restore = rethinkdb._restore:main
+rethinkdb-export = rethinkdb._export:main
+

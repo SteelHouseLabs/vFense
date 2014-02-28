@@ -1,0 +1,15 @@
+# tcl pkg-config source file
+
+prefix=/opt/TopPatch
+exec_prefix=/opt/TopPatch
+libdir=/opt/TopPatch/lib
+includedir=${prefix}/include
+
+Name: Tool Command Language
+Description: Tcl is a powerful, easy-to-learn dynamic programming language, suitable for a wide range of uses.
+URL: http://www.tcl.tk/
+Version: 8.6
+Requires:
+Conflicts:
+Libs: -L${libdir} -ldl -lz  -lpthread -lieee -lm
+Cflags: -I${includedir}

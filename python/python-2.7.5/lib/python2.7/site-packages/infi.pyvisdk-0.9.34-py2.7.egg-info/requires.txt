@@ -1,0 +1,8 @@
+suds-jurko
+enum
+brownie
+lxml
+bunch
+infi.pyutils
+jinja2
+python-cjson

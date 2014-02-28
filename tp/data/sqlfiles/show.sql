@@ -1,0 +1,1 @@
+select vendors.name, products.name, versions.version, versions.update, versions.edition, cves.cve_id from vendors, products, versions, cves where (vendors.id = products.vendor_id) and (products.id = versions.product_id ) and (versions.id = cves.versions_id);

@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-1397-1: MySQL vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-1397-1: MySQL vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-1397-1</h2>
+<p><em>12th March, 2012</em></p>
+<h3>mysql-5.1, mysql-dfsg-5.0, mysql-dfsg-5.1 vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 11.10</li>
+
+    <li>Ubuntu 11.04</li>
+
+    <li>Ubuntu 10.10</li>
+
+    <li>Ubuntu 10.04 LTS</li>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>Several security issues were fixed in MySQL.
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>mysql-5.1 
+    - MySQL database
+    
+    </li>
+  
+
+  
+
+  
+
+  
+    <li>mysql-dfsg-5.0 
+    - MySQL database
+    
+    </li>
+  
+
+  
+    <li>mysql-dfsg-5.1 
+    - MySQL database
+    
+    </li>
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>Multiple security issues were discovered in MySQL and this update includes<br />new upstream MySQL versions to fix these issues.</p>
+
+<p>MySQL has been updated to 5.1.61 in Ubuntu 10.04 LTS, Ubuntu 10.10,<br />Ubuntu 11.04 and Ubuntu 11.10. Ubuntu 8.04 LTS has been updated to<br />MySQL 5.0.95.</p>
+
+<p>In addition to security fixes, the updated packages contain bug fixes, new<br />features, and possibly incompatible changes.</p>
+
+<p>Please see the following for more information:</p>
+
+<p>http://dev.mysql.com/doc/refman/5.1/en/news-5-1-x.html<br />http://dev.mysql.com/doc/refman/5.0/en/news-5-0-x.html<br />http://www.oracle.com/technetwork/topics/security/cpujan2012-366304.html<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 11.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/mysql-5.1">mysql-server-5.1</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/mysql-5.1/5.1.61-0ubuntu0.11.10.1">5.1.61-0ubuntu0.11.10.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 11.04:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/mysql-5.1">mysql-server-5.1</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/mysql-5.1/5.1.61-0ubuntu0.11.04.1">5.1.61-0ubuntu0.11.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/mysql-5.1">mysql-server-5.1</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/mysql-5.1/5.1.61-0ubuntu0.10.10.1">5.1.61-0ubuntu0.10.10.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/mysql-dfsg-5.1">mysql-server-5.1</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/mysql-dfsg-5.1/5.1.61-0ubuntu0.10.04.1">5.1.61-0ubuntu0.10.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/mysql-dfsg-5.0">mysql-server-5.0</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/mysql-dfsg-5.0/5.0.95-0ubuntu1">5.0.95-0ubuntu1</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>In general, a standard system update will make all the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2007-5925">CVE-2007-5925</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-3963">CVE-2008-3963</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4098">CVE-2008-4098</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4456">CVE-2008-4456</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-7247">CVE-2008-7247</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-2446">CVE-2009-2446</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4019">CVE-2009-4019</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4030">CVE-2009-4030</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4484">CVE-2009-4484</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-1621">CVE-2010-1621</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-1626">CVE-2010-1626</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-1848">CVE-2010-1848</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-1849">CVE-2010-1849</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-1850">CVE-2010-1850</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2008">CVE-2010-2008</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3677">CVE-2010-3677</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3678">CVE-2010-3678</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3679">CVE-2010-3679</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3680">CVE-2010-3680</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3681">CVE-2010-3681</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3682">CVE-2010-3682</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3683">CVE-2010-3683</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3833">CVE-2010-3833</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3834">CVE-2010-3834</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3835">CVE-2010-3835</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3836">CVE-2010-3836</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3837">CVE-2010-3837</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3838">CVE-2010-3838</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3839">CVE-2010-3839</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3840">CVE-2010-3840</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-2262">CVE-2011-2262</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0075">CVE-2012-0075</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0087">CVE-2012-0087</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0101">CVE-2012-0101</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0102">CVE-2012-0102</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0112">CVE-2012-0112</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0113">CVE-2012-0113</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0114">CVE-2012-0114</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0115">CVE-2012-0115</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0116">CVE-2012-0116</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0117">CVE-2012-0117</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0118">CVE-2012-0118</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0119">CVE-2012-0119</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0120">CVE-2012-0120</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0484">CVE-2012-0484</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0485">CVE-2012-0485</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0486">CVE-2012-0486</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0487">CVE-2012-0487</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0488">CVE-2012-0488</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0489">CVE-2012-0489</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0490">CVE-2012-0490</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0491">CVE-2012-0491</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0492">CVE-2012-0492</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0493">CVE-2012-0493</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0494">CVE-2012-0494</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0495">CVE-2012-0495</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0496">CVE-2012-0496</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

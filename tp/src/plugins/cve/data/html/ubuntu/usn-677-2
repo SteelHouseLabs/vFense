@@ -1,0 +1,983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-677-2: OpenOffice.org Internationalization update | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-677-2: OpenOffice.org Internationalization update</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-677-2</h2>
+<p><em>23rd December, 2008</em></p>
+<h3>openoffice.org-l10n update</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+</ul>
+
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>openoffice.org-l10n 
+    
+    </li>
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>USN-677-1 fixed vulnerabilities in OpenOffice.org. The changes required that<br />openoffice.org-l10n also be updated for the new version in Ubuntu 8.04 LTS.</p>
+
+<p>Original advisory details:</p>
+
+<p> Multiple memory overflow flaws were discovered in OpenOffice.org&#39;s handling of<br /> WMF and EMF files. If a user were tricked into opening a specially crafted<br /> document, a remote attacker might be able to execute arbitrary code with user<br /> privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-2237">CVE-2008-2237</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-2238">CVE-2008-2238</a>)<br /> <br /> Dmitry E. Oboukhov discovered that senddoc, as included in OpenOffice.org,<br /> created temporary files in an insecure way. Local users could exploit a race<br /> condition to create or overwrite files with the privileges of the user invoking<br /> the program. This issue only affected Ubuntu 8.04 LTS. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4937">CVE-2008-4937</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ar</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ml-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-hi-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-as-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-cy</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ta-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ns</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-be-by</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-da</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-cs</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-sw</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-fi</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-af</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-vi</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ca</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-zh-cn</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-eo</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-el</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ro</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ka</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-zu</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ti-er</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ga</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-kn</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ko</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-pl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ts</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-tr</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-zh-tw</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ku</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-tn</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-pt</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-km</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-tg</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-eu</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-rw</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-mk</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ru</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-mr-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-xh</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-fr</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-pt-br</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-bs</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-br</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-sv</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-gu-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ve</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-it</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-te-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-bn</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-fa</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ur-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-or-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-nb</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-bg</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-et</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-common</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-sl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-lt</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ja</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-lv</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-uz</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-en-gb</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-th</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-sk</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-de</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-gl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-hr</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-hu</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-nr</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-lo</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-es</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-nn</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-nl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-uk</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-dz</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-st</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ne</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-pa-in</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-he</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-en-za</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-sr</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n">openoffice.org-l10n-ss</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openoffice.org-l10n/1:2.4.1-1ubuntu2.1">1:2.4.1-1ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>In general, a standard system upgrade is sufficient to effect the<br />necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="https://launchpad.net/bugs/310359">LP: 310359</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

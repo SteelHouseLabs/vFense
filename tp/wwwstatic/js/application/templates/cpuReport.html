@@ -1,0 +1,26 @@
+<article class="row-fluid">
+    <section class="list">
+        <div class="legend row-fluid">
+            <strong class="span3">Computer Name</strong>
+            <span class="span2">User</span>
+            <span class="span2">System</span>
+            <span class="span2">Idle</span>
+            <span class="span3 alignRight">Updated</span>
+        </div>
+        <div class="items">
+            <% if (models.length) { %>
+                <% _.each(models, function (model) { %>
+                    <div class="item">
+                        <span class="span3"><%= model.get('computer-name') %></span>
+                        <span class="span2"><%= model.get('user') %></span>
+                        <span class="span2"><%= model.get('system') %></span>
+                        <span class="span2"><%= model.get('idle') %></span>
+                        <span class="span3 alignRight"><%= model.get('last-updated-at') %></span>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="item">No data available</div>
+            <% } %>
+        </div>
+    </section>
+</article>

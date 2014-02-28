@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-1748-1: Thunderbird vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-1748-1: Thunderbird vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-1748-1</h2>
+<p><em>25th February, 2013</em></p>
+<h3>thunderbird vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 12.10</li>
+
+    <li>Ubuntu 12.04 LTS</li>
+
+    <li>Ubuntu 11.10</li>
+
+    <li>Ubuntu 10.04 LTS</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>Several security issues were fixed in Thunderbird.
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>thunderbird 
+    - Mozilla Open Source mail and newsgroup client
+    
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>Bobby Holley discovered vulnerabilities in Chrome Object Wrappers (COW) and<br />System Only Wrappers (SOW). If a user were tricked into opening a specially<br />crafted page and had scripting enabled, a remote attacker could exploit<br />this to bypass security protections to obtain sensitive information or<br />potentially execute code with the privileges of the user invoking<br />Thunderbird. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0773">CVE-2013-0773</a>)</p>
+
+<p>Frederik Braun discovered that Thunderbird made the location of the active<br />browser profile available to JavaScript workers. Scripting for Thunderbird<br />is disabled by default in Ubuntu. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0774">CVE-2013-0774</a>)</p>
+
+<p>A use-after-free vulnerability was discovered in Thunderbird. An attacker<br />could potentially exploit this to execute code with the privileges of the<br />user invoking Thunderbird if scripting were enabled. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0775">CVE-2013-0775</a>)</p>
+
+<p>Michal Zalewski discovered that Thunderbird would not always show the<br />correct address when cancelling a proxy authentication prompt. A remote<br />attacker could exploit this to conduct URL spoofing and phishing attacks<br />if scripting were enabled.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0776">CVE-2013-0776</a>)</p>
+
+<p>Abhishek Arya discovered several problems related to memory handling. If<br />the user were tricked into opening a specially crafted page, an attacker<br />could possibly exploit these to cause a denial of service via application<br />crash, or potentially execute code with the privileges of the user invoking<br />Thunderbird. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0777">CVE-2013-0777</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0778">CVE-2013-0778</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0779">CVE-2013-0779</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0780">CVE-2013-0780</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0781">CVE-2013-0781</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0782">CVE-2013-0782</a>)</p>
+
+<p>Olli Pettay, Christoph Diehl, Gary Kwong, Jesse Ruderman, Andrew McCreight,<br />Joe Drew, Wayne Mery, Alon Zakai, Christian Holler, Gary Kwong, Luke<br />Wagner, Terrence Cole, Timothy Nikkel, Bill McCloskey, and Nicolas Pierron<br />discovered multiple memory safety issues affecting Thunderbird. If a user<br />had scripting enabled and was tricked into opening a specially crafted<br />page, an attacker could possibly exploit these to cause a denial of service<br />via application crash. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0783">CVE-2013-0783</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0784">CVE-2013-0784</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 12.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/thunderbird">thunderbird</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/thunderbird/17.0.3+build1-0ubuntu0.12.10.1">17.0.3+build1-0ubuntu0.12.10.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 12.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/thunderbird">thunderbird</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/thunderbird/17.0.3+build1-0ubuntu0.12.04.1">17.0.3+build1-0ubuntu0.12.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 11.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/thunderbird">thunderbird</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/thunderbird/17.0.3+build1-0ubuntu0.11.10.1">17.0.3+build1-0ubuntu0.11.10.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/thunderbird">thunderbird</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/thunderbird/17.0.3+build1-0ubuntu0.10.04.1">17.0.3+build1-0ubuntu0.10.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system update you need to restart Thunderbird to make all<br />the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0773">CVE-2013-0773</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0774">CVE-2013-0774</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0775">CVE-2013-0775</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0776">CVE-2013-0776</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0777">CVE-2013-0777</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0778">CVE-2013-0778</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0779">CVE-2013-0779</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0780">CVE-2013-0780</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0781">CVE-2013-0781</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0782">CVE-2013-0782</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0783">CVE-2013-0783</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-0784">CVE-2013-0784</a>, 
+
+        <a href="https://launchpad.net/bugs/1131110">LP: 1131110</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

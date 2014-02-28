@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-157-1: Mozilla Thunderbird vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-157-1: Mozilla Thunderbird vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-157-1</h2>
+<p><em>1st August, 2005</em></p>
+<h3>mozilla-thunderbird vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 5.04</li>
+
+    <li>Ubuntu 4.10</li>
+
+</ul>
+
+
+
+
+
+<h3>Details</h3>
+<p>Vladimir V. Perepelitsa discovered a bug in Thunderbird&#39;s handling of anonymous<br />functions during regular expression string replacement. A malicious HTML email<br />could exploit this to capture a random block of client memory. (CAN-2005-0989)</p>
+
+<p>Georgi Guninski discovered that the types of certain XPInstall related<br />JavaScript objects were not sufficiently validated when they were called. This<br />could be exploited by malicious HTML email content to crash Thunderbird or even<br />execute arbitrary code with the privileges of the user. (CAN-2005-1159) </p>
+
+<p>Thunderbird did not properly verify the values of XML DOM nodes.  By tricking<br />the user to perform a common action like clicking on a link or opening the<br />context menu, a malicious HTML email could exploit this to execute arbitrary<br />JavaScript code with the full privileges of the user. (CAN-2005-1160)</p>
+
+<p>A variant of the attack described in CAN-2005-1160 (see USN-124-1) was<br />discovered. Additional checks were added to make sure Javascript eval and<br />script objects are run with the privileges of the context that created them,<br />not the potentially elevated privilege of the context calling them.<br />(CAN-2005-1532)</p>
+
+<p>Scripts in XBL controls from web content continued to be run even when<br />Javascript was disabled. This could be combined with most script-based exploits<br />to attack people running vulnerable versions who thought disabling Javascript<br />would protect them. (CAN-2005-2261)</p>
+
+<p>The function for version comparison in the addons installer did not properly<br />verify the type of its argument. By passing specially crafted Javascript<br />objects to it, a malicious web site could crash Thunderbird and possibly even<br />execute arbitrary code with the privilege of the user account Thunderbird runs<br />in. (CAN-2005-2265)</p>
+
+<p>The XHTML DOM node handler did not take namespaces into account when verifying<br />node types based on their names. For example, an XHTML email could contain an<br />&lt;IMG&gt; tag with malicious contents, which would then be processed as the<br />standard trusted HTML &lt;img&gt; tag. By tricking an user to view a malicious email,<br />this could be exploited to execute attacker-specified code with the full<br />privileges of the user. (CAN-2005-2269) </p>
+
+<p>It was discovered that some objects were not created appropriately.  This<br />allowed malicious web content scripts to trace back the creation chain until<br />they found a privileged object and execute code with higher privileges than<br />allowed by the current site. (CAN-2005-2270) </p>
+
+<p>Javier Fern�ez-Sanguino Pe�iscovered that the run-mozilla.sh script<br />created temporary files in an unsafe way when running with &#39;debugging&#39; enabled.<br />This could allow a symlink attack to create or overwrite arbitrary files with<br />the privileges of the user invoking the program.<br />(CAN-2005-2353)</p>
+
+<p>The update for Ubuntu 4.10 (Warty Warthog) also fixes several less<br />critical vulnerabilities which are not present in the Ubuntu 5.04<br />version. (MFSA-2005-02 to MFSA-2005-30; please see the following web<br />site for details:<br />http://www.mozilla.org/projects/security/known-vulnerabilities.html).<br />We apologize for the huge delay of this update; we changed our update<br />strategy for Mozilla products to make sure that such long delays will<br />not happen again.</p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 5.04:</dt>
+  
+    
+  <dd>mozilla-thunderbird <span></span></dd>
+    
+  
+    
+  <dd>mozilla-thunderbird-enigmail <span></span></dd>
+    
+  
+
+<dt>Ubuntu 4.10:</dt>
+  
+    
+  <dd>mozilla-thunderbird <span></span></dd>
+    
+  
+    
+  <dd>mozilla-thunderbird-enigmail <span></span></dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>None</p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-0989">CVE-2005-0989</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-1159">CVE-2005-1159</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-1160">CVE-2005-1160</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-1532">CVE-2005-1532</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2261">CVE-2005-2261</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2265">CVE-2005-2265</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2269">CVE-2005-2269</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2270">CVE-2005-2270</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2353">CVE-2005-2353</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

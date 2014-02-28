@@ -1,0 +1,4 @@
+Highcharts.js
+Home:       http://www.highcharts.com/products/highcharts
+GitHub:     https://github.com/highslide-software/highcharts.com/tags
+Version:    3.0.2

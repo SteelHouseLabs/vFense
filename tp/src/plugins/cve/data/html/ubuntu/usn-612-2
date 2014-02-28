@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-612-2: OpenSSH vulnerability | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-612-2: OpenSSH vulnerability</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-612-2</h2>
+<p><em>13th May, 2008</em></p>
+<h3>openssh vulnerability</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+    <li>Ubuntu 7.10</li>
+
+    <li>Ubuntu 7.04</li>
+
+</ul>
+
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>openssh 
+    
+    </li>
+  
+
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>A weakness has been discovered in the random number generator used<br />by OpenSSL on Debian and Ubuntu systems.  As a result of this<br />weakness, certain encryption keys are much more common than they<br />should be, such that an attacker could guess the key through a<br />brute-force attack given minimal knowledge of the system.  This<br />particularly affects the use of encryption keys in OpenSSH.</p>
+
+<p>This vulnerability only affects operating systems which (like<br />Ubuntu) are based on Debian.  However, other systems can be<br />indirectly affected if weak keys are imported into them.</p>
+
+<p>We consider this an extremely serious vulnerability, and urge all<br />users to act immediately to secure their systems.<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openssh">openssh-server</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openssh/1:4.7p1-8ubuntu1.1">1:4.7p1-8ubuntu1.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openssh">openssh-client</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openssh/1:4.7p1-8ubuntu1.1">1:4.7p1-8ubuntu1.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 7.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openssh">openssh-server</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openssh/1:4.6p1-5ubuntu0.3">1:4.6p1-5ubuntu0.3</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openssh">openssh-client</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openssh/1:4.6p1-5ubuntu0.3">1:4.6p1-5ubuntu0.3</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 7.04:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openssh">openssh-server</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openssh/1:4.3p2-8ubuntu1.3">1:4.3p2-8ubuntu1.3</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openssh">openssh-client</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openssh/1:4.3p2-8ubuntu1.3">1:4.3p2-8ubuntu1.3</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>Updating your system:</p>
+
+<p>1. Install the security updates</p>
+
+<p>   Once the update is applied, weak user keys will be automatically<br />   rejected where possible (though they cannot be detected in all<br />   cases). If you are using such keys for user authentication,<br />   they will immediately stop working and will need to be replaced<br />   (see step 3).</p>
+
+<p>   OpenSSH host keys can be automatically regenerated when the<br />   OpenSSH security update is applied. The update will prompt for<br />   confirmation before taking this step.</p>
+
+<p>2. Update OpenSSH known_hosts files</p>
+
+<p>   The regeneration of host keys will cause a warning to be displayed<br />   when connecting to the system using SSH until the host key is<br />   updated in the known_hosts file. The warning will look like this:</p>
+
+<p>   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<br />   @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @<br />   @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@<br />   IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!<br />   Someone could be eavesdropping on you right now (man-in-the-middle<br />   attack)! It is also possible that the RSA host key has just been<br />   changed.</p>
+
+<p>   In this case, the host key has simply been changed, and you<br />   should update the relevant known_hosts file as indicated in the<br />   error message.</p>
+
+<p>3. Check all OpenSSH user keys</p>
+
+<p>   The safest course of action is to regenerate all OpenSSH user<br />   keys, except where it can be established to a high degree of<br />   certainty that the key was generated on an unaffected system.</p>
+
+<p>   Check whether your key is affected by running the ssh-vulnkey<br />   tool, included in the security update. By default, ssh-vulnkey<br />   will check the standard location for user keys (~/.ssh/id_rsa,<br />   ~/.ssh/id_dsa and ~/.ssh/identity), your authorized_keys file<br />   (~/.ssh/authorized_keys and ~/.ssh/authorized_keys2), and the<br />   system&#39;s host keys (/etc/ssh/ssh_host_dsa_key and<br />   /etc/ssh/ssh_host_rsa_key).</p>
+
+<p>   To check all your own keys, assuming they are in the standard<br />   locations (~/.ssh/id_rsa, ~/.ssh/id_dsa, or ~/.ssh/identity):</p>
+
+<p>   $ ssh-vulnkey</p>
+
+<p>   To check all keys on your system:</p>
+
+<p>   $ sudo ssh-vulnkey -a</p>
+
+<p>   To check a key in a non-standard location:</p>
+
+<p>   $ ssh-vulnkey /path/to/key</p>
+
+<p>   If ssh-vulnkey says &quot;Unknown (no blacklist information)&quot;,<br />   then it has no information about whether that key is affected.<br />   If in doubt, destroy the key and generate a new one.</p>
+
+<p>4. Regenerate any affected user keys</p>
+
+<p>   OpenSSH keys used for user authentication must be manually<br />   regenerated, including those which may have since been<br />   transferred to a different system after being generated.</p>
+
+<p>   New keys can be generated using ssh-keygen, e.g.:</p>
+
+<p>   $ ssh-keygen<br />   Generating public/private rsa key pair.<br />   Enter file in which to save the key (/home/user/.ssh/id_rsa):<br />   Enter passphrase (empty for no passphrase):<br />   Enter same passphrase again:<br />   Your identification has been saved in /home/user/.ssh/id_rsa.<br />   Your public key has been saved in /home/user/.ssh/id_rsa.pub.<br />   The key fingerprint is:<br />   00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00 user@host</p>
+
+<p>5. Update authorized_keys files (if necessary)</p>
+
+<p>   Once the user keys have been regenerated, the relevant public<br />   keys must be propagated to any authorized_keys files on<br />   remote systems.  Be sure to delete the affected key.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-0166">CVE-2008-0166</a>, 
+
+        <a href="http://www.ubuntu.com/usn/usn-612-1">http://www.ubuntu.com/usn/usn-612-1</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

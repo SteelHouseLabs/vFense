@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>TopPatch Remediation Vault: Login</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="font/cantarell/stylesheet.css">
+    <link rel="stylesheet" href="font/open-sans/stylesheet.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/application.css">
+    <script src="js/libs/modernizr/modernizr.custom.js"></script>
+    <script src="js/libs/h5f/h5f.min.js"></script>
+    <script src="js/libs/jquery/jquery.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]<section class="container"><div class="alert alert-error chromeframe" id="ie-warning"><a class="close" data-dismiss="alert">×</a><strong>Top Patch does not support your browser.</strong> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</div></section><![endif]-->
+<!-- main -->
+<section class="container" role="main">
+    <div class="login container-fluid">
+        <div class=" clearfix">
+            <form action="/login" id="login" method="post">
+                <div class="logo">
+                    <a href="http://www.toppatch.com/">
+                        <img src="/img/brand-logo.png" class="logo" alt="TopPatch Logo"/>
+                    </a>
+                </div>
+                <div class="brand">R<small>emediation</small>V<small>ault</small></div>
+                <hr/>
+                <div class="alert alert-danger hide" style="margin-bottom: 15px"></div>
+                <div class="fields">
+                    <div class="control-group">
+                        <label class="control-label" for="username">Username:</label>
+                        <div class="controls row-fluid">
+                            <input class="span12" type="text" id="username" name="username" placeholder="Username" pattern="[-\a-zA-Z0-9]{1,255}" required>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="password">Password:</label>
+                        <div class="controls row-fluid">
+                            <input class="span12" type="password" id="password" name="password" placeholder="Password" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions row-fluid">
+                    <button type="submit" class="btn btn-primary btn-large span12">Sign In</button>
+                    <input type="hidden" id="next" name="next" value=""/>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section>
+    <p class="legal" style="text-align:center;">&copy; 2013 TopPatch Inc. All rights reserved.</p>
+</section>
+<!--/main -->
+<noscript>
+    <div class="title">JavaScript is required.</div>
+    <div class="subtitle">&nbsp;</div>
+    <div class="subtitle">To use TopPatch Remediation Vault, enable JavaScript in your browser and try again.</div>
+    <hr/>
+    <div class=""><a href="http://www.toppatch.com/"><img src="img/brand-name-tag.png" class="brand" alt="Top Patch brand"/></a></div>
+</noscript>
+<script type="text/javascript">
+    var nextInput = document.getElementsByName('next'),
+        $loginForm = $('#login');
+    nextInput[0].value = window.document.location.hash;
+    window.onload = function() {
+        H5F.setup($loginForm[0], {
+            validClass: "valid",
+            invalidClass: "invalid",
+            requiredClass: "required",
+            placeholderClass: "placeholder"
+        });
+    }
+    $loginForm.on('submit', function () {
+        var data = {username: $('#username').val(), password: $('#password').val(), next: $('#next').val()},
+            settings = { url: '/login', type: 'POST', data: JSON.stringify(data), contentType: 'application/json' };
+        $.ajax(settings)
+        .done(
+            function (response, status, xhr) {
+                if (nextInput[0].value) {
+                    window.document.location.hash = nextInput[0].value;
+                }
+                window.document.location.pathname = '';
+            }
+        )
+        .fail(
+            function (xhr, status, error) {
+                $('.alert').toggleClass('hide', !error).html('Invalid username and/or password.');
+            }
+        );
+        return false;
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+#!/opt/TopPatch/python/python-2.7.5/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'bpython==0.12','console_scripts','bpython'
+__requires__ = 'bpython==0.12'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('bpython==0.12', 'console_scripts', 'bpython')()
+    )

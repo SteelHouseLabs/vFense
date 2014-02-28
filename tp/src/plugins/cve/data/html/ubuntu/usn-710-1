@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-710-1: xine-lib vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-710-1: xine-lib vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-710-1</h2>
+<p><em>26th January, 2009</em></p>
+<h3>xine-lib vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 8.10</li>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+    <li>Ubuntu 7.10</li>
+
+    <li>Ubuntu 6.06 LTS</li>
+
+</ul>
+
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>xine-lib 
+    
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>It was discovered that xine-lib did not correctly handle certain malformed<br />Ogg and Windows Media files. If a user or automated system were tricked into<br />opening a specially crafted Ogg or Windows Media file, an attacker could cause<br />xine-lib to crash, creating a denial of service. This issue only applied to<br />Ubuntu 6.06 LTS, 7.10, and 8.04 LTS. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-3231">CVE-2008-3231</a>)</p>
+
+<p>It was discovered that the MNG, MOD, and Real demuxers in xine-lib did not<br />correctly handle memory allocation failures. If a user or automated system were<br />tricked into opening a specially crafted MNG, MOD, or Real file, an attacker<br />could crash xine-lib or possibly execute arbitrary code with the privileges of<br />the user invoking the program. This issue only applied to Ubuntu 6.06 LTS, 7.10,<br />and 8.04 LTS. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5233">CVE-2008-5233</a>)</p>
+
+<p>It was discovered that the QT demuxer in xine-lib did not correctly handle<br />an invalid metadata atom size, resulting in a heap-based buffer overflow. If a<br />user or automated system were tricked into opening a specially crafted MOV file,<br />an attacker could execute arbitrary code as the user invoking the program.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5234">CVE-2008-5234</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5242">CVE-2008-5242</a>)</p>
+
+<p>It was discovered that the Real, RealAudio, and Matroska demuxers in xine-lib<br />did not correctly handle malformed files, resulting in heap-based buffer<br />overflows. If a user or automated system were tricked into opening a specially<br />crafted Real, RealAudio, or Matroska file, an attacker could execute arbitrary<br />code as the user invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5236">CVE-2008-5236</a>)</p>
+
+<p>It was discovered that the MNG and QT demuxers in xine-lib did not correctly<br />handle malformed files, resulting in integer overflows. If a user or automated<br />system were tricked into opening a specially crafted MNG or MOV file, an<br />attacker could execute arbitrary code as the user invoking the program.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5237">CVE-2008-5237</a>)</p>
+
+<p>It was discovered that the Matroska, MOD, Real, and Real Audio demuxers in<br />xine-lib did not correctly handle malformed files, resulting in integer<br />overflows. If a user or automated system were tricked into opening a specially<br />crafted Matroska, MOD, Real, or Real Audio file, an attacker could execute<br />arbitrary code as the user invoking the program. This issue only applied to<br />Ubuntu 6.06 LTS, 7.10, and 8.04 LTS. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5238">CVE-2008-5238</a>)</p>
+
+<p>It was discovered that the input handlers in xine-lib did not correctly handle<br />certain error codes, resulting in out-of-bounds reads and heap-based buffer<br />overflows. If a user or automated system were tricked into opening a specially<br />crafted file, stream, or URL, an attacker could execute arbitrary code as the<br />user invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5239">CVE-2008-5239</a>)</p>
+
+<p>It was discovered that the Matroska and Real demuxers in xine-lib did not<br />correctly handle memory allocation failures. If a user or automated system were<br />tricked into opening a specially crafted Matroska or Real file, an attacker<br />could crash xine-lib or possibly execute arbitrary code with the privileges of<br />the user invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5240">CVE-2008-5240</a>)</p>
+
+<p>It was discovered that the QT demuxer in xine-lib did not correctly handle<br />an invalid metadata atom size in a compressed MOV file, resulting in an integer<br />underflow. If a user or automated system were tricked into opening a specially<br />crafted MOV file, an attacker could an attacker could cause xine-lib to crash,<br />creating a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5241">CVE-2008-5241</a>)</p>
+
+<p>It was discovered that the Real demuxer in xine-lib did not correctly handle<br />certain malformed files. If a user or automated system were tricked into opening<br />a specially crafted Real file, an attacker could could cause xine-lib to crash,<br />creating a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5243">CVE-2008-5243</a>)</p>
+
+<p>It was discovered that xine-lib did not correctly handle certain malformed AAC<br />files. If a user or automated system were tricked into opening a specially<br />crafted AAC file, an attacker could could cause xine-lib to crash, creating a<br />denial of service. This issue only applied to Ubuntu 7.10, and 8.04 LTS.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5244">CVE-2008-5244</a>)</p>
+
+<p>It was discovered that the id3 tag handler in xine-lib did not correctly handle<br />malformed tags, resulting in heap-based buffer overflows. If a user or automated<br />system were tricked into opening a media file containing a specially crafted id3<br />tag, an attacker could execute arbitrary code as the user invoking the program.<br />This issue only applied to Ubuntu 6.06 LTS, 7.10, and 8.04 LTS. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5246">CVE-2008-5246</a>)</p>
+
+<p>It was discovered that xine-lib did not correctly handle MP3 files with metadata<br />consisting only of separators. If a user or automated system were tricked into<br />opening a specially crafted MP3 file, an attacker could could cause xine-lib to<br />crash, creating a denial of service. This issue only applied to Ubuntu 6.06 LTS,<br />7.10, and 8.04 LTS. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5248">CVE-2008-5248</a>)</p>
+
+<p>It was discovered that the Matroska demuxer in xine-lib did not correctly handle<br />an invalid track type. If a user or automated system were tricked into opening<br />a specially crafted Matroska file, an attacker could could cause xine-lib to<br />crash, creating a denial of service.</p>
+
+<p>It was discovered that the ffmpeg video decoder in xine-lib did not correctly<br />handle media with certain image heights, resulting in a heap-based buffer<br />overflow. If a user or automated system were tricked into opening a specially<br />crafted video file, an attacker could crash xine-lib or possibly execute<br />arbitrary code with the privileges of the user invoking the program. This issue<br />only applied to Ubuntu 7.10, 8.04 LTS, and 8.10.</p>
+
+<p>It was discovered that the ffmpeg audio decoder in xine-lib did not correctly<br />handle malformed media, resulting in a integer overflow. If a user or automated<br />system were tricked into opening a specially crafted media file, an attacker<br />could crash xine-lib or possibly execute arbitrary code with the privileges of<br />the user invoking the program. This issue only applied to Ubuntu 8.10.<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 8.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xine-lib">libxine1</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xine-lib/1.1.15-0ubuntu3.1">1.1.15-0ubuntu3.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xine-lib">libxine1</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xine-lib/1.1.11.1-1ubuntu3.2">1.1.11.1-1ubuntu3.2</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 7.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xine-lib">libxine1</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xine-lib/1.1.7-1ubuntu1.4">1.1.7-1ubuntu1.4</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 6.06 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xine-lib">libxine-main1</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xine-lib/1.1.1+ubuntu2-7.10">1.1.1+ubuntu2-7.10</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system upgrade you need to restart applications linked against<br />xine-lib, such as Totem-xine and Amarok, to effect the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-3231">CVE-2008-3231</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5233">CVE-2008-5233</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5234">CVE-2008-5234</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5236">CVE-2008-5236</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5237">CVE-2008-5237</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5238">CVE-2008-5238</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5239">CVE-2008-5239</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5240">CVE-2008-5240</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5241">CVE-2008-5241</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5242">CVE-2008-5242</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5243">CVE-2008-5243</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5244">CVE-2008-5244</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5246">CVE-2008-5246</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5248">CVE-2008-5248</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

@@ -1,0 +1,134 @@
+<div class="row-fluid emailAlerts">
+    <div class="span12 padding-left-20 padding-right-20">
+        <div class="row-fluid alertsTitle">
+            <div>
+                <div data-id="name"><strong><%= model.rule_name %></strong></div>
+                <span data-id="description"><%= model.rule_description %></span>
+
+                <span class="icon-edit pull-right hide"></span>
+                <span class="pull-right label label-info" data-id="status"></span>
+            </div>
+        </div>
+        <form id="<%= viewId%>-alert-form" class="form-horizontal">
+            <div class="controlsContainer">
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="<%= viewId%>-alertName">Alert Name*</label>
+                        <div class="controls">
+                            <input type="text" class="input-medium alertName" value="<%= model.rule_name %>" id="<%= viewId%>-alertName" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="<%= viewId%>-alertDecription">Alert Description</label>
+                        <div class="controls">
+                            <input type="text" class="input alertDescription" id="<%= viewId%>-alertDecription" value="<%= model.rule_description %>">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="<%= viewId%>-pluginType">Plugin Type</label>
+                        <div class="controls">
+                            <select id="<%= viewId%>-pluginType" class="pluginType btn btn-mini input-medium pluginName">
+                                <%= defaultOptions.getSelectOptions(defaultOptions, 'plugins','name','name') %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="<%= viewId%>-customerNames">Customer Names</label>
+                        <div class="controls">
+                            <select id="<%= viewId%>-customerNames" class="btn btn-mini input-medium customerName">
+                                <%= defaultOptions.getSelectOptions(defaultOptions, 'customers','name','name') %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="control-group">
+                        <label class="control-label" for="<%= viewId%>-agentsList">Agents</label>
+                        <div class="controls">
+                            <select id="<%= viewId%>-agentsList" multiple="multiple" class="agents" style="width: 500px;">
+                                <%= defaultOptions.getSelectOptions(defaultOptions, 'agents','id','computer_name') %>
+                            </select>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="control-group">
+                        <label class="control-label" for="<%= viewId%>-tagsList">Tags</label>
+                        <div class="controls">
+                            <select id="<%= viewId%>-tagsList" multiple="multiple" class="tags" style="width: 500px;">
+                                <%= defaultOptions.getSelectOptions(defaultOptions, 'tags','id','name') %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="control-group">
+                        <label class="control-label" for="<%= viewId%>-userGroup">Select User or Group</label>
+                        <div class="controls">
+                            <select id="<%= viewId%>-userGroup" class="btn btn-mini input-medium userGroup">
+                                <option value="user">User</option>
+                                <option value="group">Group</option>
+
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="<%= viewId%>-usersList">User</label>
+                        <div class="controls">
+                            <select id="<%= viewId%>-usersList" class="btn btn-mini input-medium user" required>
+                                <option value="">Select User</option>
+                                <%= defaultOptions.getSelectOptions(defaultOptions, 'users','name','name') %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <div class="control-group">
+                        <label class="control-label" for="<%= viewId%>-groupsList">Group</label>
+                        <div class="controls">
+                            <select id="<%= viewId%>-groupsList" class="btn btn-mini input-medium group" required disabled>
+                                <option value="">Select Group</option>
+                                <%= defaultOptions.getSelectOptions(defaultOptions, 'groups','name','name') %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="alertsContainer">
+
+            </div>
+
+            <div class="row-fluid">
+                <div class="span12">
+                    <button class="btn btn-primary btn-small" data-action="saveChanges" type="submit" >Save Changes</button>
+                    <button class="btn btn-danger btn-small" data-action="removeAlert" type="submit" >Remove Alert</button>
+                    <button class="btn btn-small" data-action="cancelChanges" type="submit">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+Bootstrap.js
+Home:       http://twitter.github.com/bootstrap/
+GitHub:     https://github.com/documentcloud/backbone/tags
+Version:    2.3.2

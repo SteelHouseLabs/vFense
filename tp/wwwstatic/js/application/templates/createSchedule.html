@@ -1,0 +1,207 @@
+<form class="row-fluid">
+    <div class="span4">
+        <div name="start_date_div"></div>
+    </div>
+    <div class="span8">
+        <table style="width: 100%; border-bottom: 1px solid black;">
+            <tr>
+                <td class="control-group" style="width: 50%;">
+                    <input type="text" name="jobname" placeholder="Schedule Name" data-type="input" class="border-box" style="width: 100%; height: 30px;" required="required">
+                </td>
+                <td class="control-group">
+                    <select name="operation" data-type="select" style="width: 100%">
+                        <option value="false">Operation Type</option>
+                        <option value="install">Install</option>
+                        <option value="reboot">Reboot</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="control-group">
+                    <select name="pkg_type" class="disabled" disabled="disabled" data-type="select" style="width: 100%;">
+                        <option value="false">Package Type</option>
+                        <option value="system_apps">OS</option>
+                        <option value="supported_apps">Supported</option>
+                        <option value="custom_apps">Custom</option>
+                    </select>
+                </td>
+                <td class="control-group">
+                    <select name="severity" class="disabled" disabled="disabled" data-type="select" style="width: 100%;">
+                        <option value="false">Severity</option>
+                        <option value="any">Any</option>
+                        <option value="optional">Optional</option>
+                        <option value="recommended">Recommended</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="control-group">
+                    <label class="control-label">Repeat:</label>
+                </td>
+                <td class="alignRight">
+                    <select style="width: 100%" id="repeat">
+                        <option value="none">None</option>
+                        <option value="daily">Every day</option>
+                        <option value="weekly">Every week</option>
+                        <option value="monthly">Every month</option>
+                        <option value="yearly">Every year</option>
+                        <option value="custom">Custom...</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="control-group" style="width:50%; max-width:50%;">
+                    <label class="control-label">Schedule On:</label>
+                    Tags&nbsp;<input type="radio" name="schedule_on" value="tags" checked>
+                    Agents&nbsp;<input type="radio" name="schedule_on" value="nodes">
+                </td>
+                <td class="control-group" style="width:50%; max-width:50%;">
+                    <label class="control-label">Tags:</label>
+                    <input type="hidden" name="tags" multiple="multiple" data-key="all_tags" data-type="multiple" style="width:50%; max-width:50%;"/>
+                </td>
+                <td class="control-group hide" style="width:50%; max-width:50%;">
+                    <label class="control-label">Agents:</label>
+                    <input type="hidden" name="nodes" multiple="multiple" data-key="all_agents" data-type="multiple" class="disabled"/>
+                </td>
+            </tr>
+        </table>
+        <table id="customSchedule" class="hide" style="width: 100%; margin-top: 5px;">
+            <tr data-id="frequencyRow">
+                <td class="control-group" style="width: 50%;">
+                    <label class="control-label">Frequency:</label>
+                </td>
+                <td class="alignRight" style="width: 50%;">
+                    <select style="width: 100%" id="frequency">
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="yearly">Yearly</option>
+                    </select>
+                </td>
+            </tr>
+            <tr data-id="daily">
+                <td>
+                    <label class="control-label">Every:</label>
+                </td>
+                <td>
+                    <input class="input-small" type="text" value="1" data-id="every"/> day(s)
+                </td>
+            </tr>
+            <tr class="hide" data-id="weekly">
+                <td>
+                    <label class="control-label">Every:</label>
+                </td>
+                <td>
+                    <input class="input-small" type="text" value="1" data-id="every"/> week(s) on:
+                </td>
+            </tr>
+            <tr class="hide" data-id="weekly">
+                <td></td>
+                <td>
+                    <div class="btn-toolbar">
+                        <div class="btn-group" id="weekDays" data-toggle="buttons-checkbox">
+                            <button value="0" class="btn">S</button>
+                            <button value="1" class="btn">M</button>
+                            <button value="2" class="btn">T</button>
+                            <button value="3" class="btn">W</button>
+                            <button value="4" class="btn">T</button>
+                            <button value="5" class="btn">F</button>
+                            <button value="6" class="btn">S</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="hide" data-id="monthly">
+                <td>
+                    <label class="control-label">Every:</label>
+                </td>
+                <td>
+                    <input class="input-small" type="text" value="1" data-id="every"/> months(s) each:
+                </td>
+            </tr>
+            <tr class="hide" data-id="monthly">
+                <td style="width: 50%"></td>
+                <td style="width: 50%">
+                    <div class="btn-toolbar" id="monthDays">
+                        <div class="btn-group" style="width: 100%" data-toggle="buttons-checkbox">
+                            <button class="btn" style="width: 14%;">1</button>
+                            <button class="btn" style="width: 14%;">2</button>
+                            <button class="btn" style="width: 14%;">3</button>
+                            <button class="btn" style="width: 14%;">4</button>
+                            <button class="btn" style="width: 14%;">5</button>
+                            <button class="btn" style="width: 14%;">6</button>
+                            <button class="btn" style="width: 14%;">7</button>
+                        </div>
+                        <div class="btn-group noMargin" style="width: 100%" data-toggle="buttons-checkbox">
+                            <button class="btn" style="width: 14%;">8</button>
+                            <button class="btn" style="width: 14%;">9</button>
+                            <button class="btn" style="width: 14%;">10</button>
+                            <button class="btn" style="width: 14%;">11</button>
+                            <button class="btn" style="width: 14%;">12</button>
+                            <button class="btn" style="width: 14%;">13</button>
+                            <button class="btn" style="width: 14%;">14</button>
+                        </div>
+                        <div class="btn-group noMargin" style="width: 100%" data-toggle="buttons-checkbox">
+                            <button class="btn" style="width: 14%;">15</button>
+                            <button class="btn" style="width: 14%;">16</button>
+                            <button class="btn" style="width: 14%;">17</button>
+                            <button class="btn" style="width: 14%;">18</button>
+                            <button class="btn" style="width: 14%;">19</button>
+                            <button class="btn" style="width: 14%;">20</button>
+                            <button class="btn" style="width: 14%;">21</button>
+                        </div>
+                        <div class="btn-group noMargin" style="width: 100%" data-toggle="buttons-checkbox">
+                            <button class="btn" style="width: 14%;">22</button>
+                            <button class="btn" style="width: 14%;">23</button>
+                            <button class="btn" style="width: 14%;">24</button>
+                            <button class="btn" style="width: 14%;">25</button>
+                            <button class="btn" style="width: 14%;">26</button>
+                            <button class="btn" style="width: 14%;">27</button>
+                            <button class="btn" style="width: 14%;">28</button>
+                        </div>
+                        <div class="btn-group noMargin" style="width: 100%" data-toggle="buttons-checkbox">
+                            <button class="btn" style="width: 14%;">29</button>
+                            <button class="btn" style="width: 14%;">30</button>
+                            <button class="btn" style="width: 14%;">31</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr class="hide" data-id="yearly">
+                <td>
+                    <label class="control-label">Every:</label>
+                </td>
+                <td>
+                    <input class="input-small" type="text" value="1" data-id="every"/> year(s) in:
+                </td>
+            </tr>
+            <tr class="hide" data-id="yearly">
+                <td></td>
+                <td>
+                    <div class="btn-toolbar" id="yearMonths">
+                        <div class="btn-group" style="width: 100%" data-toggle="buttons-checkbox">
+                            <button class="btn" value="0" style="width: 25%;">Jan</button>
+                            <button class="btn" value="1" style="width: 25%;">Feb</button>
+                            <button class="btn" value="2" style="width: 25%;">Mar</button>
+                            <button class="btn" value="3" style="width: 25%;">Apr</button>
+                        </div>
+                        <div class="btn-group noMargin" style="width: 100%" data-toggle="buttons-checkbox">
+                            <button class="btn" value="4" style="width: 25%;">May</button>
+                            <button class="btn" value="5" style="width: 25%;">Jun</button>
+                            <button class="btn" value="6" style="width: 25%;">Jul</button>
+                            <button class="btn" value="7" style="width: 25%;">Aug</button>
+                        </div>
+                        <div class="btn-group noMargin" style="width: 100%" data-toggle="buttons-checkbox">
+                            <button class="btn" value="8" style="width: 25%;">Sept</button>
+                            <button class="btn" value="9" style="width: 25%;">Oct</button>
+                            <button class="btn" value="10" style="width: 25%;">Nov</button>
+                            <button class="btn" value="11" style="width: 25%;">Dec</button>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <span class="help-online"></span>
+    </div>
+</form>

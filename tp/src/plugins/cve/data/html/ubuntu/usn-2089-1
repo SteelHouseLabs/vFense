@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-2089-1: OpenJDK 7 vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-2089-1: OpenJDK 7 vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-2089-1</h2>
+<p><em>23rd January, 2014</em></p>
+<h3>openjdk-7 vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 13.10</li>
+
+    <li>Ubuntu 13.04</li>
+
+    <li>Ubuntu 12.10</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>Several security issues were fixed in OpenJDK 7.
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>openjdk-7 
+    - Open Source Java implementation
+    
+    </li>
+  
+
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p><br />Several vulnerabilities were discovered in the OpenJDK JRE related to<br />information disclosure and data integrity. An attacker could exploit these<br />to expose sensitive data over the network. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-3829">CVE-2013-3829</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5783">CVE-2013-5783</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5804">CVE-2013-5804</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0411">CVE-2014-0411</a>)</p>
+
+<p>Several vulnerabilities were discovered in the OpenJDK JRE related to<br />availability. An attacker could exploit these to cause a denial of service.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-4002">CVE-2013-4002</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5803">CVE-2013-5803</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5823">CVE-2013-5823</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5825">CVE-2013-5825</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5896">CVE-2013-5896</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5910">CVE-2013-5910</a>)</p>
+
+<p>Several vulnerabilities were discovered in the OpenJDK JRE related to data<br />integrity. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5772">CVE-2013-5772</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5774">CVE-2013-5774</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5784">CVE-2013-5784</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5797">CVE-2013-5797</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5820">CVE-2013-5820</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0376">CVE-2014-0376</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0416">CVE-2014-0416</a>)</p>
+
+<p>Several vulnerabilities were discovered in the OpenJDK JRE related to<br />information disclosure. An attacker could exploit these to expose sensitive<br />data over the network. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5778">CVE-2013-5778</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5780">CVE-2013-5780</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5790">CVE-2013-5790</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5800">CVE-2013-5800</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5840">CVE-2013-5840</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5849">CVE-2013-5849</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5851">CVE-2013-5851</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5884">CVE-2013-5884</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0368">CVE-2014-0368</a>)</p>
+
+<p>Several vulnerabilities were discovered in the OpenJDK JRE related to<br />information disclosure, data integrity and availability. An attacker could<br />exploit these to cause a denial of service or expose sensitive data over<br />the network. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5782">CVE-2013-5782</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5802">CVE-2013-5802</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5809">CVE-2013-5809</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5829">CVE-2013-5829</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5814">CVE-2013-5814</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5817">CVE-2013-5817</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5830">CVE-2013-5830</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5842">CVE-2013-5842</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5850">CVE-2013-5850</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5878">CVE-2013-5878</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5893">CVE-2013-5893</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5907">CVE-2013-5907</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0373">CVE-2014-0373</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0408">CVE-2014-0408</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0422">CVE-2014-0422</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0428">CVE-2014-0428</a>)</p>
+
+<p>A vulnerability was discovered in the OpenJDK JRE related to information<br />disclosure and availability. An attacker could exploit this to expose<br />sensitive data over the network or cause a denial of service.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0423">CVE-2014-0423</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 13.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.10.1">7u51-2.4.4-0ubuntu0.13.10.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre-zero</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.10.1">7u51-2.4.4-0ubuntu0.13.10.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">icedtea-7-jre-jamvm</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.10.1">7u51-2.4.4-0ubuntu0.13.10.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre-headless</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.10.1">7u51-2.4.4-0ubuntu0.13.10.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.10.1">7u51-2.4.4-0ubuntu0.13.10.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 13.04:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.04.2">7u51-2.4.4-0ubuntu0.13.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre-zero</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.04.2">7u51-2.4.4-0ubuntu0.13.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">icedtea-7-jre-jamvm</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.04.2">7u51-2.4.4-0ubuntu0.13.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre-headless</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.04.2">7u51-2.4.4-0ubuntu0.13.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.13.04.2">7u51-2.4.4-0ubuntu0.13.04.2</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 12.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre-zero</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.12.10.2">7u51-2.4.4-0ubuntu0.12.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">icedtea-7-jre-jamvm</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.12.10.2">7u51-2.4.4-0ubuntu0.12.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">icedtea-7-jre-cacao</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.12.10.2">7u51-2.4.4-0ubuntu0.12.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.12.10.2">7u51-2.4.4-0ubuntu0.12.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre-headless</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.12.10.2">7u51-2.4.4-0ubuntu0.12.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-7">openjdk-7-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-7/7u51-2.4.4-0ubuntu0.12.10.2">7u51-2.4.4-0ubuntu0.12.10.2</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>This update uses a new upstream release, which includes additional bug<br />fixes. After a standard system update you need to restart any Java<br />applications or applets to make all the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-3829">CVE-2013-3829</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-4002">CVE-2013-4002</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5772">CVE-2013-5772</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5774">CVE-2013-5774</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5778">CVE-2013-5778</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5780">CVE-2013-5780</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5782">CVE-2013-5782</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5783">CVE-2013-5783</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5784">CVE-2013-5784</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5790">CVE-2013-5790</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5797">CVE-2013-5797</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5800">CVE-2013-5800</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5802">CVE-2013-5802</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5803">CVE-2013-5803</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5804">CVE-2013-5804</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5805">CVE-2013-5805</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5806">CVE-2013-5806</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5809">CVE-2013-5809</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5814">CVE-2013-5814</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5817">CVE-2013-5817</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5820">CVE-2013-5820</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5823">CVE-2013-5823</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5825">CVE-2013-5825</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5829">CVE-2013-5829</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5830">CVE-2013-5830</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5840">CVE-2013-5840</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5842">CVE-2013-5842</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5849">CVE-2013-5849</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5850">CVE-2013-5850</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5851">CVE-2013-5851</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5878">CVE-2013-5878</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5884">CVE-2013-5884</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5893">CVE-2013-5893</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5896">CVE-2013-5896</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5907">CVE-2013-5907</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-5910">CVE-2013-5910</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0368">CVE-2014-0368</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0373">CVE-2014-0373</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0376">CVE-2014-0376</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0408">CVE-2014-0408</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0411">CVE-2014-0411</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0416">CVE-2014-0416</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0422">CVE-2014-0422</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0423">CVE-2014-0423</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2014-0428">CVE-2014-0428</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

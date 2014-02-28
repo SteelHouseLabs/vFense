@@ -1,0 +1,34 @@
+{% extends "index-template.html" %}
+
+{% block header %}
+        {% if header is None %}
+            <h1>Error parsing stream</h1>
+        {% elif header %}
+            {% module Template("header.html") %}
+        {% else %}
+            <h1></h1>
+        {% end %}
+        <h2> {{ login_header }}</h2>
+{% end %}
+
+{% block body %}
+        {% if current_user is None %}
+            <h1>Error parsing stream</h1>
+        {% elif current_user %}
+            <h1>Good day, {{ name }}!</h1>
+            <a href="/logout">Logout</a>
+        {% else %}
+            <h1>You're not logged in!</h1>
+        {% end %}
+{% end %}
+
+
+{% block footer %}
+    {% if footer is None %}
+    <h1>Error parsing stream</h1>
+    {% elif footer %}
+    {% module Template("footer.html") %}
+    {% else %}
+    <h1></h1>
+    {% end %}
+{% end %}

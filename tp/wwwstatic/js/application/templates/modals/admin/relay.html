@@ -1,0 +1,55 @@
+<% if (header) { %>
+    <button id="showCreateRelay" class="btn btn-mini">Add Relay Server</button>
+<% } else if (legend) { %>
+    <span class="span3">Server Name</span>
+    <span class="span2">Address</span>
+    <span class="span5">Customers</span>
+    <span class="span2 alignRight">Options</span>
+<% } else if (model) { %>
+   <div class="item linked clearfix">
+        <div class="row-fluid">
+            <span class="span3"><%= model.get('relay_name') %></span>
+            <span class="span2"><%= model.get('address') %></span>
+            <span class="span5"><%= model.get('customers') %></span>
+            <span class="span2 alignRight">
+                <button class="btn btn-link noPadding" data-action="toggleDelete"><i class="icon-remove" style="color: red;"></i></button>
+                <span class="hide">
+                    <button class="btn btn-mini btn-danger" data-action="delete" data-name="<%= model.get('relay_name') %>">Delete</button>
+                    <button class="btn btn-mini" data-action="toggleDelete">Cancel</button>
+                </span>&nbsp;
+                <button class="btn btn-link noPadding" data-action="modify" data-name="<%= model.get('relay_name') %>"><i class="icon-edit" style="color: #daa520;"></i></button>
+            </span>
+        </div>
+    </div>
+<% } else { %>
+    <form class="row-fluid">
+        <div class="control-group span6 noMargin">
+            <label class="control-label">Name:</label>
+            <div class="controls">
+                <input type="text" name="name" <% if (relay.relay_name) { %> DISABLED <% } %> value="<%= relay.relay_name || '' %>" required/>
+            </div>
+        </div>
+        <div class="control-group span6 noMargin">
+            <label class="control-label">Address:</label>
+            <div class="controls">
+                <input type="text" name="address" value="<%= relay.address || '' %>" required/>
+            </div>
+        </div>
+        <div class="control-group span12 noMargin">
+            <label class="control-label">Customers:</label>
+            <div class="controls">
+                <input type="hidden" name="customers" value="<%= relay.customers || '' %>"/>
+            </div>
+        </div>
+        <div class="control-group span12 alignRight noMargin" style="margin-top: 5px !important;">
+            <button class="btn" id="hideCreateRelay">Cancel</button>
+            <button class="btn btn-primary" type="submit">
+                <% if (relay.relay_name) { %>
+                    Update
+                <% } else { %>
+                    Create
+                <% } %>
+            </button>
+        </div>
+    </form>
+<% } %>

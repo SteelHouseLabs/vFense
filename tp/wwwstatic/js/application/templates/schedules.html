@@ -1,0 +1,26 @@
+<article class="row-fluid">
+    <table class="list">
+        <caption>
+            <div class="pull-left">&nbsp;</div>
+            <div class="pull-right hidden-print">
+                <button class="btn btn-mini" name="toggleAddSchedule">
+                    <i class="icon-plus" style="color: green;"></i>&nbsp;Add Schedule
+                </button>
+            </div>
+        </caption>
+        <thead>
+            <tr>
+                <th><strong>Job Name</strong></th>
+                <th class="alignCenter" style="width:120px;">Operation</th>
+                <th class="alignCenter" style="width:120px;">Type</th>
+                <th class="alignCenter" style="width:65px;">Total Runs</th>
+                <th class="alignRight" style="width:120px;">Next Run</th>
+                <th class="icon alignRight" data-group="delete" data-confirm-width="96px">&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%= data.viewHelpers.renderItems(data.schedules) %>
+        </tbody>
+    </table>
+</article>
+<article class="alert alert-block fade in hide"></article>

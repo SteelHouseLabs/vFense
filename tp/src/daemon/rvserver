@@ -1,0 +1,32 @@
+#! /bin/sh
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+NAME=TopPatchServer
+DESC=TopPatchServer
+TOPPATCHDIR=/opt/TopPatch
+DAEMON=/opt/TopPatch/tp/src/daemon/TopPatchd
+USER=toppatch
+
+set -e
+
+case "$1" in
+  start)
+	sudo -u ${USER} sh -c "cd $TOPPATCHDIR;. bin/activate_toppatch;$DAEMON $1"
+        ;;
+  stop)
+	sudo -u ${USER} sh -c "cd $TOPPATCHDIR;. bin/activate_toppatch;$DAEMON $1"
+	;;	
+  restart)
+	sudo -u ${USER} sh -c "cd $TOPPATCHDIR;. bin/activate_toppatch;$DAEMON $1"
+	;;
+  status)
+	sudo -u ${USER} sh -c "cd $TOPPATCHDIR;. bin/activate_toppatch;$DAEMON $1"
+	;;
+  *)
+    N=/etc/init.d/$NAME
+    echo "Usage: $N {start|stop|restart|status}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

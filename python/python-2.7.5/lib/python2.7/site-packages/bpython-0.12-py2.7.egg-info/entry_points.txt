@@ -1,0 +1,7 @@
+[console_scripts]
+bpython-urwid = bpython.urwid:main
+bpython = bpython.cli:main
+
+[gui_scripts]
+bpython-gtk = bpython.gtk_:main
+

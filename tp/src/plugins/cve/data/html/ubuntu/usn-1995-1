@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-1995-1: Linux kernel (Raring HWE) vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-1995-1: Linux kernel (Raring HWE) vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-1995-1</h2>
+<p><em>21st October, 2013</em></p>
+<h3>linux-lts-raring vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 12.04 LTS</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>Several security issues were fixed in the kernel.
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>linux-lts-raring 
+    - Linux hardware enablement kernel from Raring
+    
+    </li>
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>An information leak was discovered in the Linux kernel when reading<br />broadcast messages from the notify_policy interface of the IPSec<br />key_socket. A local user could exploit this flaw to examine potentially<br />sensitive information in kernel memory. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2237">CVE-2013-2237</a>)</p>
+
+<p>Kees Cook discovered flaw in the Human Interface Device (HID) subsystem of<br />the Linux kernel. A physically proximate attacker could exploit this flaw<br />to execute arbitrary code or cause a denial of service (heap memory<br />corruption) via a specially crafted device that provides an invalid Report<br />ID. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2888">CVE-2013-2888</a>)</p>
+
+<p>Kees Cook discovered a flaw in the Human Interface Device (HID) subsystem<br />of the Linux kerenl when CONFIG_HID_PANTHERLORD is enabled. A physically<br />proximate attacker could cause a denial of service (heap out-of-bounds<br />write) via a specially crafted device. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2892">CVE-2013-2892</a>)</p>
+
+<p>Kees Cook discovered a vulnerability in the Linux Kernel&#39;s Human Interface<br />Device (HID) subsystem&#39;s support for N-Trig touch screens. A physically<br />proximate attacker could exploit this flaw to cause a denial of service<br />(OOPS) via a specially crafted device. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2896">CVE-2013-2896</a>)</p>
+
+<p>Kees Cook discovered an information leak in the Linux kernel&#39;s Human<br />Interface Device (HID) subsystem when CONFIG_HID_SENSOR_HUB is enabled. A<br />physically proximate attacker could obtain potentially sensitive<br />information from kernel memory via a specially crafted device.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2898">CVE-2013-2898</a>)</p>
+
+<p>Kees Cook discovered a flaw in the Human Interface Device (HID) subsystem<br />of the Linux kernel whe CONFIG_HID_PICOLCD is enabled. A physically<br />proximate attacker could exploit this flaw to cause a denial of service<br />(OOPS) via a specially crafted device. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2899">CVE-2013-2899</a>)</p>
+
+<p>A flaw was discovered in how the Linux Kernel&#39;s networking stack checks scm<br />credentials when used with namespaces. A local attacker could exploit this<br />flaw to gain privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-4300">CVE-2013-4300</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 12.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-lts-raring">linux-image-3.8.0-32-generic</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-lts-raring/3.8.0-32.47~precise1">3.8.0-32.47~precise1</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system update you need to reboot your computer to make<br />all the necessary changes.</p>
+
+<p>ATTENTION: Due to an unavoidable ABI change the kernel updates have<br />been given a new version number, which requires you to recompile and<br />reinstall all third party kernel modules you might have installed. If<br />you use linux-restricted-modules, you have to update that package as<br />well to get modules which work with the new kernel version. Unless you<br />manually uninstalled the standard kernel metapackages (e.g. linux-generic,<br />linux-server, linux-powerpc), a standard system upgrade will automatically<br />perform this as well.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2237">CVE-2013-2237</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2888">CVE-2013-2888</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2892">CVE-2013-2892</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2896">CVE-2013-2896</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2898">CVE-2013-2898</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-2899">CVE-2013-2899</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2013-4300">CVE-2013-4300</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

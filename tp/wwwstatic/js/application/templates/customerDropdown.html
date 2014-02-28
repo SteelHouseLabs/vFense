@@ -1,0 +1,15 @@
+<% if (customers.length > 1) { %>
+<a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+    <i class="icon-group"></i>
+    <span id="activeCustomer"><%= current_customer.name || default_customer.name %></span>
+    <i class="icon-caret-down"></i>
+</a>
+<ul class="dropdown-menu">
+    <%= viewHelpers.renderCustomers(customers, current_customer.name) %>
+</ul>
+<% } else if (customers.length === 1) { %>
+    <a href="javascript:;">
+        <i class="icon-group"></i>
+        <span><%= current_customer.name || default_customer.name %></span>
+    </a>
+<% } %>

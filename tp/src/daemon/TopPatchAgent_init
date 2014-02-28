@@ -1,0 +1,30 @@
+#! /bin/sh
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+NAME=TopPatchAgent
+DESC=TopPatchAgent
+DAEMON=/opt/TopPatch/agent/src/TopPatchAgentd
+
+set -e
+
+case "$1" in
+  start)
+	python $DAEMON start
+        ;;
+  stop)
+	python $DAEMON stop
+	;;	
+  restart)
+	python $DAEMON restart
+	;;
+  status)
+	python $DAEMON status
+	;;
+  *)
+    N=/etc/init.d/$NAME
+    echo "Usage: $N {start|stop|restart|status}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0

@@ -1,0 +1,4 @@
+Hallo.js
+Home:       https://github.com/bergie/hallo
+GitHub:     https://github.com/bergie/hallo/tags
+Version:    1.0.2

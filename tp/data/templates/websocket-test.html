@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <title>WebSockets Hello World</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        body {
+            text-align: center;
+            min-width: 500px;
+        }
+    </style>
+    <script src="{{ static_url('js/libs/jquery/jquery-1.8.0.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+
+            var ws;
+
+            $("#open").click(function(evt) {
+                evt.preventDefault();
+
+                var host = $("#host").val();
+                var port = $("#port").val();
+                var uri = $("#uri").val();
+
+                ws = new WebSocket("wss://" + host + ":" + port + uri);
+                $("#main").append("<br>Attempting connection to wss://" + host + ":" + port + uri);
+
+                ws.onmessage = function(evt) {
+                    var user = $.parseJSON(evt.data)['user'];
+                    var status = $.parseJSON(evt.data)['status'];
+                    if(user && status) {
+                        $('#main').append("<br>User: " + user + " " + status);
+                    }
+                };
+
+                ws.onclose = function(evt) {
+                    $("#host").css("background", "#ff0000");
+                    $("#port").css("background", "#ff0000");
+                    $("#uri").css("background", "#ff0000");
+                    $('#main').append("<br>Connection close");
+                };
+
+                ws.onopen = function(evt) {
+                    $("#host").css("background", "#00ff00");
+                    $("#port").css("background", "#00ff00");
+                    $("#uri").css("background", "#00ff00");
+                    $('#main').append("<br>Started socket connection.");
+                };
+            });
+            $("#testbutton").click(function() {
+                $.ajax({
+                    url: '/api/nodeData/',
+                    success: function(data) {
+                        console.log(data);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+<h1>WebSockets Hello World</h1>
+<div id="main">
+    <label for="host">host:</label>
+    <input type="text" id="host" value="localhost" style="background:#ff0000;"/><br />
+    <label for="port">port:</label>
+    <input type="text" id="port" value="8000" style="background:#ff0000;"/><br />
+    <label for="uri">uri:</label>
+    <input type="text" id="uri" value="/ws" style="background:#ff0000;"/><br />
+    <input type="submit" id="open" value="open" />
+    <input type="submit" id="testbutton" value="test" />
+</div>
+</body>
+</html>

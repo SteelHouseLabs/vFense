@@ -1,0 +1,4 @@
+Almond.js
+Home:       https://github.com/jrburke/almond
+GitHub:     https://github.com/jrburke/almond/tags
+Version:    0.2.5

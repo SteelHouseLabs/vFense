@@ -1,0 +1,527 @@
+<% if ($.type(model) === 'object') { %>
+<article>
+    <header><strong>Patch Details</strong></header>
+    <section class="well well-small clearfix">
+        <dl>
+            <dt>Name:</dt>
+            <dd><% print(model.name); %></dd>
+            <dt>Vendor:</dt>
+            <dd><% print(model.vendor_name || '<em>Not listed</em>'); %></dd>
+            <dt>Vendor ID:</dt>
+            <dd><% print(model.vendor_id || '<em>Not listed</em>'); %></dd>
+            <dt>Release Date:</dt>
+            <dd><% print(model.release_date || '<em>Not listed</em>'); %></dd>
+            <dt>Severity:</dt>
+            <dd><% print(model.rv_severity || '<em>Not listed</em>'); %></dd>
+            <dt>Version:</dt>
+            <dd><% print(model.version || '<em>Not listed</em>'); %></dd>
+            <dt>Size:</dt>
+            <dd><% print(model.file_size || '<em>Not listed</em>'); %></dd>
+            <dt>Description:</dt>
+            <dd><% print(model.description || '<em>Not listed</em>'); %></dd>
+        </dl>
+    </section>
+</article>
+<% if (model.urls && model.urls.length) { %>
+<article class="row-fluid">
+    <header><strong>Package Files</strong></header>
+    <section class="well well-small clearfix">
+        <dl>
+            <% _.each(model.urls, function (url) { %>
+                <dt>URL:</dt>
+                <dd><div style="overflow-x: auto"><% print(url); %></div></dd>
+            <% }); %>
+        </dl>
+    </section>
+</article>
+<% } %>
+<article class="alert alert-block fade in hide">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <span class="help-inline"></span>
+</article>
+<article class="accordion">
+    <% if (tags) { %>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;
+                    <strong>Tags that need this patch</strong>
+                    <span class="badge badge-inverse pull-right"><%= tags.available.length %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <% if(tags.available && tags.available.length != 0) { %>
+                    <form action="/submitForm" method="post" class="form-inline" id="tagsAvailable">
+                        <header class="clearfix">
+                            <label class="checkbox inline">
+                                <input type="checkbox" class="toggle-all">Select / Deselect All
+                            </label>
+                            <div class="pull-right noMargin">
+                                <label class="checkbox inline"><small>Schedule this patch</small></label>
+                                <input type="checkbox" name="schedule" value="once"/>&nbsp;
+                                <select type="button" class="btn btn-mini" name="operation">
+                                    <option value="install">Install</option>
+                                    <option value="hide">Hide</option>
+                                </select>
+                                <select type="button" class="btn btn-mini" name="throttle">
+                                    <option>idle</option>
+                                    <option value="below_normal">below normal</option>
+                                    <option>normal</option>
+                                    <option value="above_normal">above normal</option>
+                                    <option>high</option>
+                                    <!--<option value="real_time">real time</option>-->
+                                </select>
+                                <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                            </div>
+                            <input type="hidden" value="<% print(model.id); %>" name="patches">
+                        </header>
+                        <div class="items">
+                            <% _.each(tags.available, function (tag) { %>
+                                <div class="item clearfix">
+                                    <span class="desc">
+                                        <label class="checkbox inline">
+                                            <input type="checkbox" name="tag" value="<%= tag.tag_id %>">
+                                            <%= tag.tag_name %>
+                                        </label>
+                                    </span>
+                                    <span class="pull-right"><a href="#nodes?filterby=<%= tag.tag_name %>">See list of nodes</a></span>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </form>
+                <% } else { %>
+                    <div class="items">
+                        <div class="item"><em>No tags available.</em></div>
+                    </div>
+                <% } %>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;
+                    <strong>Tags that have this patch</strong>
+                    <span class="badge badge-inverse pull-right"><%= tags.done.length %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <% if(tags.done && tags.done.length != 0) { %>
+                <form action="/submitForm" method="post" class="form-inline" id="tagsInstalled">
+                    <header class="clearfix">
+                        <label class="checkbox inline">
+                            <input type="checkbox" class="toggle-all">Select / Deselect All
+                        </label>
+                        <div class="pull-right noMargin">
+                            <select type="button" class="btn btn-mini" name="operation">
+                                <option value="uninstall">Uninstall</option>
+                                <option value="hide">hide</option>
+                            </select>
+                            <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                        </div>
+                        <input type="hidden" value="<% print(model.id); %>" name="patches">
+                    </header>
+                    <div class="items">
+                        <% _.each(tags.done, function (tag) { %>
+                        <div class="item clearfix">
+                            <span class="desc">
+                                <label class="checkbox inline">
+                                    <input type="checkbox" name="tag" value="<%= tag.tag_id %>">
+                                    <%= tag.tag_name %>
+                                </label>
+                            </span>
+                            <span class="pull-right"><a href="#nodes?filterby=<%= tag.tag_name %>">See list of nodes</a></span>
+                        </div>
+                        <% }); %>
+                    </div>
+                </form>
+                <% } else { %>
+                    <div class="items">
+                        <div class="item"><em>No tags available.</em></div>
+                    </div>
+                <% } %>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;
+                    <strong>Tags installing this patch</strong>
+                    <span class="badge badge-inverse pull-right"><%= tags.pending.length %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <% if(tags.pending && tags.pending.length != 0) { %>
+                <form action="/submitForm" method="post" class="form-inline" id="tagsPending">
+                    <div class="items">
+                        <% _.each(tags.pending, function (tag) { %>
+                        <div class="item clearfix">
+                            <span class="desc"><%= tag.tag_name %></span>
+                            <span class="pull-right"><a href="#nodes?filterby=<%= tag.tag_name %>">See list of nodes</a></span>
+                        </div>
+                        <% }); %>
+                    </div>
+                </form>
+                <% } else { %>
+                    <div class="items">
+                        <div class="item"><em>No tags available.</em></div>
+                    </div>
+                <% } %>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;
+                    <strong>Tags that failed to apply this patch</strong>
+                    <span class="badge badge-inverse pull-right"><%= tags.failed.length %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <% if(tags.failed && tags.failed.length != 0) { %>
+                <form action="/submitForm" method="post" class="form-inline" id="tagsFailed">
+                    <header class="clearfix">
+                        <label class="checkbox inline">
+                            <input type="checkbox" class="toggle-all">Select / Deselect All
+                        </label>
+                        <div class="pull-right noMargin">
+                            <label class="checkbox inline"><small>Schedule this patch</small></label>
+                            <input type="checkbox" name="schedule" value="once"/>&nbsp;
+                            <select type="button" class="btn btn-mini" name="operation">
+                                <option value="install">Install</option>
+                                <option value="hide">Hide</option>
+                            </select>
+                            <select type="button" class="btn btn-mini" name="throttle">
+                                <option>idle</option>
+                                <option value="below_normal">below normal</option>
+                                <option>normal</option>
+                                <option value="above_normal">above normal</option>
+                                <option>high</option>
+                                <!--<option value="real_time">real time</option>-->
+                            </select>
+                            <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                        </div>
+                        <input type="hidden" value="<% print(model.id); %>" name="patches">
+                    </header>
+                    <div class="items">
+                        <% _.each(tags.failed, function (tag) { %>
+                        <div class="item clearfix">
+                            <span class="desc">
+                                <label class="checkbox inline">
+                                    <input type="checkbox" name="tag" value="<%= tag.tag_id %>">
+                                    <%= tag.tag_name %>
+                                </label>
+                            </span>
+                            <span class="pull-right"><a href="#nodes?filterby=<%= tag.tag_name %>">See list of nodes</a></span>
+                        </div>
+                        <% }); %>
+                    </div>
+                </form>
+                <% } else { %>
+                    <div class="items">
+                        <div class="item"><em>No tags available.</em></div>
+                    </div>
+                <% } %>
+            </section>
+        </div>
+    </div>
+    <% } %>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;
+                    <strong>Nodes that need this patch</strong>
+                    <span class="badge badge-inverse pull-right"><%= available_agents.length %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner" >
+                <% if(available_agents.length) { %>
+                    <form action="/submitForm" method="post" class="form-inline" id="available">
+                        <header class="clearfix">
+                            <label class="checkbox inline">
+                                <input type="checkbox" class="toggle-all">Select / Deselect All
+                            </label>
+                            <div class="pull-right noMargin">
+                                <label class="checkbox inline"><small>Schedule this patch</small></label>
+                                <input type="checkbox" name="schedule" value="once"/>&nbsp;
+                                <select type="button" class="btn btn-mini" name="operation">
+                                    <option value="install">Install</option>
+                                    <option value="hide">Hide</option>
+                                </select>
+                                <select type="button" class="btn btn-mini" name="throttle">
+                                    <option>idle</option>
+                                    <option value="below_normal">below normal</option>
+                                    <option>normal</option>
+                                    <option value="above_normal">above normal</option>
+                                    <option>high</option>
+                                    <option value="real_time">real time</option>
+                                </select>
+                                <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                            </div>
+                            <input type="hidden" value="<% print(model.id); %>" name="patches">
+                        </header>
+                        <div class="items">
+                            <% _.each(available_agents, function (node) { %>
+                                <div class="item clearfix">
+                                    <span class="desc">
+                                        <label class="checkbox inline">
+                                            <input type="checkbox" name="node" value="<%= node.id %>">
+                                            <% print(node.displayname || node.hostname || node.ip); %>
+                                        </label>
+                                    </span>
+                                    <span class="pull-right"><a href="#nodes/<%= node.id %>">More information</a></span>
+                                </div>
+                            <% }); %>
+                        </div>
+                    </form>
+                <% }  else { %>
+                    <div class="items">
+                        <div class="item"><em>No nodes to display</em></div>
+                    </div>
+                <% } %>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle"  href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;
+                    <strong>Nodes that have this patch</strong>
+                    <span class="badge badge-inverse pull-right"><%= installed_agents.length %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <% if(installed_agents.length) { %>
+                <form action="/submitForm" method="post" class="form-inline" id="done">
+                    <header class="clearfix">
+                        <label class="checkbox inline">
+                            <input type="checkbox" class="toggle-all">Select / Deselect All
+                        </label>
+                        <div class="pull-right noMargin">
+                            <select type="button" class="btn btn-mini" name="operation">
+                                <option value="uninstall">Uninstall</option>
+                                <option value="hide">hide</option>
+                            </select>
+                            <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                        </div>
+                        <input type="hidden" value="<% print(model.id); %>" name="patches">
+                    </header>
+                    <div class="items">
+                        <% _.each(installed_agents, function (node) { %>
+                        <div class="item clearfix">
+                            <span class="desc">
+                                <label class="checkbox inline">
+                                    <input type="checkbox" name="node" value="<%= node.id %>">
+                                    <% print(node.displayname || node.hostname || node.ip); %>
+                                </label>
+                            </span>
+                            <span class="pull-right"><a href="#nodes/<%= node.id %>">More information</a></span>
+                        </div>
+                        <% }); %>
+                    </div>
+                </form>
+                <% }  else { %>
+                    <div class="items">
+                        <div class="item"><em>No nodes to display</em></div>
+                    </div>
+                <% } %>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle"  href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Nodes installing this patch</strong>
+                    <span class="badge badge-inverse pull-right"><%= pending_agents.length %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner" id="pending">
+                <div class="items">
+                    <% if(pending_agents.length) { %>
+                        <% _.each(pending_agents, function (node) { %>
+                            <div class="item clearfix">
+                                <span class="desc"><% print(node.displayname || node.hostname || node.ip); %></span>
+                                <span class="pull-right"><a href="#nodes/<%= node.id %>">More information</a></span>
+                            </div>
+                        <% }); %>
+                    <% }  else { %>
+                        <div class="item" id="no-pending">
+                            <em>No nodes to display</em>
+                        </div>
+                    <% } %>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle"  href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Nodes that failed to apply this patch</strong>
+                    <span class="badge badge-inverse pull-right"><%= failed_agents.length %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <% if(failed_agents.length) { %>
+                    <form action="/submitForm" method="post" class="form-inline" id="failed">
+                        <header class="clearfix">
+                            <label class="checkbox inline">
+                                <input type="checkbox" class="toggle-all">Select / Deselect All
+                            </label>
+                            <div class="pull-right noMargin">
+                                <select type="button" class="btn btn-mini" name="operation">
+                                    <option value="install">Reinstall</option>
+                                    <option value="hide">hide</option>
+                                </select>
+                                <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                            </div>
+                            <input type="hidden" value="<% print(model.id); %>" name="patches">
+                        </header>
+                        <div class="items">
+                            <% _.each(failed_agents, function (node) { %>
+                            <div class="item clearfix">
+                                <span class="desc">
+                                    <label class="checkbox inline">
+                                        <input type="checkbox" id="<%= node.id %>" name="node" value="<%= node.id %>">
+                                        <% print(node.displayname || node.hostname || node.ip); %>
+                                    </label>
+                                </span>
+                                <span class="pull-right"><a href="#nodes/<%= node.id %>">More information</a></span>
+                            </div>
+                            <% }); %>
+                        </div>
+                    </form>
+                <% }  else { %>
+                    <div class="items">
+                        <div class="item"><em>No nodes to display</em></div>
+                    </div>
+                <% } %>
+            </section>
+        </div>
+    </div>
+</article>
+<style>
+    div.ui-datepicker{
+        font-size:12px;
+    }
+</style>
+<div id="hidden" class="hide">
+    <form class="form-horizontal" id="schedule-form">
+        <label>Date:</label>
+        <input type="text" name="datepicker" class="input-medium"/>
+        <label>Time:</label>
+        <div class="inline">
+            <select name="hours" id="hours" class="span1">
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
+            <select name="minutes" class="span1">
+                <option>00</option>
+                <option>15</option>
+                <option>30</option>
+                <option>45</option>
+            </select>
+            <select name="ampm" class="span1">
+                <option>AM</option>
+                <option>PM</option>
+            </select>
+        </div>
+        <label class="control-label">Offset:</label>
+        <select name="offset" class="input-medium">
+            <option value="default">None</option>
+            <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
+            <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
+            <option value="-10.0">(GMT -10:00) Hawaii</option>
+            <option value="-9.0">(GMT -9:00) Alaska</option>
+            <option value="-8.0">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+            <option value="-7.0">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+            <option value="-6.0">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+            <option value="-5.0">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+            <option value="-4.0">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+            <option value="-3.5">(GMT -3:30) Newfoundland</option>
+            <option value="-3.0">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+            <option value="-2.0">(GMT -2:00) Mid-Atlantic</option>
+            <option value="-1.0">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+            <option value="0.0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+            <option value="1.0">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+            <option value="2.0">(GMT +2:00) Kaliningrad, South Africa</option>
+            <option value="3.0">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+            <option value="3.5">(GMT +3:30) Tehran</option>
+            <option value="4.0">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+            <option value="4.5">(GMT +4:30) Kabul</option>
+            <option value="5.0">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+            <option value="5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+            <option value="5.75">(GMT +5:45) Kathmandu</option>
+            <option value="6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+            <option value="7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+            <option value="8.0">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+            <option value="9.0">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+            <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
+            <option value="10.0">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+            <option value="11.0">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+            <option value="12.0">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+        </select>
+        <label>Label:</label>
+        <input type="text" name="label" class="input-medium"/>
+    </form>
+</div>
+<script>
+    $('.toggle-all').click(function(el){
+        var status = el.target.checked,
+                form = $(el.target).parents('form');
+        $(form).find(":checkbox[name=node]").each( function() {
+            $(this).attr("checked", status);
+        });
+        $(form).find(":checkbox[name=tag]").each( function() {
+            $(this).attr("checked", status);
+        });
+    });
+    $('form').submit(function (e) {
+        if(this.id != 'reboot-form') {
+            var node_fields = $(this).find('input[name="node"]:checked'),
+                tag_fields = $(this).find('input[name=tag]:checked');
+            if (node_fields.length > 0 || tag_fields.length > 0) {
+                return true;
+            } else {
+                alert('Please select at least one node');
+                return false;
+            }
+        }
+    });
+</script>
+<% } %>

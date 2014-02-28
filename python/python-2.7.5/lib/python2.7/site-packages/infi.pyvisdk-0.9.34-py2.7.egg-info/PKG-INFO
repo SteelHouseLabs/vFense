@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: infi.pyvisdk
+Version: 0.9.34
+Summary: vSphere SDK for Python
+Home-page: https://github.com/Infinidat/pyvisdk
+Author: Guy Rozendorn
+Author-email: guy@rzn.co.il
+License: MIT
+Description: vSphere SDK for Python
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules

@@ -1,0 +1,26 @@
+<article class="row-fluid">
+    <section class="list">
+        <div class="legend row-fluid">
+            <strong class="span3">Computer Name</strong>
+            <span class="span2">Machine Type</span>
+            <span class="span4">OS Name</span>
+            <span class="span1">OS Type</span>
+            <span class="span2 alignRight">System Arch</span>
+        </div>
+        <div class="items">
+            <% if (models.length) { %>
+                <% _.each(models, function (model) { %>
+                    <div class="item">
+                        <span class="span3"><%= model.get('computer-name') %></span>
+                        <span class="span2"><%= model.get('machine-type') %></span>
+                        <span class="span4"><%= model.get('os-name') %></span>
+                        <span class="span1"><%= model.get('os-type') %></span>
+                        <span class="span2 alignRight"><%= model.get('system-arch') %></span>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="item">No data available</div>
+            <% } %>
+        </div>
+    </section>
+</article>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="/js/libs/qunit/qunit.css">
+    <link rel="stylesheet" href="/js/libs/hallo/hallo.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/application.css">
+    <link rel="stylesheet" href="/css/select2.css">
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <script src="/js/libs/jquery/jquery.js"></script>
+    <script src="/js/libs/modernizr/modernizr.custom.js"></script>
+    <script src="/js/libs/qunit/qunit.js"></script>
+    <script src="/js/libs/qunit/qunit-close-enough.js"></script>
+    <script data-main="/js/config" src="/js/libs/require/require.js"></script>
+    <script>
+        window.DEBUG = true;
+        window._$ = $.noConflict(true);
+        window.configStatus = new _$.Deferred();
+    </script>
+</head>
+<body>
+<div id="qunit"></div>
+<div id="qunit-fixture">
+    <div id='testElement'>
+        <h1>Test</h1>
+    </div>
+</div>
+<div id="test" class="span6"></div>
+<script>
+    configStatus.done(function() {
+        require(['./basicAgentControl.js']);
+    });
+</script>
+</body>
+</html>

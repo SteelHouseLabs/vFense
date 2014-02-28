@@ -1,0 +1,278 @@
+// All buttons must be mini!!
+@listItemFontSize: 12px;
+@listBorder: #E6E6E6;
+@listHeaderBackground: #F5F5F5;
+@listFooterBackground: #F5F5F5;
+@listLegendBackground: #FAFAFA;
+@listHighlight: @warningBackground;
+
+.list {
+    font-size: @listItemFontSize;
+    line-height: @baseLineHeight - 1px;
+
+    SELECT,
+    INPUT,
+    BUTTON {
+        .box-sizing(border-box);
+    }
+
+    SELECT,
+    INPUT[type="text"],
+    INPUT[type="password"] {
+        font-size: 12px;
+        height: 21px;
+        width: 110px;
+        margin-bottom: 0;
+    }
+
+    .input-prepend,
+    .input-append {
+        .add-on {
+            .box-sizing(border-box);
+            padding-top: 0;
+            padding-bottom: 0;
+            height: 21px;
+        }
+        margin-bottom: 0;
+    }
+
+    HR {
+        border-top-color: #CCC;
+        margin: 10px 0;
+    }
+
+    .checkbox.inline {
+        padding-top: 0;
+    }
+
+    .pend, .info { color: @infoText; }
+    .done, .succ { color: @successText; }
+    .need, .warn { color: @warningText; }
+    .fail, .err  { color: @errorText; }
+}
+
+DIV.list,
+SECTION.list,
+ARTICLE.list {
+    display: block;
+
+    HEADER,
+    .legend,
+    FOOTER {
+        padding: 2px 5px;
+        border-top: 1px solid @listBorder;
+        border-bottom: 1px solid @listBorder;
+    }
+
+    HEADER {
+        background-color: @listHeaderBackground;
+    }
+
+    .legend {
+        background-color: @listLegendBackground;
+    }
+
+    FOOTER {
+        background-color: @listFooterBackground;
+    }
+
+    HEADER + .legend, HEADER + .items > .item:first-child, HEADER + FOOTER,
+    .legend + .items > .item:first-child, .legend + FOOTER,
+    .items + FOOTER {
+        border-top: 0 none;
+    }
+
+    &.row-fluid,
+    .row-fluid {
+        .box-sizing(border-box);
+        [class*="span"] {
+            min-height: 1em;
+        }
+    }
+
+    .items {
+        .item {
+            font-size: @listItemFontSize;
+
+            border-top: 1px solid @listBorder;
+            padding: 1px 5px;
+
+            &:last-child {
+                border-bottom: 1px solid @listBorder;
+            }
+
+            &:hover {
+                background-color: @listHighlight;
+            }
+
+            &.linked {
+                A {
+                    display: block;
+                    color: #000;
+                    STRONG {
+                        color: @linkColor;
+                    }
+                }
+            }
+
+            .text-overflow();
+
+            [class^="span"], >.desc {
+                .text-overflow();
+            }
+
+            .btn-link {
+                border: 0;
+                border: none;
+                line-height: 18px;
+                height: 18px;
+            }
+        }
+
+        FORM {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        A {
+            text-decoration: none;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.list.tabular {
+    display: table;
+    > HEADER { display: table-caption; }
+    > .legend { display: table-header-group; }
+    > FOOTER { display: table-footer-group; }
+    > .items { display: table-row-group; }
+    >.legend, >.items, > FOOTER {
+        > .item {
+            display: table-row;
+            > .cell {
+                display: table-cell;
+            }
+        }
+    }
+}
+
+TABLE.list,
+.list.tabular {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    CAPTION, > HEADER {
+        background-color: @listHeaderBackground;
+    }
+
+    THEAD, >.legend {
+        background-color: @listLegendBackground;
+    }
+
+    TFOOT, > FOOTER {
+        background-color: @listFooterBackground;
+    }
+
+    TH {
+        font-weight: normal;
+        text-align: left;
+    }
+
+    CAPTION, > HEADER,
+    TH, TD, .cell {
+        .text-overflow();
+        padding: 2px 5px;
+        border-top: 1px solid @listBorder;
+        border-bottom: 1px solid @listBorder;
+
+        &.alignLeft { text-align: left; }
+        &.alignRight { text-align: right; }
+        &.alignCenter { text-align: center; }
+    }
+
+    TBODY > TR, .item {
+        &:hover {
+            background-color: @listHighlight;
+        }
+    }
+
+    CAPTION, > HEADER {
+        &+THEAD, &+TBODY, &+TFOOT {
+            > TR:first-child {
+                > TH, > TD {
+                    border-top: 0;
+                }
+            }
+        }
+    }
+
+    th, td {
+        &.icon {
+            width: 1.1em;
+            text-spacing: 1.1em;
+        }
+    }
+}
+
+.multiList {
+    @masterSlaveBorder: #B0B0B0;
+    @slaveBackground: #f2f3f5;
+    @selectedColor: #2F7AD8;
+    >.master,
+    >.detail {
+        .box-sizing(border-box);
+    }
+
+    >.master {
+        .items {
+            min-height: 430px;
+            .item {
+                cursor: pointer !important;
+                &.selected {
+                    background-color: @selectedColor !important;
+                    color: white !important;
+                    .pend, .info,
+                    .done, .succ,
+                    .need, .warn,
+                    .fail, .err  {
+                        color: white !important;
+                    }
+                }
+                &:first-child {
+                    border-top: 0 none;
+                }
+                .need, .warn,
+                .fail, .err  {
+                    font-weight: bold;
+                }
+            }
+        }
+        border: 1px solid @masterSlaveBorder;
+    }
+
+    >.detail {
+        min-height: unit(430 + 30, px);
+        PRE {
+            .box-sizing(border-box);
+            &.defaultMessage {
+                min-height: inherit;
+                text-align: center;
+                padding-top: 10em;
+            }
+        }
+        H3 {
+            SMALL {
+                display: block;
+                line-height: 1;
+                margin: 0;
+            }
+        }
+        H5 {
+            margin-bottom: 0.5em;
+        }
+    }
+}

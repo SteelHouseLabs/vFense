@@ -1,0 +1,4 @@
+Livestamp.js
+Home:       http://mattbradley.github.io/livestampjs/
+GitHub:     https://github.com/mattbradley/livestampjs/tags
+Version:    1.1.2

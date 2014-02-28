@@ -1,0 +1,4 @@
+H5F - HTML 5 Forms
+Home:       http://thecssninja.com/javascript/H5F
+GitHub:     https://github.com/ryanseddon/H5F/tags
+Version:    1.0.1

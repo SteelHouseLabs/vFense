@@ -1,0 +1,3 @@
+rangy-core.js
+URL:     rangy.googlecode.com/svn/trunk/currentrelease/uncompressed/rangy-core.js
+Version: 1.2.3

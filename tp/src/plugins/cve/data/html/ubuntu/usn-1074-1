@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-1074-1: Linux kernel vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-1074-1: Linux kernel vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-1074-1</h2>
+<p><em>25th February, 2011</em></p>
+<h3>linux-fsl-imx51 vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 9.10</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>Multiple kernel flaws.
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>linux-fsl-imx51 
+    - Linux kernel for FSL IMX51
+    
+    </li>
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>Al Viro discovered a race condition in the TTY driver. A local attacker<br />could exploit this to crash the system, leading to a denial of service.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4895">CVE-2009-4895</a>)</p>
+
+<p>Dan Rosenberg discovered that the MOVE_EXT ext4 ioctl did not correctly<br />check file permissions. A local attacker could overwrite append-only files,<br />leading to potential data loss. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2066">CVE-2010-2066</a>)</p>
+
+<p>Dan Rosenberg discovered that the swapexit xfs ioctl did not correctly<br />check file permissions. A local attacker could exploit this to read from<br />write-only files, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2226">CVE-2010-2226</a>)</p>
+
+<p>Gael Delalleu, Rafal Wojtczuk, and Brad Spengler discovered that the memory<br />manager did not properly handle when applications grow stacks into adjacent<br />memory regions. A local attacker could exploit this to gain control of<br />certain applications, potentially leading to privilege escalation, as<br />demonstrated in attacks against the X server. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2240">CVE-2010-2240</a>)</p>
+
+<p>Suresh Jayaraman discovered that CIFS did not correctly validate certain<br />response packats. A remote attacker could send specially crafted traffic<br />that would crash the system, leading to a denial of service.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2248">CVE-2010-2248</a>)</p>
+
+<p>Ben Hutchings discovered that the ethtool interface did not correctly check<br />certain sizes. A local attacker could perform malicious ioctl calls that<br />could crash the system, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2478">CVE-2010-2478</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3084">CVE-2010-3084</a>)</p>
+
+<p>James Chapman discovered that L2TP did not correctly evaluate checksum<br />capabilities. If an attacker could make malicious routing changes, they<br />could crash the system, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2495">CVE-2010-2495</a>)</p>
+
+<p>Neil Brown discovered that NFSv4 did not correctly check certain write<br />requests. A remote attacker could send specially crafted traffic that could<br />crash the system or possibly gain root privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2521">CVE-2010-2521</a>)</p>
+
+<p>David Howells discovered that DNS resolution in CIFS could be spoofed. A<br />local attacker could exploit this to control DNS replies, leading to a loss<br />of privacy and possible privilege escalation. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2524">CVE-2010-2524</a>)</p>
+
+<p>Dan Rosenberg discovered that the btrfs filesystem did not correctly<br />validate permissions when using the clone function. A local attacker could<br />overwrite the contents of file handles that were opened for append-only, or<br />potentially read arbitrary contents, leading to a loss of privacy. Only<br />Ubuntu 9.10 was affected. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2538">CVE-2010-2538</a>)</p>
+
+<p>Bob Peterson discovered that GFS2 rename operations did not correctly<br />validate certain sizes. A local attacker could exploit this to crash the<br />system, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2798">CVE-2010-2798</a>)</p>
+
+<p>Kees Cook discovered that under certain situations the ioctl subsystem for<br />DRM did not properly sanitize its arguments. A local attacker could exploit<br />this to read previously freed kernel memory, leading to a loss of privacy.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2803">CVE-2010-2803</a>)</p>
+
+<p>Eric Dumazet discovered that many network functions could leak kernel stack<br />contents. A local attacker could exploit this to read portions of kernel<br />memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2942">CVE-2010-2942</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3477">CVE-2010-3477</a>)</p>
+
+<p>Dave Chinner discovered that the XFS filesystem did not correctly order<br />inode lookups when exported by NFS. A remote attacker could exploit this to<br />read or write disk blocks that had changed file assignment or had become<br />unlinked, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2943">CVE-2010-2943</a>)</p>
+
+<p>Sergey Vlasov discovered that JFS did not correctly handle certain extended<br />attributes. A local attacker could bypass namespace access rules, leading<br />to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2946">CVE-2010-2946</a>)</p>
+
+<p>Tavis Ormandy discovered that the IRDA subsystem did not correctly shut<br />down. A local attacker could exploit this to cause the system to crash or<br />possibly gain root privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2954">CVE-2010-2954</a>)</p>
+
+<p>Brad Spengler discovered that the wireless extensions did not correctly<br />validate certain request sizes. A local attacker could exploit this to read<br />portions of kernel memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2955">CVE-2010-2955</a>)</p>
+
+<p>Ben Hawkes discovered an integer overflow in the Controller Area Network<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2959">CVE-2010-2959</a>)</p>
+
+<p>Kees Cook discovered that the Intel i915 graphics driver did not correctly<br />validate memory regions. A local attacker with access to the video card<br />could read and write arbitrary kernel memory to gain root privileges.<br />Ubuntu 10.10 was not affected. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2962">CVE-2010-2962</a>)</p>
+
+<p>Kees Cook discovered that the V4L1 32bit compat interface did not correctly<br />validate certain parameters. A local attacker on a 64bit system with access<br />to a video device could exploit this to gain root privileges.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2963">CVE-2010-2963</a>)</p>
+
+<p>Toshiyuki Okajima discovered that ext4 did not correctly check certain<br />parameters. A local attacker could exploit this to crash the system or<br />overwrite the last block of large files. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3015">CVE-2010-3015</a>)</p>
+
+<p>Tavis Ormandy discovered that the AIO subsystem did not correctly validate<br />certain parameters. A local attacker could exploit this to crash the system<br />or possibly gain root privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3067">CVE-2010-3067</a>)</p>
+
+<p>Dan Rosenberg discovered that certain XFS ioctls leaked kernel stack<br />contents. A local attacker could exploit this to read portions of kernel<br />memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3078">CVE-2010-3078</a>)</p>
+
+<p>Robert Swiecki discovered that ftrace did not correctly handle mutexes. A<br />local attacker could exploit this to crash the kernel, leading to a denial<br />of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3079">CVE-2010-3079</a>)</p>
+
+<p>Tavis Ormandy discovered that the OSS sequencer device did not correctly<br />shut down. A local attacker could exploit this to crash the system or<br />possibly gain root privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3080">CVE-2010-3080</a>)</p>
+
+<p>Ben Hawkes discovered that the Linux kernel did not correctly validate<br />memory ranges on 64bit kernels when allocating memory on behalf of 32bit<br />system calls. On a 64bit system, a local attacker could perform malicious<br />multicast getsockopt calls to gain root privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3081">CVE-2010-3081</a>)</p>
+
+<p>Dan Rosenberg discovered that several network ioctls did not clear kernel<br />memory correctly. A local user could exploit this to read kernel stack<br />memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3296">CVE-2010-3296</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3297">CVE-2010-3297</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3298">CVE-2010-3298</a>)</p>
+
+<p>Ben Hawkes discovered that the Linux kernel did not correctly filter<br />registers on 64bit kernels when performing 32bit system calls. On a 64bit<br />system, a local attacker could manipulate 32bit system calls to gain root<br />privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3301">CVE-2010-3301</a>)</p>
+
+<p>Dan Rosenberg discovered that the ROSE driver did not correctly check<br />parameters. A local attacker with access to a ROSE network device could<br />exploit this to crash the system or possibly gain root privileges.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3310">CVE-2010-3310</a>)</p>
+
+<p>Thomas Dreibholz discovered that SCTP did not correctly handle appending<br />packet chunks. A remote attacker could send specially crafted traffic to<br />crash the system, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3432">CVE-2010-3432</a>)</p>
+
+<p>Dan Rosenberg discovered that the CD driver did not correctly check<br />parameters. A local attacker could exploit this to read arbitrary kernel<br />memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3437">CVE-2010-3437</a>)</p>
+
+<p>Dan Rosenberg discovered that the Sound subsystem did not correctly<br />validate parameters. A local attacker could exploit this to crash the<br />system, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3442">CVE-2010-3442</a>)</p>
+
+<p>Dan Jacobson discovered that ThinkPad video output was not correctly access<br />controlled. A local attacker could exploit this to hang the system, leading<br />to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3448">CVE-2010-3448</a>)</p>
+
+<p>It was discovered that KVM did not correctly initialize certain CPU<br />registers. A local attacker could exploit this to crash the system, leading<br />to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3698">CVE-2010-3698</a>)</p>
+
+<p>Dan Rosenberg discovered that SCTP did not correctly handle HMAC<br />calculations. A remote attacker could send specially crafted traffic that<br />would crash the system, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3705">CVE-2010-3705</a>)</p>
+
+<p>Nelson Elhage discovered several problems with the Acorn Econet protocol<br />driver. A local user could cause a denial of service via a NULL pointer<br />dereference, escalate privileges by overflowing the kernel stack, and<br />assign Econet addresses to arbitrary interfaces. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3848">CVE-2010-3848</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3849">CVE-2010-3849</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3850">CVE-2010-3850</a>)</p>
+
+<p>Brad Spengler discovered that stack memory for new a process was not<br />correctly calculated. A local attacker could exploit this to crash the<br />system, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3858">CVE-2010-3858</a>)</p>
+
+<p>Kees Cook discovered that the ethtool interface did not correctly clear<br />kernel memory. A local attacker could read kernel heap memory, leading to a<br />loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3861">CVE-2010-3861</a>)</p>
+
+<p>Dan Rosenberg discovered that the RDS network protocol did not correctly<br />check certain parameters. A local attacker could exploit this gain root<br />privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3904">CVE-2010-3904</a>)</p>
+
+<p>Kees Cook and Vasiliy Kulikov discovered that the shm interface did not<br />clear kernel memory correctly. A local attacker could exploit this to read<br />kernel stack memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4072">CVE-2010-4072</a>)</p>
+
+<p>Dan Rosenberg discovered that IPC structures were not correctly initialized<br />on 64bit systems. A local attacker could exploit this to read kernel stack<br />memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4073">CVE-2010-4073</a>)</p>
+
+<p>Dan Rosenberg discovered that the USB subsystem did not correctly<br />initialize certian structures. A local attacker could exploit this to read<br />kernel stack memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4074">CVE-2010-4074</a>)</p>
+
+<p>Dan Rosenberg discovered that the SiS video driver did not correctly clear<br />kernel memory. A local attacker could exploit this to read kernel stack<br />memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4078">CVE-2010-4078</a>)</p>
+
+<p>Dan Rosenberg discovered that the ivtv V4L driver did not correctly<br />initialize certian structures. A local attacker could exploit this to read<br />kernel stack memory, leading to a loss of privacy. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4079">CVE-2010-4079</a>)</p>
+
+<p>Steve Chen discovered that setsockopt did not correctly check MSS values. A<br />local attacker could make a specially crafted socket call to crash the<br />system, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4165">CVE-2010-4165</a>)</p>
+
+<p>Dave Jones discovered that the mprotect system call did not correctly<br />handle merged VMAs. A local attacker could exploit this to crash the<br />system, leading to a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4169">CVE-2010-4169</a>)</p>
+
+<p>Vegard Nossum discovered that memory garbage collection was not handled<br />correctly for active sockets. A local attacker could exploit this to<br />allocate all available kernel memory, leading to a denial of service.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4249">CVE-2010-4249</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 9.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/linux-fsl-imx51">linux-image-2.6.31-112-imx51</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/linux-fsl-imx51/2.6.31-112.30">2.6.31-112.30</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system update you need to reboot your computer to make<br />all the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-4895">CVE-2009-4895</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2066">CVE-2010-2066</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2226">CVE-2010-2226</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2240">CVE-2010-2240</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2248">CVE-2010-2248</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2478">CVE-2010-2478</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2495">CVE-2010-2495</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2521">CVE-2010-2521</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2524">CVE-2010-2524</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2538">CVE-2010-2538</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2798">CVE-2010-2798</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2803">CVE-2010-2803</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2942">CVE-2010-2942</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2943">CVE-2010-2943</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2946">CVE-2010-2946</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2954">CVE-2010-2954</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2955">CVE-2010-2955</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2959">CVE-2010-2959</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2962">CVE-2010-2962</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2963">CVE-2010-2963</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3015">CVE-2010-3015</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3067">CVE-2010-3067</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3078">CVE-2010-3078</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3079">CVE-2010-3079</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3080">CVE-2010-3080</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3081">CVE-2010-3081</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3084">CVE-2010-3084</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3296">CVE-2010-3296</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3297">CVE-2010-3297</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3298">CVE-2010-3298</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3301">CVE-2010-3301</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3310">CVE-2010-3310</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3432">CVE-2010-3432</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3437">CVE-2010-3437</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3442">CVE-2010-3442</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3448">CVE-2010-3448</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3477">CVE-2010-3477</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3698">CVE-2010-3698</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3705">CVE-2010-3705</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3848">CVE-2010-3848</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3849">CVE-2010-3849</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3850">CVE-2010-3850</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3858">CVE-2010-3858</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3861">CVE-2010-3861</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3904">CVE-2010-3904</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4072">CVE-2010-4072</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4073">CVE-2010-4073</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4074">CVE-2010-4074</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4078">CVE-2010-4078</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4079">CVE-2010-4079</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4165">CVE-2010-4165</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4169">CVE-2010-4169</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4249">CVE-2010-4249</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

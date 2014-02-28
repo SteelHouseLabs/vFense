@@ -1,0 +1,76 @@
+// Navbar Styles
+// -------------------------
+
+BODY > HEADER {
+    .navbar {
+        font-family: "Cantarell", "Arial Black", "Arial Bold", sans-serif;
+        font-weight: bold;
+        margin-bottom:0;
+
+        .nav {
+            margin-right:0;
+        }
+
+        .brand {
+            IMG {
+                height: 18px;
+                vertical-align:baseline;
+            //@marginAdjust: 0px;
+            //margin-top: unit((( @marginAdjust )/@navbarBrandFontSize), em);
+            //margin-bottom: unit((( @marginAdjust )/@navbarBrandFontSize), em);
+            }
+        }
+    }
+
+    .navbar-inner {
+        padding-left:0;
+        padding-right:0;
+    }
+
+    #primaryNav {
+        background-image: none !important;
+        filter: none !important;
+        background-color: transparent;
+    }
+}
+
+.modal-header.tabs {
+    border: 0 none;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+
+    ul.nav {
+        margin-bottom: 0;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    // Center tabs
+    // http://stackoverflow.com/a/9422253
+    .nav-tabs > li, .nav-pills > li {
+        float:none;
+        display:inline-block;
+        *display:inline; /* ie7 fix */
+        zoom:1; /* hasLayout ie7 trigger */
+    }
+
+    .nav-tabs, .nav-pills {
+        text-align:center;
+    }
+}
+
+.modal() {
+    .spanX (@index) when (@index > 0) {
+        .modal.span@{index} { .span(@index); }
+        .spanX(@index - 1);
+    }
+    .spanX (0) {}
+    .span (@columns) {
+        @width: (@gridColumnWidth * @columns) + (@gridGutterWidth * (@columns - 1));
+        width: @width;
+        margin-left: -(@width/2);
+    }
+    .spanX(@gridColumns);
+}
+.modal();

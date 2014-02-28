@@ -1,0 +1,4 @@
+modernizr.custom.js
+Home:       http://modernizr.com
+GitHub:     https://github.com/Modernizr/Modernizr/tags
+Version:    2.6.2

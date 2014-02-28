@@ -1,0 +1,4 @@
+Select2.js
+Home:       http://ivaynberg.github.io/select2/
+GitHub:     https://github.com/ivaynberg/select2/tags
+Version:    3.4.0

@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-155-1: Mozilla vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-155-1: Mozilla vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-155-1</h2>
+<p><em>26th July, 2005</em></p>
+<h3>mozilla vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 5.04</li>
+
+    <li>Ubuntu 4.10</li>
+
+</ul>
+
+
+
+
+
+<h3>Details</h3>
+<p>Secunia.com reported that one of the recent security patches in<br />Firefox reintroduced the frame injection patch that was originally<br />known as CAN-2004-0718. This allowed a malicious web site to spoof the<br />contents of other web sites. (CAN-2005-1937)</p>
+
+<p>It was discovered that a malicious website could inject arbitrary<br />scripts into a target site by loading it into a frame and navigating<br />back to a previous Javascript URL that contained an eval() call. This<br />could be used to steal cookies or other confidential data from the<br />target site. (MFSA 2005-42)</p>
+
+<p>Michael Krax, Georgi Guninski, and L. David Baron found that the<br />security checks that prevent script injection could be bypassed by<br />wrapping a javascript: url in another pseudo-protocol like<br />&quot;view-source:&quot; or &quot;jar:&quot;. (CAN-2005-1531)</p>
+
+<p>A variant of the attack described in CAN-2005-1160 (see USN-124-1) was<br />discovered. Additional checks were added to make sure Javascript eval<br />and script objects are run with the privileges of the context that<br />created them, not the potentially elevated privilege of the context<br />calling them. (CAN-2005-1532)</p>
+
+<p>In several places the browser user interface did not correctly<br />distinguish between true user events, such as mouse clicks or<br />keystrokes, and synthetic events genenerated by web content. This<br />could be exploited by malicious web sites to generate e. g. mouse clicks<br />that install malicious plugins. Synthetic events are now prevented<br />from reaching the browser UI entirely. (CAN-2005-2260)</p>
+
+<p>Scripts in XBL controls from web content continued to be run even when<br />Javascript was disabled. This could be combined with most script-based<br />exploits to attack people running vulnerable versions who thought<br />disabling Javascript would protect them. (CAN-2005-2261)</p>
+
+<p>Matthew Mastracci discovered a flaw in the addons installation<br />launcher. By forcing a page navigation immediately after calling the<br />install method a callback function could end up running in the context<br />of the new page selected by the attacker. This callback script could<br />steal data from the new page such as cookies or passwords, or perform<br />actions on the user&#39;s behalf such as make a purchase if the user is<br />already logged into the target site. However, the default settings<br />allow only http://addons.mozilla.org to bring up this install dialog.<br />This could only be exploited if users have added untrustworthy sites<br />to the installation whitelist, and if a malicious site can convince<br />you to install from their site. (CAN-2005-2263)</p>
+
+<p>The function for version comparison in the addons installer did not<br />properly verify the type of its argument. By passing specially crafted<br />Javascript objects to it, a malicious web site could crash the browser<br />and possibly even execute arbitrary code with the privilege of the<br />user account Firefox runs in. (CAN-2005-2265)</p>
+
+<p>A child frame can call top.focus() even if the framing page comes from<br />a different origin and has overridden the focus() routine. Andreas<br />Sandblad discovered that the call is made in the context of the child<br />frame. This could be exploited to steal cookies and passwords from the<br />framed page, or take actions on behalf of a signed-in user. However,<br />web sites with above properties are not very common. (CAN-2005-2266)</p>
+
+<p>Alerts and prompts created by scripts in web pages were presented with<br />the generic title [Javascript Application] which sometimes made it<br />difficult to know which site created them. A malicious page could<br />exploit this by causing a prompt to appear in front of a trusted site<br />in an attempt to extract information such as passwords from the user.<br />In the fixed version these prompts contain the hostname of the page<br />which created it. (CAN-2005-2268)</p>
+
+<p>The XHTML DOM node handler did not take namespaces into account when<br />verifying node types based on their names. For example, an XHTML<br />document could contain an &lt;IMG&gt; tag with malicious contents, which<br />would then be processed as the standard trusted HTML &lt;img&gt; tag. By<br />tricking an user to view malicious web sites, this could be exploited<br />to execute attacker-specified code with the full privileges of the<br />user. (CAN-2005-2269)</p>
+
+<p>It was discovered that some objects were not created appropriately.<br />This allowed malicious web content scripts to trace back the creation<br />chain until they found a privileged object and execute code with<br />higher privileges than allowed by the current site. (CAN-2005-2270)</p>
+
+<p>The update for Ubuntu 4.10 (Warty Warthog) also fixes several<br />vulnerabilities which are not present in the Ubuntu 5.04 version. Some<br />of them could be exploited to execute arbitrary code with full user<br />privileges if the user visited a malicious web site. (MFSA-2005-01 to<br />MFSA-2005-41; please see the following web site for details:<br />http://www.mozilla.org/projects/security/known-vulnerabilities.html). We<br />apologize for the huge delay of this update; we changed our update<br />strategy for Mozilla products to make sure that such long delays will<br />not happen again.</p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 5.04:</dt>
+  
+    
+  <dd>mozilla-mailnews <span></span></dd>
+    
+  
+    
+  <dd>mozilla-browser <span></span></dd>
+    
+  
+
+<dt>Ubuntu 4.10:</dt>
+  
+    
+  <dd>mozilla-mailnews <span></span></dd>
+    
+  
+    
+  <dd>mozilla-browser <span></span></dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>None</p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-1531">CVE-2005-1531</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-1532">CVE-2005-1532</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-1937">CVE-2005-1937</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2260">CVE-2005-2260</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2261">CVE-2005-2261</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2263">CVE-2005-2263</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2265">CVE-2005-2265</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2266">CVE-2005-2266</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2268">CVE-2005-2268</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2269">CVE-2005-2269</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2005-2270">CVE-2005-2270</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

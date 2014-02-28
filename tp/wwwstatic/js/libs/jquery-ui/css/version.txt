@@ -1,0 +1,4 @@
+jQuery UI Bootstrap Theme
+Home:       http://addyosmani.github.io/jquery-ui-bootstrap/
+GitHub:     https://github.com/addyosmani/jquery-ui-bootstrap/tags
+Version:    0.5pre

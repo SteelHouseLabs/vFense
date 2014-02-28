@@ -1,0 +1,4 @@
+jquery.js
+Home:       http://jquery.com
+GitHub:     https://github.com/jquery/jquery/tags
+Version:    1.10.1

@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-424-2: PHP regression | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-424-2: PHP regression</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-424-2</h2>
+<p><em>8th March, 2007</em></p>
+<h3>php5 regression</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 6.10</li>
+
+    <li>Ubuntu 6.06 LTS</li>
+
+    <li>Ubuntu 5.10</li>
+
+</ul>
+
+
+
+
+
+<h3>Details</h3>
+<p>USN-424-1 fixed vulnerabilities in PHP.  However, some upstream changes <br />were not included, which caused errors in the stream filters.  This <br />update fixes the problem.</p>
+
+<p>We apologize for the inconvenience.</p>
+
+<p>Original advisory details:</p>
+
+<p> Multiple buffer overflows have been discovered in various PHP modules.<br /> If a PHP application processes untrusted data with functions of the<br /> session or zip module, or various string functions, a remote attacker<br /> could exploit this to execute arbitrary code with the privileges of<br /> the web server. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2007-0906">CVE-2007-0906</a>)</p>
+
+<p> The sapi_header_op() function had a buffer underflow that could be<br /> exploited to crash the PHP interpreter. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2007-0907">CVE-2007-0907</a>)</p>
+
+<p> The wddx unserialization handler did not correctly check for some<br /> buffer boundaries and had an uninitialized variable. By unserializing<br /> untrusted data, this could be exploited to expose memory regions that<br /> were not meant to be accessible. Depending on the PHP application this<br /> could lead to disclosure of potentially sensitive information.<br /> (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2007-0908">CVE-2007-0908</a>)</p>
+
+<p> On 64 bit systems (the amd64 and sparc platforms), various print<br /> functions and the odbc_result_all() were susceptible to a format<br /> string vulnerability. A remote attacker could exploit this to execute<br /> arbitrary code with the privileges of the web server. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2007-0909">CVE-2007-0909</a>)</p>
+
+<p> Under certain circumstances it was possible to overwrite superglobal<br /> variables (like the HTTP GET/POST arrays) with crafted session data.<br /> (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2007-0910">CVE-2007-0910</a>)</p>
+
+<p> When unserializing untrusted data on 64-bit platforms the<br /> zend_hash_init() function could be forced to enter an infinite loop,<br /> consuming CPU resources, for a limited length of time, until the<br /> script timeout alarm aborts the script. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2007-0988">CVE-2007-0988</a>)</p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 6.10:</dt>
+  
+    
+  <dd>php5-cli <span>5.1.6-1ubuntu2.3</span></dd>
+    
+  
+    
+  <dd>php5-cgi <span>5.1.6-1ubuntu2.3</span></dd>
+    
+  
+    
+  <dd>libapache2-mod-php5 <span>5.1.6-1ubuntu2.3</span></dd>
+    
+  
+    
+  <dd>php5-common <span>5.1.6-1ubuntu2.3</span></dd>
+    
+  
+
+<dt>Ubuntu 6.06 LTS:</dt>
+  
+    
+  <dd>php5-cli <span>5.1.2-1ubuntu3.6</span></dd>
+    
+  
+    
+  <dd>php5-cgi <span>5.1.2-1ubuntu3.6</span></dd>
+    
+  
+    
+  <dd>libapache2-mod-php5 <span>5.1.2-1ubuntu3.6</span></dd>
+    
+  
+    
+  <dd>php5-common <span>5.1.2-1ubuntu3.6</span></dd>
+    
+  
+
+<dt>Ubuntu 5.10:</dt>
+  
+    
+  <dd>php5-cli <span>5.0.5-2ubuntu1.8</span></dd>
+    
+  
+    
+  <dd>php5-cgi <span>5.0.5-2ubuntu1.8</span></dd>
+    
+  
+    
+  <dd>libapache2-mod-php5 <span>5.0.5-2ubuntu1.8</span></dd>
+    
+  
+    
+  <dd>php5-common <span>5.0.5-2ubuntu1.8</span></dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system upgrade you need to restart Apache or reboot <br />your computer to effect the necessary changes.</p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="https://launchpad.net/bugs/87481">LP: 87481</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

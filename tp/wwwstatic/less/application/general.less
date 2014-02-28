@@ -1,0 +1,158 @@
+/*!
+   ===== Primary Styles ========================================================
+   Author: Luis Aleman
+   =============================================================================
+*/
+
+BODY {
+    font-family: "Open Sans", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    //background-color: @TP_White;
+    min-width: @gridRowWidth;
+    padding-top: 1em;
+    padding-bottom: @pageFooterHeight;
+
+    > FOOTER {
+        background-color: #F8F8F8;
+        height: @pageFooterHeight;
+        color: darken(@TP_DarkGrey,4%);
+        border-top: 1px solid #E0E0E0;
+        border-bottom: 1px solid #E0E0E0;
+    }
+}
+
+.loading_indicator {
+    .brand {
+        font-size: 20px;
+    }
+}
+
+#pageFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: @zindexModalBackdrop - 5;
+}
+
+.brand {
+    @brandColor: #001678;
+    color: @brandColor !important;
+    margin-left:0;
+    padding-left:0;
+    text-transform:uppercase;
+    font-weight: 600;
+
+    SMALL {
+        color: @brandColor !important;
+        font-size: 75%;
+        line-height: 1em;
+    }
+}
+
+li {
+    [class^="icon-"], [class*=" icon-"] {
+        line-height: 1.25em;
+    }
+}
+
+H1, H2, H3, H4, H5, H6 { margin:0; }
+
+.legal {
+    line-height: @pageFooterHeight;
+}
+
+SELECT {
+    padding: 0;
+}
+
+// Set :invalid state to look like :valid state
+input:focus:required:invalid,
+textarea:focus:required:invalid,
+select:focus:required:invalid {
+    color: @gray;
+    border-color: @inputBorder;
+    &:focus {
+        border-color: rgba(82,168,236,.8);
+        @box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+        .box-shadow(@box-shadow)
+    }
+}
+
+// Use .invalid to show :invalid state
+input.invalid:required,
+textarea.invalid:required,
+select.invalid:required {
+    color: #b94a48;
+    border-color: #ee5f5b;
+    &:focus {
+        border-color: darken(#ee5f5b, 10%);
+        @shadow: 0 0 6px lighten(#ee5f5b, 20%);
+        .box-shadow(@shadow);
+    }
+}
+
+.modal-body {
+    position: relative;
+    >.tabbable {
+        .box-sizing(border-box);
+        &.tabs-left {
+            overflow: hidden;
+            .nav-tabs {
+                .box-sizing(border-box);
+                margin: 0;
+                margin-right: -1px;
+            }
+            .tab-content {
+                .box-sizing(border-box);
+                border-left: 1px solid #DDD;
+                padding: 1em;
+            }
+        }
+    }
+    FORM,
+    .accordion {
+        margin-bottom: 0;
+    }
+}
+
+/* Sergio's Styles: To be sorted */
+
+/*.window {
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 4px solid #E0E0E0;
+    background-color: white;
+    padding: 5px;
+}*/
+.radio-graph {
+    font-size: 0.7em;
+}
+.point {
+    fill: rgb(51, 156, 255);
+    stroke-width: 2px;
+    stroke: rgb(255,255,255);
+}
+.point.max {
+    fill: rgb(200,0,0);
+    stroke-width: 2px;
+}
+.chart {
+    display: block;
+    margin: auto;
+    margin-top: 60px;
+    font-size: 11px;
+}
+
+.tree {
+    stroke: #eee;
+    fill: #aaa;
+    fill-opacity: .8;
+}
+
+.tree.parent {
+    cursor: pointer;
+    fill: steelblue;
+}
+text {
+    pointer-events: none;
+}

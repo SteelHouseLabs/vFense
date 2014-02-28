@@ -1,0 +1,62 @@
+<article>
+    <section class="list">
+        <header class="clearfix">
+            <div class="pull-left">&nbsp;</div>
+            <div class="pull-right hidden-print">
+                <button class="btn btn-mini disabled" id="list-export">
+                    <span>Export</span>&nbsp;<i class="icon-download-alt"></i>
+                </button>
+                <button id="createTag" class="btn btn-mini">
+                    Create Tag
+                </button>
+            </div>
+        </header>
+        <div class="accordion items" id="accordion">
+            <div class="item row-fluid hide" id="newTag">
+                <div class="span8">
+                    <input id="tagName" type="text" placeholder="Tag name" required="required" class="input-medium"/>
+                </div>
+                <div class="span4 alignRight">
+                    <button id="cancelNewTag" class="btn btn-mini">
+                        Cancel
+                    </button>
+                    <button id="submitTag" class="btn btn-mini btn-primary">
+                        Confirm
+                    </button>
+                </div>
+            </div>
+            <% if (data.length) { %>
+                <% _.each(data, function (tag) { %>
+                    <div class="accordion-group item clearfix">
+                        <div class="accordion-heading row-fluid">
+                            <span class="desc span8">
+                                <a class="accordion-toggle" data-parent="#accordion" href="#<% print(tag.name.replace(' ', '')); %>">
+                                    <i class="icon-circle-arrow-down"></i>&nbsp;<%= tag.name %>
+                                </a>
+                            </span>
+                            <div style="margin-top: 6px" class="span4 alignRight">
+                                <span class="badge badge-inverse"><%= tag.agents.length %></span>&nbsp;
+                                <button type="button" class="btn btn-link noPadding" name="confirmDelete" id="<%= tag.name %>"><i style="color: red;" class="icon-remove"></i></button>
+                                <div name="confirmDelete" class="hide">
+                                    <button name="remove" class="btn btn-mini btn-danger" value="<%= tag.id %>">Delete</button>
+                                    <button name="cancelDelete" class="btn btn-mini">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="<% print(tag.name.replace(' ', '')); %>" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <input type="hidden" name="agentSelect" data-tagid="<%= tag.id %>" data-tagname="<%= tag.name %>" data-placeholder="Select an agent" value='<% print(JSON.stringify(tag.agents)); %>'>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="items">
+                    <div class="item clearfix" name="notags">
+                        <span class="desc"><em>No tags available.</em></span>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </section>
+</article>

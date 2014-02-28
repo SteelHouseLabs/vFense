@@ -1,0 +1,855 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-1126-1: PHP vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-1126-1: PHP vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-1126-1</h2>
+<p><em>29th April, 2011</em></p>
+<h3>php5 vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 11.04</li>
+
+    <li>Ubuntu 10.10</li>
+
+    <li>Ubuntu 10.04 LTS</li>
+
+    <li>Ubuntu 9.10</li>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+    <li>Ubuntu 6.06 LTS</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>Multiple vulnerabilities in PHP.
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>php5 
+    - HTML-embedded scripting language interpreter
+    
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>Stephane Chazelas discovered that the /etc/cron.d/php5 cron job for<br />PHP 5.3.5 allows local users to delete arbitrary files via a symlink<br />attack on a directory under /var/lib/php5/. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-0441">CVE-2011-0441</a>)</p>
+
+<p>Raphael Geisert and Dan Rosenberg discovered that the PEAR installer<br />allows local users to overwrite arbitrary files via a symlink attack on<br />the package.xml file, related to the (1) download_dir, (2) cache_dir,<br />(3) tmp_dir, and (4) pear-build-download directories. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1072">CVE-2011-1072</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1144">CVE-2011-1144</a>)</p>
+
+<p>Ben Schmidt discovered that a use-after-free vulnerability in the PHP<br />Zend engine could allow an attacker to cause a denial of service (heap<br />memory corruption) or possibly execute arbitrary code. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4697">CVE-2010-4697</a>)</p>
+
+<p>Martin Barbella discovered a buffer overflow in the PHP GD extension<br />that allows an attacker to cause a denial of service (application crash)<br />via a large number of anti- aliasing steps in an argument to the<br />imagepstext function. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4698">CVE-2010-4698</a>)</p>
+
+<p>It was discovered that PHP accepts the \0 character in a pathname,<br />which might allow an attacker to bypass intended access restrictions<br />by placing a safe file extension after this character. This issue<br />is addressed in Ubuntu 10.04 LTS, Ubuntu 10.10, and Ubuntu 11.04.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-7243">CVE-2006-7243</a>)</p>
+
+<p>Maksymilian Arciemowicz discovered that the grapheme_extract function<br />in the PHP Internationalization extension (Intl) for ICU allow<br />an attacker to cause a denial of service (crash) via an invalid<br />size argument, which triggers a NULL pointer dereference. This<br />issue affected Ubuntu 10.04 LTS, Ubuntu 10.10, and Ubuntu<br />11.04. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-0420">CVE-2011-0420</a>)</p>
+
+<p>Maksymilian Arciemowicz discovered that the _zip_name_locate<br />function in the PHP Zip extension does not properly handle a<br />ZIPARCHIVE::FL_UNCHANGED argument, which might allow an attacker to<br />cause a denial of service (NULL pointer dereference) via an empty<br />ZIP archive. This issue affected Ubuntu 8.04 LTS, Ubuntu 9.10, Ubuntu<br />10.04 LTS, Ubuntu 10.10, and Ubuntu 11.04. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-0421">CVE-2011-0421</a>)</p>
+
+<p>Luca Carettoni discovered that the PHP Exif extension performs an<br />incorrect cast on 64bit platforms, which allows a remote attacker<br />to cause a denial of service (application crash) via an image with<br />a crafted Image File Directory (IFD). (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-0708">CVE-2011-0708</a>)</p>
+
+<p>Jose Carlos Norte discovered that an integer overflow in the PHP<br />shmop extension could allow an attacker to cause a denial of service<br />(crash) and possibly read sensitive memory function. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1092">CVE-2011-1092</a>)</p>
+
+<p>Felipe Pena discovered that a use-after-free vulnerability in the<br />substr_replace function allows an attacker to cause a denial of<br />service (memory corruption) or possibly execute arbitrary code.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1148">CVE-2011-1148</a>)</p>
+
+<p>Felipe Pena discovered multiple format string vulnerabilities in the<br />PHP phar extension. These could allow an attacker to obtain sensitive<br />information from process memory, cause a denial of service (memory<br />corruption), or possibly execute arbitrary code. This issue affected<br />Ubuntu 10.04 LTS, Ubuntu 10.10, and Ubuntu 11.04.(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1153">CVE-2011-1153</a>)</p>
+
+<p>It was discovered that a buffer overflow occurs in the strval function<br />when the precision configuration option has a large value. The default<br />compiler options for Ubuntu 8.04 LTS, Ubuntu 9.10, Ubuntu 10.04 LTS,<br />Ubuntu 10.10, and Ubuntu 11.04 should reduce the vulnerability to a<br />denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1464">CVE-2011-1464</a>)</p>
+
+<p>It was discovered that an integer overflow in the SdnToJulian function<br />in the PHP Calendar extension could allow an attacker to cause a<br />denial of service (application crash). (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1466">CVE-2011-1466</a>)</p>
+
+<p>Tomas Hoger discovered that an integer overflow in the<br />NumberFormatter::setSymbol function in the PHP Intl extension<br />could allow an attacker to cause a denial of service (application<br />crash). This issue affected Ubuntu 10.04 LTS, Ubuntu 10.10, and Ubuntu<br />11.04. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1467">CVE-2011-1467</a>)</p>
+
+<p>It was discovered that multiple memory leaks in the PHP OpenSSL<br />extension might allow a remote attacker to cause a denial of service<br />(memory consumption). This issue affected Ubuntu 10.04 LTS, Ubuntu<br />10.10, and Ubuntu 11.04. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1468">CVE-2011-1468</a>)</p>
+
+<p>Daniel Buschke discovered that the PHP Streams component in PHP<br />handled types improperly, possibly allowing an attacker to cause a<br />denial of service (application crash). (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1469">CVE-2011-1469</a>)</p>
+
+<p>It was discovered that the PHP Zip extension could allow an attacker to<br />cause a denial of service (application crash) via a ziparchive stream<br />that is not properly handled by the stream_get_contents function. This<br />issue affected Ubuntu 8.04 LTS, Ubuntu 9.10, Ubuntu 10.04 LTS, Ubuntu<br />10.10, and Ubuntu 11.04. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1470">CVE-2011-1470</a>)</p>
+
+<p>It was discovered that an integer signedness error in the PHP Zip<br />extension could allow an attacker to cause a denial of service (CPU<br />consumption) via a malformed archive file.  This issue affected<br />Ubuntu 8.04 LTS, Ubuntu 9.10, Ubuntu 10.04 LTS, Ubuntu 10.10, and<br />Ubuntu 11.04. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1470">CVE-2011-1470</a>) (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1471">CVE-2011-1471</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 11.04:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cli</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php-pear</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cgi</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-curl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-intl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-common</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-dev</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-gd</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">libapache2-mod-php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.5-1ubuntu7.1">5.3.5-1ubuntu7.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cli</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php-pear</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cgi</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-curl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-intl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-common</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-dev</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-gd</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">libapache2-mod-php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.3-1ubuntu9.4">5.3.3-1ubuntu9.4</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cli</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php-pear</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cgi</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-curl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-intl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-common</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-dev</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-gd</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">libapache2-mod-php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.3.2-1ubuntu4.8">5.3.2-1ubuntu4.8</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 9.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cli</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.10.dfsg.1-2ubuntu6.9">5.2.10.dfsg.1-2ubuntu6.9</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php-pear</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.10.dfsg.1-2ubuntu6.9">5.2.10.dfsg.1-2ubuntu6.9</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cgi</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.10.dfsg.1-2ubuntu6.9">5.2.10.dfsg.1-2ubuntu6.9</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-curl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.10.dfsg.1-2ubuntu6.9">5.2.10.dfsg.1-2ubuntu6.9</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-common</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.10.dfsg.1-2ubuntu6.9">5.2.10.dfsg.1-2ubuntu6.9</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-dev</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.10.dfsg.1-2ubuntu6.9">5.2.10.dfsg.1-2ubuntu6.9</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-gd</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.10.dfsg.1-2ubuntu6.9">5.2.10.dfsg.1-2ubuntu6.9</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.10.dfsg.1-2ubuntu6.9">5.2.10.dfsg.1-2ubuntu6.9</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">libapache2-mod-php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.10.dfsg.1-2ubuntu6.9">5.2.10.dfsg.1-2ubuntu6.9</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cli</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.4-2ubuntu5.15">5.2.4-2ubuntu5.15</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php-pear</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.4-2ubuntu5.15">5.2.4-2ubuntu5.15</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cgi</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.4-2ubuntu5.15">5.2.4-2ubuntu5.15</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-curl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.4-2ubuntu5.15">5.2.4-2ubuntu5.15</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-common</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.4-2ubuntu5.15">5.2.4-2ubuntu5.15</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-dev</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.4-2ubuntu5.15">5.2.4-2ubuntu5.15</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-gd</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.4-2ubuntu5.15">5.2.4-2ubuntu5.15</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.4-2ubuntu5.15">5.2.4-2ubuntu5.15</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">libapache2-mod-php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.2.4-2ubuntu5.15">5.2.4-2ubuntu5.15</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 6.06 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cli</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.1.2-1ubuntu3.22">5.1.2-1ubuntu3.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php-pear</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.1.2-1ubuntu3.22">5.1.2-1ubuntu3.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-cgi</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.1.2-1ubuntu3.22">5.1.2-1ubuntu3.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-curl</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.1.2-1ubuntu3.22">5.1.2-1ubuntu3.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-common</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.1.2-1ubuntu3.22">5.1.2-1ubuntu3.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-dev</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.1.2-1ubuntu3.22">5.1.2-1ubuntu3.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5-gd</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.1.2-1ubuntu3.22">5.1.2-1ubuntu3.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.1.2-1ubuntu3.22">5.1.2-1ubuntu3.22</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/php5">libapache2-mod-php5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/php5/5.1.2-1ubuntu3.22">5.1.2-1ubuntu3.22</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>In general, a standard system update will make all the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-7243">CVE-2006-7243</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4697">CVE-2010-4697</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-4698">CVE-2010-4698</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-0420">CVE-2011-0420</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-0421">CVE-2011-0421</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-0441">CVE-2011-0441</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-0708">CVE-2011-0708</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1072">CVE-2011-1072</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1092">CVE-2011-1092</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1144">CVE-2011-1144</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1148">CVE-2011-1148</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1153">CVE-2011-1153</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1464">CVE-2011-1464</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1466">CVE-2011-1466</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1467">CVE-2011-1467</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1468">CVE-2011-1468</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1469">CVE-2011-1469</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1470">CVE-2011-1470</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1471">CVE-2011-1471</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

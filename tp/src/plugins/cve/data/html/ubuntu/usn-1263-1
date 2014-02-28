@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-1263-1: IcedTea-Web, OpenJDK 6 vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-1263-1: IcedTea-Web, OpenJDK 6 vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-1263-1</h2>
+<p><em>16th November, 2011</em></p>
+<h3>icedtea-web, openjdk-6, openjdk-6b18 vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 11.10</li>
+
+    <li>Ubuntu 11.04</li>
+
+    <li>Ubuntu 10.10</li>
+
+    <li>Ubuntu 10.04 LTS</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>Multiple OpenJDK 6 and IcedTea-Web vulnerabilities have been fixed.
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>icedtea-web 
+    - A web browser plugin to execute Java applets
+    
+    </li>
+  
+
+  
+
+  
+    <li>openjdk-6 
+    - Open Source Java implementation
+    
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+    <li>openjdk-6b18 
+    - Open Source Java implementation
+    
+    </li>
+  
+
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>Deepak Bhole discovered a flaw in the Same Origin Policy (SOP)<br />implementation in the IcedTea web browser plugin. This could allow a<br />remote attacker to open connections to certain hosts that should<br />not be permitted. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3377">CVE-2011-3377</a>)</p>
+
+<p>Juliano Rizzo and Thai Duong discovered that the block-wise AES<br />encryption algorithm block-wise as used in TLS/SSL was vulnerable to<br />a chosen-plaintext attack. This could allow a remote attacker to view<br />confidential data. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3389">CVE-2011-3389</a>)</p>
+
+<p>It was discovered that a type confusion flaw existed in the in<br />the Internet Inter-Orb Protocol (IIOP) deserialization code. A<br />remote attacker could use this to cause an untrusted application<br />or applet to execute arbitrary code by deserializing malicious<br />input. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3521">CVE-2011-3521</a>)</p>
+
+<p>It was discovered that the Java scripting engine did not perform<br />SecurityManager checks. This could allow a remote attacker to cause<br />an untrusted application or applet to execute arbitrary code with<br />the full privileges of the JVM. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3544">CVE-2011-3544</a>)</p>
+
+<p>It was discovered that the InputStream class used a global buffer to<br />store input bytes skipped. An attacker could possibly use this to gain<br />access to sensitive information. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3547">CVE-2011-3547</a>)</p>
+
+<p>It was discovered that a vulnerability existed in the AWTKeyStroke<br />class. A remote attacker could cause an untrusted application or applet<br />to execute arbitrary code. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3548">CVE-2011-3548</a>)</p>
+
+<p>It was discovered that an integer overflow vulnerability existed<br />in the TransformHelper class in the Java2D implementation. A remote<br />attacker could use this cause a denial of service via an application<br />or applet crash or possibly execute arbitrary code. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3551">CVE-2011-3551</a>)</p>
+
+<p>It was discovered that the default number of available UDP sockets for<br />applications running under SecurityManager restrictions was set too<br />high. A remote attacker could use this with a malicious application or<br />applet exhaust the number of available UDP sockets to cause a denial<br />of service for other applets or applications running within the same<br />JVM. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3552">CVE-2011-3552</a>)</p>
+
+<p>It was discovered that Java API for XML Web Services (JAX-WS) could<br />incorrectly expose a stack trace. A remote attacker could potentially<br />use this to gain access to sensitive information. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3553">CVE-2011-3553</a>)</p>
+
+<p>It was discovered that the unpacker for pack200 JAR files did not<br />sufficiently check for errors. An attacker could cause a denial of<br />service or possibly execute arbitrary code through a specially crafted<br />pack200 JAR file. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3554">CVE-2011-3554</a>)</p>
+
+<p>It was discovered that the RMI registration implementation did not<br />properly restrict privileges of remotely executed code. A remote<br />attacker could use this to execute code with elevated privileges.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3556">CVE-2011-3556</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3557">CVE-2011-3557</a>)</p>
+
+<p>It was discovered that the HotSpot VM could be made to crash, allowing<br />an attacker to cause a denial of service or possibly leak sensitive<br />information. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3558">CVE-2011-3558</a>)</p>
+
+<p>It was discovered that the HttpsURLConnection class did not<br />properly perform SecurityManager checks in certain situations. This<br />could allow a remote attacker to bypass restrictions on HTTPS<br />connections. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3560">CVE-2011-3560</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 11.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">icedtea-6-jre-cacao</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b23~pre11-0ubuntu1.11.10">6b23~pre11-0ubuntu1.11.10</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/icedtea-web">icedtea-netx</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/icedtea-web/1.1.3-1ubuntu1.1">1.1.3-1ubuntu1.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">icedtea-6-jre-jamvm</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b23~pre11-0ubuntu1.11.10">6b23~pre11-0ubuntu1.11.10</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-zero</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b23~pre11-0ubuntu1.11.10">6b23~pre11-0ubuntu1.11.10</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b23~pre11-0ubuntu1.11.10">6b23~pre11-0ubuntu1.11.10</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-headless</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b23~pre11-0ubuntu1.11.10">6b23~pre11-0ubuntu1.11.10</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/icedtea-web">icedtea-plugin</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/icedtea-web/1.1.3-1ubuntu1.1">1.1.3-1ubuntu1.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b23~pre11-0ubuntu1.11.10">6b23~pre11-0ubuntu1.11.10</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 11.04:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">icedtea-6-jre-cacao</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b22-1.10.4-0ubuntu1~11.04.1">6b22-1.10.4-0ubuntu1~11.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/icedtea-web">icedtea-netx</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/icedtea-web/1.1.1-0ubuntu1~11.04.2">1.1.1-0ubuntu1~11.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">icedtea-6-jre-jamvm</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b22-1.10.4-0ubuntu1~11.04.1">6b22-1.10.4-0ubuntu1~11.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-zero</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b22-1.10.4-0ubuntu1~11.04.1">6b22-1.10.4-0ubuntu1~11.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b22-1.10.4-0ubuntu1~11.04.1">6b22-1.10.4-0ubuntu1~11.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-headless</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b22-1.10.4-0ubuntu1~11.04.1">6b22-1.10.4-0ubuntu1~11.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/icedtea-web">icedtea-plugin</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/icedtea-web/1.1.1-0ubuntu1~11.04.2">1.1.1-0ubuntu1~11.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b22-1.10.4-0ubuntu1~11.04.1">6b22-1.10.4-0ubuntu1~11.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">icedtea-6-jre-cacao</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.10.2">6b20-1.9.10-0ubuntu1~10.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-zero</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.10.2">6b20-1.9.10-0ubuntu1~10.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.10.2">6b20-1.9.10-0ubuntu1~10.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-headless</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.10.2">6b20-1.9.10-0ubuntu1~10.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-demo</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.10.2">6b20-1.9.10-0ubuntu1~10.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jdk</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.10.2">6b20-1.9.10-0ubuntu1~10.10.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.10.2">6b20-1.9.10-0ubuntu1~10.10.2</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">icedtea-6-jre-cacao</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.04.2">6b20-1.9.10-0ubuntu1~10.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.04.2">6b20-1.9.10-0ubuntu1~10.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-headless</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.04.2">6b20-1.9.10-0ubuntu1~10.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-demo</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.04.2">6b20-1.9.10-0ubuntu1~10.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-zero</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.04.2">6b20-1.9.10-0ubuntu1~10.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.04.2">6b20-1.9.10-0ubuntu1~10.04.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">icedtea6-plugin</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b20-1.9.10-0ubuntu1~10.04.2">6b20-1.9.10-0ubuntu1~10.04.2</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system update you need to restart any Java applications<br />or applets to make all the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3377">CVE-2011-3377</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3389">CVE-2011-3389</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3521">CVE-2011-3521</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3544">CVE-2011-3544</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3547">CVE-2011-3547</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3548">CVE-2011-3548</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3551">CVE-2011-3551</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3552">CVE-2011-3552</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3553">CVE-2011-3553</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3554">CVE-2011-3554</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3556">CVE-2011-3556</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3557">CVE-2011-3557</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3558">CVE-2011-3558</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-3560">CVE-2011-3560</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

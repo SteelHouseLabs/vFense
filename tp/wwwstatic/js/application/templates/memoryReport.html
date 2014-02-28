@@ -1,0 +1,26 @@
+<article class="row-fluid">
+    <section class="list">
+        <div class="legend row-fluid">
+            <strong class="span3">Computer Name</strong>
+            <span class="span2">Free</span>
+            <span class="span2">Used</span>
+            <span class="span2">Total</span>
+            <span class="span3 alignRight">Updated</span>
+        </div>
+        <div class="items">
+            <% if (models.length) { %>
+                <% _.each(models, function (model) { %>
+                    <div class="item">
+                        <span class="span3"><%= model.get('computer-name') %></span>
+                        <span class="span2"><%= helpers.getDriveSize(model.get('free')) + ' (' + model.get('free-percent') + '%)' %></span>
+                        <span class="span2"><%= helpers.getDriveSize(model.get('used')) + ' (' + model.get('used-percentage') + '%)' %></span>
+                        <span class="span2"><%= helpers.getDriveSize(model.get('total')) %></span>
+                        <span class="span3 alignRight"><%= model.get('last-updated-at') %></span>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="item">No data available</div>
+            <% } %>
+        </div>
+    </section>
+</article>

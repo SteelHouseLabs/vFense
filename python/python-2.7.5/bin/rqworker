@@ -1,0 +1,10 @@
+#!/opt/TopPatch/python/python-2.7.5/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'rq==0.3.8','console_scripts','rqworker'
+__requires__ = 'rq==0.3.8'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('rq==0.3.8', 'console_scripts', 'rqworker')()
+    )

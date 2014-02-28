@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-1396-1: GNU C Library vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-1396-1: GNU C Library vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-1396-1</h2>
+<p><em>9th March, 2012</em></p>
+<h3>eglibc, glibc vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 11.10</li>
+
+    <li>Ubuntu 11.04</li>
+
+    <li>Ubuntu 10.10</li>
+
+    <li>Ubuntu 10.04 LTS</li>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>Multiple vulnerabilities were discovered and fixed in the GNU C Library.
+
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>eglibc 
+    - Embedded GNU C Library: sources
+    
+    </li>
+  
+
+  
+
+  
+
+  
+
+  
+    <li>glibc 
+    - GNU C Library: Documentation
+    
+    </li>
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>It was discovered that the GNU C Library did not properly handle<br />integer overflows in the timezone handling code. An attacker could use<br />this to possibly execute arbitrary code by convincing an application<br />to load a maliciously constructed tzfile. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-5029">CVE-2009-5029</a>)</p>
+
+<p>It was discovered that the GNU C Library did not properly handle<br />passwd.adjunct.byname map entries in the Network Information Service<br />(NIS) code in the name service caching daemon (nscd). An attacker<br />could use this to obtain the encrypted passwords of NIS accounts.<br />This issue only affected Ubuntu 8.04 LTS. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0015">CVE-2010-0015</a>)</p>
+
+<p>Chris Evans reported that the GNU C Library did not properly<br />calculate the amount of memory to allocate in the fnmatch() code. An<br />attacker could use this to cause a denial of service or possibly<br />execute arbitrary code via a maliciously crafted UTF-8 string.<br />This issue only affected Ubuntu 8.04 LTS, Ubuntu 10.04 LTS and Ubuntu<br />10.10. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1071">CVE-2011-1071</a>)</p>
+
+<p>Tomas Hoger reported that an additional integer overflow was possible<br />in the GNU C Library fnmatch() code. An attacker could use this to<br />cause a denial of service via a maliciously crafted UTF-8 string. This<br />issue only affected Ubuntu 8.04 LTS, Ubuntu 10.04 LTS, Ubuntu 10.10<br />and Ubuntu 11.04. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1659">CVE-2011-1659</a>)</p>
+
+<p>Dan Rosenberg discovered that the addmntent() function in the GNU C<br />Library did not report an error status for failed attempts to write to<br />the /etc/mtab file. This could allow an attacker to corrupt /etc/mtab,<br />possibly causing a denial of service or otherwise manipulate mount<br />options. This issue only affected Ubuntu 8.04 LTS, Ubuntu 10.04 LTS,<br />Ubuntu 10.10 and Ubuntu 11.04. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1089">CVE-2011-1089</a>)</p>
+
+<p>Harald van Dijk discovered that the locale program included with the<br />GNU C library did not properly quote its output. This could allow a<br />local attacker to possibly execute arbitrary code using a crafted<br />localization string that was evaluated in a shell script. This<br />issue only affected Ubuntu 8.04 LTS, Ubuntu 10.04 LTS and Ubuntu<br />10.10. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1095">CVE-2011-1095</a>)</p>
+
+<p>It was discovered that the GNU C library loader expanded the<br />$ORIGIN dynamic string token when RPATH is composed entirely of this<br />token. This could allow an attacker to gain privilege via a setuid<br />program that had this RPATH value. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1658">CVE-2011-1658</a>)</p>
+
+<p>It was discovered that the GNU C library implementation of memcpy<br />optimized for Supplemental Streaming SIMD Extensions 3 (SSSE3)<br />contained a possible integer overflow. An attacker could use this to<br />cause a denial of service or possibly execute arbitrary code. This<br />issue only affected Ubuntu 10.04 LTS. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-2702">CVE-2011-2702</a>)</p>
+
+<p>John Zimmerman discovered that the Remote Procedure Call (RPC)<br />implementation in the GNU C Library did not properly handle large<br />numbers of connections. This could allow a remote attacker to cause<br />a denial of service. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-4609">CVE-2011-4609</a>)</p>
+
+<p>It was discovered that the GNU C Library vfprintf() implementation<br />contained a possible integer overflow in the format string protection<br />code offered by FORTIFY_SOURCE. An attacker could use this flaw in<br />conjunction with a format string vulnerability to bypass the format<br />string protection and possibly execute arbitrary code. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0864">CVE-2012-0864</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 11.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/eglibc">libc6</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/eglibc/2.13-20ubuntu5.1">2.13-20ubuntu5.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 11.04:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/eglibc">libc6</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/eglibc/2.13-0ubuntu13.1">2.13-0ubuntu13.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/eglibc">libc-bin</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/eglibc/2.12.1-0ubuntu10.4">2.12.1-0ubuntu10.4</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/eglibc">libc6</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/eglibc/2.12.1-0ubuntu10.4">2.12.1-0ubuntu10.4</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/eglibc">libc-bin</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/eglibc/2.11.1-0ubuntu7.10">2.11.1-0ubuntu7.10</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/eglibc">libc6</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/eglibc/2.11.1-0ubuntu7.10">2.11.1-0ubuntu7.10</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/glibc">libc6</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/glibc/2.7-10ubuntu8.1">2.7-10ubuntu8.1</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system update you need to restart all services or<br />reboot your computer to make all the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-5029">CVE-2009-5029</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0015">CVE-2010-0015</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1071">CVE-2011-1071</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1089">CVE-2011-1089</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1095">CVE-2011-1095</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1658">CVE-2011-1658</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-1659">CVE-2011-1659</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-2702">CVE-2011-2702</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2011-4609">CVE-2011-4609</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-0864">CVE-2012-0864</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

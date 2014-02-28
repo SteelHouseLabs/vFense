@@ -1,0 +1,140 @@
+// Dashboard Styles
+// -------------------------
+
+#dashboard-view {
+    padding: @gridGutterWidth 0;
+
+    .row,
+    .row-fluid {
+        position: relative;
+        z-index: 5;
+
+        // This rule took me a solid hour of full concentration to figure out! (3:30 AM - 4:30 AM)
+        // When there are two consecutive spanned columns, and the first is absolutely positioned,
+        // remove the left margin from the second column to resolve a layout issue.
+        [class*="span"]:first-child[style*="absolute"] + [class*="span"],
+        [class*="span"]:first-child[class*="absolute"] + [class*="span"] {
+            margin-left: 0;
+        }
+    }
+
+    DL.widget {
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        //border: 1px solid #E5E5E5;
+        background-color: white;
+
+        DT {
+            background-color: #E5E5E5;
+            //border-bottom: 1px solid #E5E5E5;
+            margin:0;
+        }
+
+        DD {
+            font-size: 20px;
+            line-height: 2;
+            margin: 0;
+        }
+
+        &.info {
+            DT {
+                background-color: @infoBackground;
+                //border-color: @infoBorder;
+                color: @infoText;
+            }
+        }
+
+        &.success {
+            DT {
+                background-color: @successBackground;
+                //border-color: @successBorder;
+                color: @successText;
+            }
+        }
+
+        &.warning {
+            DT {
+                background-color: @warningBackground;
+                //border-color: @warningBorder;
+                color: @warningText;
+            }
+        }
+
+        &.error {
+            DT {
+                background-color: @errorBackground;
+                //border-color: @errorBorder;
+                color: @errorText;
+            }
+        }
+    }
+}
+
+
+
+.well {
+    background-color: #FAFAFA;
+
+    DL {
+        @dtColumnWidth: 2;
+        @ddColumnWidth: @gridColumns - @dtColumnWidth;
+        @dtWidth: (@fluidGridColumnWidth * @dtColumnWidth) + (@fluidGridGutterWidth * (@dtColumnWidth - 1));
+        @ddWidth: (@fluidGridColumnWidth * @ddColumnWidth) + (@fluidGridGutterWidth * (@ddColumnWidth - 1));
+
+        display: block;
+        margin:0;
+
+        DT {
+            width: @dtWidth;
+            font-weight: normal;
+            color: #575757;
+            display: block;
+            text-align: right;
+            float:left;
+        }
+
+        DD {
+            width: @ddWidth;
+            margin-left: @fluidGridGutterWidth;
+            display: block;
+            text-align: left;
+            float:left;
+        }
+    }
+
+    > SMALL {
+        display: block;
+        text-align:center;
+        line-height: 4em;
+        EM {
+            color: #575757;
+        }
+    }
+
+    > .list .item {
+        padding: 0 1em;
+    }
+
+    &.noPadding {
+        .list > *:first-child {border-top: none;}
+        .list > *:last-child {border-bottom: none;}
+    }
+}
+
+#dashboard-view,
+#dashboard-view > div {
+    > .row,
+    > .row-fluid {
+        + .row,
+        + .row-fluid {
+            margin-top: 1em;
+            //min-height: 60px;
+        }
+    }
+    
+    // Bandaid Fix
+    > ARTICLE + ARTICLE {
+        margin-top: 1em;
+    }
+}

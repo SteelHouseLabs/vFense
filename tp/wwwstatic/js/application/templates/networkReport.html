@@ -1,0 +1,31 @@
+<article class="row-fluid">
+    <section class="list">
+        <div class="legend row-fluid">
+            <strong class="span4">Computer Name</strong>
+            <span class="span4">Network Name</span>
+            <span class="span2">MAC</span>
+            <span class="span2 alignRight">IP Address</span>
+        </div>
+        <div class="items">
+            <% if (models.length) { %>
+                <% _.each(models, function (model) { %>
+                    <div class="item">
+                        <span class="span4"><%= model.get('computer-name') %></span>
+                        <% if (model.get('network').length) { %>
+                            <% _.each(model.get('network'), function (network, index) { %>
+                                <% if (index) { %> <span class="span4 noMargin"></span> <% } %>
+                                <span class="span4"><%= network.name %></span>
+                                <span class="span2"><%= network.mac %></span>
+                                <span class="span2 alignRight"><%= network.ip_address %></span>
+                            <% }); %>
+                        <% } else { %>
+                            <span class="span8">No network adapters available</span>
+                        <% } %>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="item">No data available</div>
+            <% } %>
+        </div>
+    </section>
+</article>

@@ -1,0 +1,4 @@
+Underscore.js
+Home:       http://underscorejs.org
+GitHub:     https://github.com/documentcloud/underscore/tags
+Version:    1.4.4

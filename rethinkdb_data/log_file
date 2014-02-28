@@ -1,0 +1,17 @@
+2014-01-07T18:17:24.598495094 0.122688s info: Creating directory /opt/TopPatch/rethinkdb_data
+2014-01-07T18:17:24.599037442 0.123230s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/opt/TopPatch/rethinkdb_data' did not already exist.)
+2014-01-07T18:17:24.599234874 0.123427s info: Running rethinkdb 1.11.2-0ubuntu1~lucid (GCC 4.4.3)...
+2014-01-07T18:17:24.603631388 0.127824s info: Running on Linux 3.11.0-14-generic x86_64
+2014-01-07T18:17:24.603787842 0.127980s info: Loading data from directory /opt/TopPatch/rethinkdb_data
+2014-01-07T18:17:24.663357771 0.187550s info: Listening for intracluster connections on port 29015
+2014-01-07T18:17:24.665812562 0.190005s info: Listening for client driver connections on port 28015
+2014-01-07T18:17:24.665859393 0.190051s info: Listening for administrative HTTP connections on port 8080
+2014-01-07T18:17:24.665861272 0.190053s info: Listening on addresses: 127.0.0.1, 127.0.1.1, ::1
+2014-01-07T18:17:24.665862084 0.190054s info: To fully expose RethinkDB on the network, bind to all addresses
+2014-01-07T18:17:24.665862715 0.190054s info: by running rethinkdb with the `--bind all` command line option.
+2014-01-07T18:17:24.665863292 0.190055s info: Server ready
+2014-01-07T18:17:28.395666073 3.919859s info: Server got SIGINT from pid 0, uid 0; shutting down...
+2014-01-07T18:17:28.396094498 3.920287s info: Shutting down client connections...
+2014-01-07T18:17:28.396464040 3.920656s info: All client connections closed.
+2014-01-07T18:17:28.396477270 3.920669s info: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2014-01-07T18:17:28.396478303 3.920670s info: Storage engine shut down.

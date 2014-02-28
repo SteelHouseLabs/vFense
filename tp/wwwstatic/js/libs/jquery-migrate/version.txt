@@ -1,0 +1,4 @@
+jquery-migrate.js
+Home:       https://github.com/jquery/jquery-migrate/
+GitHub:     https://github.com/jquery/jquery-migrate/tags
+Version:    1.2.1

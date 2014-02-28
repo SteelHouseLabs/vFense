@@ -1,0 +1,81 @@
+<article class="row">
+    <section class="span12 list">
+        <header class="clearfix">
+            <div class="pull-right"><small>Filter By:</small>
+                <select name="filter" class="btn btn-mini">
+                    <option value="none">None</option>
+                    <% if(tagdata.length != 0) { %>
+                        <% _.each(tagdata, function(tag) { %>
+                            <option <% filter == tag.tag_name ? print('selected') : ''; %>><%= tag.tag_name %></option>
+                        <% }); %>
+                    <% } %>
+                </select>
+                <!--
+                <button class="btn btn-mini disabled">
+                    <i class="icon-cog"></i>&nbsp;Filter
+                </button>
+                -->
+                <button class="btn btn-mini disabled">
+                    <span>Export</span>&nbsp;<i class="icon-download-alt"></i>
+                </button>
+            </div>
+        </header>
+        <% if (data.length > 0) { %>
+            <div class="legend">
+                <span>Status — <strong>Host Name</strong> — Host OS</span>
+                <span class="patches pull-right inlineBlock">
+                    Patches
+                    <span class="done">Done</span> /
+                    <span class="pend">Pending</span> /
+                    <span class="need">Available</span> /
+                    <span class="fail">Failed</span>
+                </span>
+            </div>
+            <div class="items">
+                <% _.each(data, function (node) { %>
+                    <div class="item linked clearfix">
+                        <div class="row-fluid">
+                            <a href="#nodes/<%= node.id %>">
+                                <span class="desc span8">
+                                    <%
+                                        if (node.reboot) {
+                                            print('<i style="color: orange;"class="icon-warning-sign"></i>');
+                                        } else if (node['host/status'] && node['agent/status']) {
+                                            print('<i style="color: green;"class="icon-ok"></i>');
+                                        } else {
+                                            print('<i style="color: red;"class="icon-warning-sign"></i>');
+                                        }
+                                    %> — <i class="<%= printOsIcon(node['os/name']) %>"></i>&nbsp;<strong><% print(node.displayname || node['computer/name'] || node.hostname || node.ip) %></strong> — <%= node['os/name'] %>
+                                </span>
+                                <span class="span4 alignRight">
+                                    <span class="done"><%= node['patch/done'] %></span> /
+                                    <span class="pend"><%= node['patch/pend'] %></span> /
+                                    <span class="need"><%= node['patch/need'] %></span> /
+                                    <span class="fail"><%= node['patch/fail'] %></span>
+                                    &nbsp;<i class="icon-caret-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <div class="items">
+                <div class="item clearfix">
+                    <span class="desc"><em>No nodes available.</em></span>
+                </div>
+            </div>
+        <% } %>
+        <footer class="clearfix">
+            <small>Viewing <%= start %> – <%= end %> of <%= recordCount %> Nodes</small>
+            <div class="pull-right hidden-print">
+                <a class="btn btn-mini<% if(!prevEnable) { print(' disabled'); } %>" href="<% prevEnable ? print(prevLink) : print('javascript:;') %>">
+                    Previous
+                </a>
+                <a class="btn btn-mini<% if(!nextEnable) { print(' disabled'); } %>" href="<% nextEnable ? print(nextLink) : print('javascript:;') %>">
+                    Next
+                </a>
+            </div>
+        </footer>
+    </section>
+</article>

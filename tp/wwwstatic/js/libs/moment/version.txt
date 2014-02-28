@@ -1,0 +1,4 @@
+Moment.js
+Home:       http://momentjs.com
+GitHub:     https://github.com/timrwood/moment/tags
+Version:    2.0.0

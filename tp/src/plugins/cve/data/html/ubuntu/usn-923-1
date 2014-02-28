@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-923-1: OpenJDK vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-923-1: OpenJDK vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-923-1</h2>
+<p><em>6th April, 2010</em></p>
+<h3>openjdk-6 vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 9.10</li>
+
+    <li>Ubuntu 9.04</li>
+
+    <li>Ubuntu 8.10</li>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+</ul>
+
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>openjdk-6 
+    
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>Marsh Ray and Steve Dispensa discovered a flaw in the TLS and SSLv3<br />protocols. If an attacker could perform a man in the middle attack at the<br />start of a TLS connection, the attacker could inject arbitrary content<br />at the beginning of the user&#39;s session.  (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-3555">CVE-2009-3555</a>)</p>
+
+<p>It was discovered that Loader-constraint table, Policy/PolicyFile,<br />Inflater/Deflater, drag/drop access, and deserialization did not correctly<br />handle certain sensitive objects. If a user were tricked into running a<br />specially crafted applet, private information could be leaked to a remote<br />attacker, leading to a loss of privacy.  (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0082">CVE-2010-0082</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0084">CVE-2010-0084</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0085">CVE-2010-0085</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0088">CVE-2010-0088</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0091">CVE-2010-0091</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0094">CVE-2010-0094</a>)</p>
+
+<p>It was discovered that AtomicReferenceArray, System.arraycopy,<br />InetAddress, and HashAttributeSet did not correctly handle certain<br />situations.  If a remote attacker could trigger specific error conditions,<br />a Java application could crash, leading to a denial of service.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0092">CVE-2010-0092</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0093">CVE-2010-0093</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0095">CVE-2010-0095</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0845">CVE-2010-0845</a>)</p>
+
+<p>It was discovered that Pack200, CMM readMabCurveData, ImagingLib, and<br />the AWT library did not correctly check buffer lengths.  If a user or<br />automated system were tricked into handling specially crafted JAR files or<br />images, a remote attacker could crash the Java application or possibly<br />gain user privileges (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0837">CVE-2010-0837</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0838">CVE-2010-0838</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0847">CVE-2010-0847</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0848">CVE-2010-0848</a>).</p>
+
+<p>It was discovered that applets did not correctly handle certain trust<br />chains.  If a user were tricked into running a specially crafted applet,<br />a remote attacker could possibly run untrusted code with user privileges.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0840">CVE-2010-0840</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 9.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b16-1.6.1-3ubuntu3">6b16-1.6.1-3ubuntu3</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b16-1.6.1-3ubuntu3">6b16-1.6.1-3ubuntu3</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 9.04:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b14-1.4.1-0ubuntu13">6b14-1.4.1-0ubuntu13</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b14-1.4.1-0ubuntu13">6b14-1.4.1-0ubuntu13</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b12-0ubuntu6.7">6b12-0ubuntu6.7</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b12-0ubuntu6.7">6b12-0ubuntu6.7</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre-lib</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b11-2ubuntu2.2">6b11-2ubuntu2.2</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/openjdk-6">openjdk-6-jre</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/openjdk-6/6b11-2ubuntu2.2">6b11-2ubuntu2.2</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system upgrade you need to restart all Java applications<br />to effect the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-3555">CVE-2009-3555</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0082">CVE-2010-0082</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0084">CVE-2010-0084</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0085">CVE-2010-0085</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0088">CVE-2010-0088</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0091">CVE-2010-0091</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0092">CVE-2010-0092</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0093">CVE-2010-0093</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0094">CVE-2010-0094</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0095">CVE-2010-0095</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0837">CVE-2010-0837</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0838">CVE-2010-0838</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0840">CVE-2010-0840</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0845">CVE-2010-0845</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0847">CVE-2010-0847</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-0848">CVE-2010-0848</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

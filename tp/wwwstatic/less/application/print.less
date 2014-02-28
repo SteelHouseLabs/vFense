@@ -1,0 +1,15 @@
+// Print Styles
+// -------------
+
+.visible-print { display: none !important; }
+
+@media print {
+    body {
+        padding: 1cm;
+    }
+    #pageFooter {
+        position: relative;
+    }
+    .visible-print { display: inherit !important; } // Use inherit to restore previous behavior
+    .hidden-print { display: none !important; }
+}

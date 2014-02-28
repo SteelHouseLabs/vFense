@@ -1,0 +1,398 @@
+#!/opt/TopPatch/python/current/bin/python
+import os
+import os.path
+import sys
+import re
+from time import sleep
+import shlex
+import shutil
+import signal
+import subprocess
+import logging, logging.config
+from db.client import db_connect
+
+logging.config.fileConfig('/opt/TopPatch/conf/logging.config')
+logger = logging.getLogger('rvapi')
+
+PID_DIR = '/opt/TopPatch/var/tmp/'
+PIDS =[]
+SERVICES =[]
+ALLSERVICES =[]
+RVLSERVICES =[]
+RVWSERVICES =[]
+
+#################################################################
+RQWORKER = '/opt/TopPatch/python/current/bin/rqworker'
+RQ_WORKER_QUEUES = (
+    [
+        'incoming_updates', 'downloader', 'stats', 'updater',
+        'post_store_operation', 'agent_status',
+        'create_secondary_indexes', 'delete_agent', 'move_agent'
+    ]
+)
+RQ_PID_FILES = []
+
+for queue in RQ_WORKER_QUEUES:
+    pid_file = '%sRQW_PID_%s.pid' % (PID_DIR,queue)
+    PIDS.append((pid_file, queue))
+    RQ_PID_FILES.append(pid_file)
+
+#################################################################
+RVL_PORTS = range(9020, 9030)
+RVLISTENER = 'src/rvlistener.py'
+for port in RVL_PORTS:
+    pid_file = '%sRVL_PID_%s.pid' % (PID_DIR, str(port))
+    rvl = 'RvListener port %s' % (str(port))
+    PIDS.append((pid_file, rvl))
+    RVLSERVICES.append((RVLISTENER, pid_file, rvl, port))
+    ALLSERVICES.append((RVLISTENER, pid_file, rvl, port))
+
+##################################################################
+RVW_PORTS = range(9060, 9061)
+RVWEB = 'src/rvweb.py'
+for port in RVW_PORTS:
+    pid_file = '%sRVW_PID_%s.pid' % (PID_DIR, str(port))
+    rvw = 'RvWeb port %s' % (str(port))
+    PIDS.append((pid_file, rvw))
+    RVWSERVICES.append((RVWEB, pid_file, rvw, port))
+    ALLSERVICES.append((RVWEB, pid_file, rvw, port))
+
+##################################################################
+TOPPATCH_HOME = '/opt/TopPatch/'
+PYTHON_PATH = '/opt/TopPatch/python/current'
+PROGRAM = 'python'
+PIDFILE = '/opt/TopPatch/var/tmp/process.pid'
+RVSCHEDULER_PIDFILE='/opt/TopPatch/var/tmp/rvscheduler-9002.pid'
+
+RECEIVER_DIR = '/opt/TopPatch/tp/src/receiver'
+PATH = '/opt/TopPatch/tp/'
+RVSCHEDULER='src/scheduler/rvscheduler.py'
+
+RETHINK = '/opt/TopPatch/bin/rethinkdb'
+RETHINK_PATH = '/opt/TopPatch/rethinkdb/current'
+RETHINK_INSTANCES_PATH = '/opt/TopPatch/var/rethinkdb/instances.d'
+RETHINK_CONF = '/opt/TopPatch/conf/rethinkdb.conf'
+RETHINK_WEB = '/opt/TopPatch/rethinkdb/current/web'
+RETHINK_PID_FILE = '/opt/TopPatch/var/tmp/rethinkdb.pid'
+
+REDIS = '/opt/TopPatch/tp/src/daemon/redis_init'
+REDIS_START = '/opt/TopPatch/tp/src/daemon/redis_init'
+REDIS_PID_FILE = '/opt/TopPatch/var/tmp/redis-6379.pid'
+
+
+PIDS.append((RETHINK_PID_FILE, 'CoreRethinkdb'))
+PIDS.append((RVSCHEDULER_PIDFILE, 'RvScheduler'))
+PIDS.append((REDIS_PID_FILE, 'CoreRedis'))
+
+if not os.path.exists('/opt/TopPatch/var/tmp/'):
+    os.mkdir('/opt/TopPatch/var/tmp/')
+if not os.path.exists('/opt/TopPatch/var/redis/'):
+    os.mkdir('/opt/TopPatch/var/redis/')
+if not os.path.exists('/opt/TopPatch/var/rethinkdb/'):
+    os.mkdir('/opt/TopPatch/var/rethinkdb/')
+if not os.path.exists('/opt/TopPatch/var/log/'):
+    os.mkdir('/opt/TopPatch/var/log/')
+if not os.path.exists('/opt/TopPatch/var/lib/'):
+    os.mkdir('/opt/TopPatch/var/lib/')
+    os.mkdir('/opt/TopPatch/var/lib/ssl')
+    os.mkdir('/opt/TopPatch/var/lib/ssl/client')
+    os.mkdir('/opt/TopPatch/var/lib/ssl/client/csr')
+    os.mkdir('/opt/TopPatch/var/lib/ssl/client/keys')
+
+SERVICES.append((RVSCHEDULER, RVSCHEDULER_PIDFILE, 'RvScheduler'))
+ALLSERVICES.append((RVSCHEDULER, RVSCHEDULER_PIDFILE, 'RvScheduler'))
+
+def run(program, *args):
+    try:
+        pid = os.fork()
+        if not pid:
+            os.execvp(program, (program,) + tuple(args))
+    except OSError, e:
+        sys.stderr.write("fork failed %d (%s)\n" %
+                        (e.errno, e.strerror))
+        logger.warning("fork failed %d (%s)\n" %
+                      (e.errno, e.strerror))
+        sys.exit(1)
+    return str(pid)
+
+
+def rethink_starter():
+    rethink_start = subprocess.Popen([RETHINK, '--config-file',
+                                      RETHINK_CONF,
+                                      '--web-static-directory',
+                                      RETHINK_WEB, '--daemon'])
+    rethink_start.poll()
+    completed = True
+    while not db_connect():
+        sleep(3)
+    if completed:
+        pid_exists = open(RETHINK_PID_FILE, 'r').read()
+        if pid_exists:
+            sleep(10)
+            rql_msg = 'Rethink started successfully\n'
+            sys.stderr.write(rql_msg+'\n')
+            logger.info(rql_msg)
+            return(True)
+        else:
+            rql_msg = 'Rethink failed to start\n'
+            sys.stderr.write(rql_msg+'\n')
+            logger.error(rql_msg)
+            return(False)
+
+
+def rethink_stop():
+    completed = True
+    if os.path.exists(RETHINK_PID_FILE):
+        pid_exists = open(RETHINK_PID_FILE, 'r').read()
+        if re.search(r'[0-9]+', pid_exists):
+            try:
+                os.kill(int(pid_exists), signal.SIGTERM)
+                os.remove(RETHINK_PID_FILE)
+            except Exception as e:
+                if e.errno == 3:
+                    os.remove(RETHINK_PID_FILE)
+            rql_msg = 'Rethink stopped successfully\n'
+            sys.stderr.write(rql_msg+'\n')
+            logger.info(rql_msg)
+        else:
+            rql_msg = 'Rethink couldnt be stopped\n'
+            completed = False
+            sys.stderr.write(rql_msg+'\n')
+            logger.error(rql_msg)
+    else:
+        rql_msg = 'Rethink pid file doesnt exist\n'
+        completed = False
+        sys.stderr.write(rql_msg+'\n')
+        logger.error(rql_msg)
+
+    return(completed, rql_msg)
+
+
+def rqworker_starter():
+    completed = True
+    for queue in RQ_WORKER_QUEUES:
+        os.chdir(RECEIVER_DIR)
+        pid_file = '%sRQW_PID_%s.pid' % (PID_DIR, queue)
+        rqw_settings = 'rqworker_%s_settings' % (queue)
+        rqw = 'RqWorker Queue %s' % (queue)
+        rqworker_start = (
+            subprocess.Popen(
+                [
+                    RQWORKER, '-c', rqw_settings
+                ]
+            )
+        )
+        rqworker_start.poll()
+        rq_pid = str(rqworker_start.pid)
+        os.chdir(PATH)
+        if rq_pid:
+            pid = open(pid_file, 'w')
+            pid.write(rq_pid)
+            pid.close()
+            completed = True
+            rql_msg = '%s started successfully\n' % (rqw)
+            sys.stderr.write(rql_msg+'\n')
+            logger.info(rql_msg)
+        else:
+            rql_msg = '%s stopped successfully\n' % (rqw)
+            sys.stderr.write(rql_msg+'\n')
+            logger.error(rql_msg)
+            completed = False
+
+    return(completed)
+
+
+def rqworker_stop():
+    completed = True
+
+    for queue in RQ_WORKER_QUEUES:
+        pid_file = '%sRQW_PID_%s.pid' % (PID_DIR, queue)
+        rqw = 'RqWorker Queue %s' % (queue)
+        if os.path.exists(pid_file):
+            pid_exists = open(pid_file, 'r').read()
+            if re.search(r'[0-9]+', pid_exists):
+                try:
+                    os.kill(int(pid_exists), signal.SIGTERM)
+                    os.remove(pid_file)
+                except Exception as e:
+                    if e.errno == 3:
+                        os.remove(pid_file)
+                rql_msg = '%s stopped successfully\n' % (rqw)
+                sys.stderr.write(rql_msg+'\n')
+                logger.info(rql_msg)
+
+            else:
+                rql_msg = '%s couldnt be stopped\n' % (rqw)
+                completed = False
+                sys.stderr.write(rql_msg+'\n')
+                logger.error(rql_msg)
+
+        else:
+            rql_msg = '%s couldnt be stopped\n' % (rqw)
+            completed = False
+            sys.stderr.write(rql_msg+'\n')
+            logger.error(rql_msg)
+
+    return(completed, rql_msg)
+
+
+def redis_starter():
+    start_cmd = '%s start' % REDIS
+    start = shlex.split(start_cmd)
+    subprocess.call(start, stdout=subprocess.PIPE)
+    sleep(1)
+    redis_pid = open(REDIS_PID_FILE, 'r',).read()
+    if redis_pid:
+        msg = 'Redis started successfully'
+        sys.stderr.write(msg+'\n')
+        logger.info(msg)
+        return True
+    else:
+        msg = 'Redis failed to start'
+        sys.stderr.write(msg+'\n')
+        logger.error(msg)
+        return False
+
+
+def redis_stop():
+    stop_cmd = '%s stop' % REDIS
+    stop = shlex.split(stop_cmd)
+    subprocess.call(stop, stdout=subprocess.PIPE)
+    pid_exists = os.path.exists(REDIS_PID_FILE)
+    if pid_exists:
+        msg = 'Redis failed to stop'
+        sys.stderr.write(msg+'\n')
+        logger.error(msg)
+    else:
+        msg = 'Redis stopped successfully'
+        sys.stderr.write(msg+'\n')
+        logger.info(msg)
+
+
+def handler(signum, frame):
+    print "returning back to terminal"
+
+
+def TopPatch_start():
+    process_exists = 0
+    for pidfile in PIDS:
+        if os.path.exists(pidfile[0]):
+            pid = open(pidfile[0], 'r').read()
+            ps = subprocess.Popen(['ps', '-fe'], stdout=subprocess.PIPE)
+            for i in ps.stdout.readlines():
+                if re.search(r'[0-9]+', i.split()[1]):
+                    if int(pid) == int(i.split()[1]):
+                        process_exists = process_exists + 1
+                        message = 'patching service %s is already running.' \
+                            % (pidfile[1])
+                        sys.stderr.write(message+'\n')
+                        logger.error(message)
+                        sys.exit(1)
+    if process_exists == 0:
+        os.chdir(PATH)
+        print 'patching Server is starting. Please wait....'
+        logger.info('patching Server is starting. Please wait....')
+        redis = redis_starter()
+        if redis:
+            rethink = rethink_starter()
+            if rethink:
+                rqworker = rqworker_starter()
+            if rqworker:
+                for service in RVLSERVICES:
+                    pid = run(PROGRAM, service[0], '--port=%s' % (service[3]))
+                    pidfile = open(service[1], 'w')
+                    pidfile.write(pid)
+                    pidfile.close()
+                    logger.info("%s Server Started" % (service[2]))
+                for service in RVWSERVICES:
+                    pid = run(PROGRAM, service[0], '--port=%s' % (service[3]))
+                    pidfile = open(service[1], 'w')
+                    pidfile.write(pid)
+                    pidfile.close()
+                    logger.info("%s Server Started" % (service[2]))
+                for service in SERVICES:
+                    pid = run(PROGRAM, service[0])
+                    pidfile = open(service[1], 'w')
+                    pidfile.write(pid)
+                    pidfile.close()
+                    logger.info("%s Server Started" % (service[2]))
+                    sleep(1)
+                signal.signal(signal.SIGINT, handler)
+                print 'patching Server has been started. Enjoy !!!'
+                logger.info('patching Server has been started. Enjoy !!!')
+
+
+def TopPatch_stop():
+    logger.info('patching Services are going to shutdown now...')
+    for service in ALLSERVICES:
+        if os.path.exists(service[1]):
+            pid = open(service[1], 'r').read()
+            if re.search(r'[0-9]+', pid):
+                try:
+                    os.kill(int(pid), signal.SIGTERM)
+                    os.remove(service[1])
+                except Exception as e:
+                    if e.errno == 3:
+                        os.remove(service[1])
+            sleep(2)
+        else:
+            msg = "RemdiationVault %s is not running. Stopping Failed..." \
+                  % (service[2])
+            sys.stderr.write(msg+'\n')
+            logger.error(msg)
+
+    rqworker_stop()
+    redis_stop()
+    rethink_stop()
+
+    print 'patching Server has been stopped now !!!'
+    logger.info('patching Server has been stopped now !!!')
+
+
+def TopPatch_restart():
+    TopPatch_stop()
+    print "\n"
+    TopPatch_start()
+
+
+def TopPatch_status():
+    process_exists = 0
+    for pidfile in PIDS:
+        if os.path.exists(pidfile[0]):
+            pid = open(pidfile[0], 'r').read()
+            ps = subprocess.Popen(['ps', '-fe'], stdout=subprocess.PIPE)
+            for i in ps.stdout.readlines():
+                if re.search(r'[0-9]+', i.split()[1]):
+                    if int(pid) == int(i.split()[1]):
+                        process_exists = process_exists + 1
+                        message = 'RV service %s is running.' \
+                            % (pidfile[1])
+                        sys.stderr.write(message+'\n')
+                        logger.info(message)
+        else:
+            message = 'RV service %s is not running.' \
+                      % (pidfile[1])
+            sys.stderr.write(message+'\n')
+            logger.error(message)
+    sys.exit(0)
+
+
+ACTIONS = sys.argv[1]
+
+if __name__ == "__main__":
+    if len(sys.argv) == 2:
+        if ACTIONS == 'start':
+            TopPatch_start()
+        elif ACTIONS == 'stop':
+            TopPatch_stop()
+        elif ACTIONS == 'restart':
+            TopPatch_restart()
+            logger.info("TopPatch server restarting..")
+        elif ACTIONS == 'status':
+            TopPatch_status()
+        else:
+            print "Unknown command"
+            sys.exit(2)
+        sys.exit(0)
+    else:
+        print "usage: %s start|stop|restart|status" % sys.argv[0]

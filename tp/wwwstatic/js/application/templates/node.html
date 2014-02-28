@@ -1,0 +1,409 @@
+<% if ($.type(model) === 'object') { %>
+<style type="text/css">
+    .well DIV DL DT {
+        width: 45%;
+    }
+    .well DIV DL DD {
+        width: 50%;
+    }
+</style>
+<article class="row-fluid">
+    <header><strong>Node Details</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <dl>
+            <dt>Computer Name:</dt><dd><% model['computer_name'] ? print('<span>' + model['computer_name'] +'</span>') : print('<em>Not listed</em>'); %></dd>
+            <dt>Display Name:</dt><dd><% model['display_name'] ? print('<span>' + model['display_name'] + '</span>') : print('<em>Not listed</em>'); %>&nbsp;<a href="#" id="editDisplay" data-placement="right" name="editPopover"><i class="icon-pencil" title="Edit Display Name" style="color: #daa520"></i></a></dd>
+            <dt>Hostname:</dt><dd><% model['host_name'] ? print('<span>' + model['host_name'] + '</span>') : print('<em>Not listed</em>'); %>&nbsp;<a href="#" id="editHost" data-placement="right" name="editPopover"><i class="icon-pencil" title="Edit Hostname" style="color: #daa520"></i></a></dd>
+            <dt>Production State:</dt><dd><%= model.production_level || 'N/A' %></dd>
+            <dt>Operating System:</dt>
+            <dd>
+                <% print(model['os_string'] || '<em>Not listed</em>'); %>&nbsp;
+                <i class="<%= printOsIcon(model.os_string) %>"></i>
+            </dd>
+            <dt>Memory:</dt><dd><%= hardware.memory + ' kb' || 'N/A' %></dd>
+            <dt>Agent Status:</dt>
+            <dd>
+                <% if (model['agent/status']) { %>
+                Running&nbsp;<i style="color: green;" class="icon-ok"></i>&nbsp; —
+                <button class="btn btn-link noPadding" name="agentOperation" data-value="stop">
+                    <i title="Stop Agent" class="icon-off" style="color: #ff0000;"></i>
+                </button>
+                <!--<button class="btn btn-link noPadding" name="agentOperation" data-value="restart">
+                    <i title="Restart Agent" class="icon-refresh"></i>
+                </button>-->
+                <% } else { %>
+                Stopped&nbsp;<i style="color: red;" class="icon-warning-sign"></i>
+                <!-- — <button class="btn btn-link noPadding" name="agentOperation" data-value="start">
+                    <i title="Start Agent" class="icon-play" style="color: green;"></i>
+                </button>-->
+                <% } %>
+            </dd>
+            <dt>Host Status:</dt>
+            <dd>
+                <% if (model.reboot) { %>
+                <form id="reboot-form" class="noMargin">
+                    Reboot required <i style="color: orange;" class="icon-warning-sign"></i>&nbsp;
+                    Schedule reboot&nbsp;<input type="checkbox" name="schedule" value="once" data-placement="right"/>
+                    <input type="submit" value="Reboot" id="reboot-button" style="color: black;" class="btn btn-mini btn-warning"/>
+                    <input type="hidden" name="operation" value="reboot" />
+                    <input type="hidden" name="node" value="<%=  model.id  %>"/>
+                </form>
+                <% } else if (model['host/status']) { %>
+                <form id="reboot-form">
+                    Running&nbsp;<i style="color: green;" class="icon-ok"></i>&nbsp;
+                    <% if(model.is_vm) { %>  —
+                        <button class="btn btn-link noPadding" name="nodeOperation" data-value="stop">
+                            <i title="Shut Down VM" class="icon-off" style="color: #ff0000;"></i>
+                        </button>
+                        <button class="btn btn-link noPadding" name="nodeOperation" data-value="restart">
+                            <i title="Restart VM" class="icon-refresh"></i>
+                        </button>
+                    <% } %><br>
+                    Schedule reboot&nbsp;<input type="checkbox" name="schedule" value="once" data-placement="right"/>
+                    <input type="submit" value="Reboot" id="reboot-button" class="btn btn-mini btn-primary"/>&nbsp;
+                    <input type="hidden" name="operation" value="reboot" />
+                    <input type="hidden" name="node" value="<%=  model.id  %>"/>
+                </form>
+                <% } else { %>
+                    Stopped&nbsp;<i style="color: red;" class="icon-warning-sign"></i>
+                    <% if(model.is_vm) { %>  —
+                        <button class="btn btn-link noPadding" name="nodeOperation" data-value="start">
+                            <i title="Power On VM" class="icon-play" style="color: green;"></i>
+                        </button>
+                    <% } %>
+                <% } %>
+            </dd>
+        </dl>
+    </section>
+</article>
+<article class="row-fluid" style="z-index: 0;">
+    <header><strong>Trends</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <div id="installedGraph" class="span6"></div>
+        <div id="availableGraph" class="span6"></div>
+    </section>
+</article>
+<article class="row-fluid">
+    <header><strong>Tags Applied</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <div class="list">
+            <header class="clearfix">
+                <div class="pull-left">&nbsp;</div>
+                <div class="pull-right hidden-print">
+                    <small>Add a tag</small>&nbsp;
+                    <button class="btn btn-link noPadding" name="toggleAddTag"><i style="color: green;" class="icon-plus"></i></button>
+                </div>
+            </header>
+            <div class="items" id="tagItems">
+                <% if (model.tags && model.tags.length != 0) { %>
+                    <% _.each(model.tags, function (tag) { %>
+                    <div class="item row-fluid">
+                        <div class="span6">
+                            <span class="label label-info"><i class="icon-tag"></i>&nbsp;<%= tag.tag_name %></span>&nbsp;
+                            <% if (tag.agents_up > 0) { %>
+                                <i style="color: green;" class="icon-ok" title="<%= tag.agents_up %> agents up." data-placement="right"></i>&nbsp;
+                            <% } %>
+                            <% if (tag.reboots_pending > 0) { %>
+                                <i style="color: orange" class="icon-warning-sign" title="<%= tag.reboots_pending %> reboots pending." data-placement="right"></i>&nbsp;
+                            <% } %>
+                            <% if (tag.agents_down > 0) { %>
+                                <i style="color: red;" class="icon-warning-sign" title="<%= tag.agents_down %> agents down." data-placement="right"></i>
+                            <% } %>
+                        </div>
+                        <div class="span6 alignRight">
+                            <button class="btn btn-link noPadding" name="removeTag" value="<%= tag.tag_name %>"  data-node="<% print(model.id); %>">
+                                <i style="color: red;" class="icon-trash" title="Remove Tag" data-placement="left"></i>&nbsp;
+                            </button>
+                            <a href="#tags/<%= tag.tag_id %>">More Info</a>
+                        </div>
+                    </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="item row-fluid">
+                        <span><em>No tags applied</em></span>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+</article>
+<article class="row-fluid">
+    <header><strong>Properties</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <div class="list">
+            <header class="clearfix">
+                <div class="pull-left">&nbsp;</div>
+                <div class="pull-right hidden-print">
+                    <small>Add a property</small>&nbsp;
+                    <button class="btn btn-link noPadding" name="toggleAddProperty"><i style="color: green;" class="icon-plus"></i></button>
+                </div>
+            </header>
+            <div class="items" id="propertyItems">
+                <div class="item row-fluid hide" id="newProperty">
+                    <div class="span8">
+                        <input type="text" name="propertyName" placeholder="Property Name" required="required" class="input-medium"/>
+                        <input type="text" name="propertyValue" placeholder="Property Value" required="required" class="input-medium"/>
+                    </div>
+                    <div class="span4 alignRight">
+                        <button name="toggleAddProperty" class="btn btn-mini">
+                            Cancel
+                        </button>
+                        <button name="submitProperty" class="btn btn-mini btn-primary">
+                            Confirm
+                        </button>
+                    </div>
+                </div>
+                <%  if (model.properties && model.properties.length) { %>
+                    <% _.each(model.properties, function (property) { %>
+                        <div class="item row-fluid">
+                            <span class="span6">Property Name</span>
+                            <span class="span6 alignRight"></span>
+                        </div>
+                    <% }); %>
+                <% } else { %>
+                    <div class="item row-fluid">
+                        <span><em>No properties applied</em></span>
+                    </div>
+                <% } %>
+            </div>
+        </div>
+    </section>
+</article>
+<% if(hardware) { %>
+<article class="row-fluid">
+    <header><strong>CPU Information</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <dl>
+            <% _.each(hardware.cpu, function (cpu, i) { %>
+                <dt>CPU <%= i + 1 %>:</dt>
+                <dd>Processor - <%= cpu.name || 'N/A' %><br>
+                    Cores - <%= cpu.cores || 'N/A' %><br>
+                    Cache (kb) - <%= cpu.cache_kb || 'N/A' %><br>
+                    Processor Bit Type - <%= cpu.bit_type || 'N/A' %><br>
+                    Processor Speed - <%= cpu.speed_mhz || 'N/A' %> MHz</dd>
+            <% }); %>
+        </dl>
+    </section>
+</article>
+<article class="row-fluid">
+    <header><strong>Display Information</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <dl>
+            <% _.each(hardware.display, function (display, i) { %>
+                <dt>Display <%= i + 1 %>:</dt>
+                <dd>Controller - <%= display.name || 'N/A' %><br>
+                    Ram (kb) - <%= display.ram_kb || 'N/A' %></dd>
+            <% }); %>
+        </dl>
+    </section>
+</article>
+<article class="row-fluid">
+    <header><strong>Storage Information</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <dl>
+            <% _.each(hardware.storage, function (storage, i) { %>
+                <dt>Storage <%= i + 1 %>:</dt>
+                <dd>Name - <%= storage.name || 'N/A' %><br>
+                    File System - <%= storage.file_system || 'N/A' %><br>
+                    Size (kb) - <%= storage.size_kb || 'N/A' %><br>
+                    Free Size (kb) - <%= storage.free_size_kb || 'N/A' %></dd>
+            <% }); %>
+        </dl>
+    </section>
+</article>
+<article>
+    <header><strong>Network Interfaces</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <% if (hardware.nic && hardware.nic.length) { %>
+        <dl>
+            <% _.each(hardware.nic, function (interface, i) { %>
+                <% if (i <= 2) { %>
+                    <dt>Interface <%= i + 1 %>:</dt>
+                    <dd>Name - <%= interface.name %><br>
+                        IP Address - <%= interface.ip_address %><br>
+                        MAC Address - <%= interface.mac.substring(0,2) + ":" + interface.mac.substring(2,4) + ":" + interface.mac.substring(4,6) + ":" + interface.mac.substring(6,8) + ":" + interface.mac.substring(8,10) + ":" + interface.mac.substring(10, 12) %></dd>
+                <% } else { %>
+                    <dt class="hidden" style="display: none">Interface <%= i + 1 %>:</dt>
+                    <dd class="hidden" style="display: none">
+                        Name - <%= interface.name %><br>
+                        IP Address - <%= interface.ip_address %><br>
+                        MAC Address - <%= interface.mac.substring(0,2) + ":" + interface.mac.substring(2,4) + ":" + interface.mac.substring(4,6) + ":" + interface.mac.substring(6,8) + ":" + interface.mac.substring(8,10) + ":" + interface.mac.substring(10, 12) %></dd>
+                <% } %>
+            <% }); %>
+            <% if (hardware.nic.length > 3) { %>
+                <dt>&nbsp;</dt>
+                <dd><button name="showNetworking" class="btn btn-link noPadding">Show more</button></dd>
+            <% } %>
+        </dl>
+        <% } else { %>
+            <span><em>No interfaces available.</em></span>
+        <% } %>
+    </section>
+</article>
+<% } %>
+<!--<article>
+    <header><strong>Network Interfaces</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <% if (model.networking && model.networking.length) { %>
+        <dl>
+            <% _.each(model.networking, function (interface, i) { %>
+            <% if (i <= 2) { %>
+            <dt><%= interface.interface_name %>:</dt>
+            <dd>IP Address - <%= interface.ip %><br>
+                MAC Address - <%= interface.mac.substring(0,2) + ":" + interface.mac.substring(2,4) + ":" + interface.mac.substring(4,6) + ":" + interface.mac.substring(6,8) + ":" + interface.mac.substring(8,10) + ":" + interface.mac.substring(10, 12) %></dd>
+            <% } else { %>
+            <dt class="hidden" style="display: none"><%= interface.interface_name %>:</dt>
+            <dd class="hidden" style="display: none">IP Address - <%= interface.ip %><br>
+                MAC Address - <%= interface.mac.substring(0,2) + ":" + interface.mac.substring(2,4) + ":" + interface.mac.substring(4,6) + ":" + interface.mac.substring(6,8) + ":" + interface.mac.substring(8,10) + ":" + interface.mac.substring(10, 12) %></dd>
+            <% } %>
+            <% }); %>
+            <% if (model.networking.length > 3) { %>
+            <dt>&nbsp;</dt>
+            <dd><button name="showNetworking" class="btn btn-link noPadding">Show more</button></dd>
+            <% } %>
+        </dl>
+        <% } else { %>
+        <span><em>No interfaces available.</em></span>
+        <% } %>
+    </section>
+</article>-->
+<% if (model.is_vm && vm) { %>
+<article  class="row-fluid">
+    <header><strong>VMware Information</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <dl>
+            <dt>VM Name:</dt><dd><%= vm.vm_name %></dd>
+            <dt>Hyper Visor IP:</dt><dd><%= vm.hyper_visor_ip || 'Not listed' %></dd>
+            <dt>Hyper Visor Name:</dt><dd><%= vm.hyper_visor_name %></dd>
+            <dt>Hyper Visor Type</dt><dd><%= vm.hyper_visor_type %></dd>
+            <dt>Hyper Visor Version:</dt><dd><%= vm.hyper_visor_version %></dd>
+            <dt>VM Tools Version:</dt><dd><%= vm.tools_version %></dd>
+            <dt>VM Tools status:</dt><dd><%= vm.tools_status %></dd>
+        </dl>
+    </section>
+</article>
+<% } %>
+<article class="alert alert-block fade in hide">
+    <span class="help-inline"></span>
+</article><br>
+<div class="tab-header">
+</div>
+<div class="tab-body">
+
+</div>
+
+<style>
+    div.ui-datepicker{
+        font-size:12px;
+    }
+</style>
+<div id="hidden" class="hide">
+    <div id="dependency-list" class="list" style="max-height: 150px; overflow-y: auto; overflow-x: hidden; max-width: 300px;">
+        <div class="items">
+            <div class="item clearfix" name="loading">
+                <span>Loading...</span>
+            </div>
+        </div>
+    </div>
+    <div id="display-name">
+        <input type="text" class="input-medium"/>&nbsp;
+        <button class="btn btn-primary btn-mini" name="editProperty"><i class="icon-ok"></i></button>
+    </div>
+    <form id="list-form">
+        <div class="list">
+            <div class="items" style="max-height: 150px; overflow: auto;">
+               <% if(tags.length) { %>
+                   <% _.each(tags, function (tag) { %>
+                        <div class="item clearfix">
+                            <label class="checkbox"><%= tag.name %>
+                                <input value="<%= tag.id %>" name="taglist"  type="checkbox"
+                                <% if (model.tags.length) { %>
+                                    <% _.each(model.tags, function (nodeTag) { %>
+                                        <% if(nodeTag.tag_name == tag.name) { print('checked="checked"'); } %>
+                                    <% }); %>
+                                <% } %> />
+                            </label>
+                        </div>
+                    <% }); %>
+                <% } %>
+            </div>
+            <div class="item clearfix noPadding" style="margin-top: 10px">
+                <button type="button" class="btn btn-link" name="showNewTag"><span>New tag...</span></button>
+                <div class="hide inline input-append">
+                    <input type="text" name="tag" placeholder="New tag..." class="input-medium"/>
+                    <button class="btn btn-mini btn-primary" id="createtag">Add</button>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="nodeid" value="<% print(model.id); %>"/>
+    </form>
+    <form class="form-horizontal" id="schedule-form">
+        <label>Date:</label>
+        <input type="text" name="datepicker" class="input-medium"/>
+        <label>Time:</label>
+        <div class="inline">
+            <select name="hours" id="hours" class="input-mini">
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
+            <select name="minutes" class="input-mini">
+                <option>00</option>
+                <option>15</option>
+                <option>30</option>
+                <option>45</option>
+            </select>
+            <select name="ampm" class="input-mini">
+                <option>AM</option>
+                <option>PM</option>
+            </select>
+        </div>
+        <label class="control-label">Offset:</label>
+        <select name="offset" class="input-medium">
+            <option value="default">None</option>
+            <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
+            <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
+            <option value="-10.0">(GMT -10:00) Hawaii</option>
+            <option value="-9.0">(GMT -9:00) Alaska</option>
+            <option value="-8.0">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+            <option value="-7.0">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+            <option value="-6.0">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+            <option value="-5.0">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+            <option value="-4.0">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+            <option value="-3.5">(GMT -3:30) Newfoundland</option>
+            <option value="-3.0">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+            <option value="-2.0">(GMT -2:00) Mid-Atlantic</option>
+            <option value="-1.0">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+            <option value="0.0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+            <option value="1.0">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+            <option value="2.0">(GMT +2:00) Kaliningrad, South Africa</option>
+            <option value="3.0">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+            <option value="3.5">(GMT +3:30) Tehran</option>
+            <option value="4.0">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+            <option value="4.5">(GMT +4:30) Kabul</option>
+            <option value="5.0">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+            <option value="5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+            <option value="5.75">(GMT +5:45) Kathmandu</option>
+            <option value="6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+            <option value="7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+            <option value="8.0">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+            <option value="9.0">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+            <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
+            <option value="10.0">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+            <option value="11.0">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+            <option value="12.0">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+        </select>
+        <label>Label:</label>
+        <input type="text" name="label" class="input-medium"/>
+    </form>
+</div>
+<% } %>

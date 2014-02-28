@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-975-2: Firefox and Xulrunner regression | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-975-2: Firefox and Xulrunner regression</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-975-2</h2>
+<p><em>16th September, 2010</em></p>
+<h3>firefox, firefox-3.0, firefox-3.5, xulrunner-1.9.1, xulrunner-1.9.2 regression</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 10.04 LTS</li>
+
+    <li>Ubuntu 9.10</li>
+
+    <li>Ubuntu 9.04</li>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>This update provides stability updates for Firefox and Xulrunner.
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>firefox 
+    - Safe and easy web browser from Mozilla
+    
+    </li>
+  
+
+  
+    <li>firefox-3.0 
+    - Safe and easy web browser from Mozilla
+    
+    </li>
+  
+
+  
+
+  
+    <li>firefox-3.5 
+    - Safe and easy web browser from Mozilla
+    
+    </li>
+  
+
+  
+    <li>xulrunner-1.9.1 
+    - XUL + XPCOM application runner
+    
+    </li>
+  
+
+  
+    <li>xulrunner-1.9.2 
+    - XUL + XPCOM application runner
+    
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>USN-975-1 fixed vulnerabilities in Firefox and Xulrunner. Some users<br />reported stability problems under certain circumstances. This update fixes<br />the problem.</p>
+
+<p>We apologize for the inconvenience.</p>
+
+<p>Original advisory details:</p>
+
+<p> Several dangling pointer vulnerabilities were discovered in Firefox. An<br /> attacker could exploit this to crash the browser or possibly run arbitrary<br /> code as the user invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2760">CVE-2010-2760</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2767">CVE-2010-2767</a>,<br /> <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3167">CVE-2010-3167</a>)<br /> <br /> Blake Kaplan and Michal Zalewski discovered several weaknesses in the<br /> XPCSafeJSObjectWrapper (SJOW) security wrapper. If a user were tricked into<br /> viewing a malicious site, a remote attacker could use this to run arbitrary<br /> JavaScript with chrome privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2762">CVE-2010-2762</a>)<br /> <br /> Matt Haggard discovered that Firefox did not honor same-origin policy when<br /> processing the statusText property of an XMLHttpRequest object. If a user<br /> were tricked into viewing a malicious site, a remote attacker could use<br /> this to gather information about servers on internal private networks.<br /> (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2764">CVE-2010-2764</a>)<br /> <br /> Chris Rohlf discovered an integer overflow when Firefox processed the HTML<br /> frameset element. If a user were tricked into viewing a malicious site, a<br /> remote attacker could use this to crash the browser or possibly run<br /> arbitrary code as the user invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2765">CVE-2010-2765</a>)<br /> <br /> Several issues were discovered in the browser engine. If a user were<br /> tricked into viewing a malicious site, a remote attacker could use this to<br /> crash the browser or possibly run arbitrary code as the user invoking the<br /> program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2766">CVE-2010-2766</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3168">CVE-2010-3168</a>)<br /> <br /> David Huang and Collin Jackson discovered that the &lt;object&gt; tag could<br /> override the charset of a framed HTML document in another origin. An<br /> attacker could utilize this to perform cross-site scripting attacks.<br /> (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2768">CVE-2010-2768</a>)<br /> <br /> Paul Stone discovered that with designMode enabled an HTML selection<br /> containing JavaScript could be copied and pasted into a document and have<br /> the JavaScript execute within the context of the site where the code was<br /> dropped. An attacker could utilize this to perform cross-site scripting<br /> attacks. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-2769">CVE-2010-2769</a>)<br /> <br /> A buffer overflow was discovered in Firefox when processing text runs. If a<br /> user were tricked into viewing a malicious site, a remote attacker could<br /> use this to crash the browser or possibly run arbitrary code as the user<br /> invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3166">CVE-2010-3166</a>)<br /> <br /> Peter Van der Beken, Jason Oster, Jesse Ruderman, Igor Bukanov, Jeff<br /> Walden, Gary Kwong and Olli Pettay discovered several flaws in the<br /> browser engine. If a user were tricked into viewing a malicious site, a<br /> remote attacker could use this to crash the browser or possibly run<br /> arbitrary code as the user invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2010-3169">CVE-2010-3169</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 10.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox">abrowser</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox/3.6.10+build1+nobinonly-0ubuntu0.10.04.1">3.6.10+build1+nobinonly-0ubuntu0.10.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox">firefox</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox/3.6.10+build1+nobinonly-0ubuntu0.10.04.1">3.6.10+build1+nobinonly-0ubuntu0.10.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.2">xulrunner-1.9.2</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.2/1.9.2.10+build1+nobinonly-0ubuntu0.10.04.1">1.9.2.10+build1+nobinonly-0ubuntu0.10.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 9.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox-3.5">firefox-3.5</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox-3.5/3.6.10+build1+nobinonly-0ubuntu0.9.10.1">3.6.10+build1+nobinonly-0ubuntu0.9.10.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.1">xulrunner-1.9.1</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.1/1.9.1.13+build1+nobinonly-0ubuntu0.9.10.1">1.9.1.13+build1+nobinonly-0ubuntu0.9.10.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.2">xulrunner-1.9.2</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.2/1.9.2.10+build1+nobinonly-0ubuntu0.9.10.1">1.9.2.10+build1+nobinonly-0ubuntu0.9.10.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 9.04:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox-3.0">firefox-3.0</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox-3.0/3.6.10+build1+nobinonly-0ubuntu0.9.04.1">3.6.10+build1+nobinonly-0ubuntu0.9.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox-3.0">abrowser</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox-3.0/3.6.10+build1+nobinonly-0ubuntu0.9.04.1">3.6.10+build1+nobinonly-0ubuntu0.9.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.2">xulrunner-1.9.2</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.2/1.9.2.10+build1+nobinonly-0ubuntu0.9.04.1">1.9.2.10+build1+nobinonly-0ubuntu0.9.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox-3.0">firefox-3.0</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox-3.0/3.6.10+build1+nobinonly-0ubuntu0.8.04.1">3.6.10+build1+nobinonly-0ubuntu0.8.04.1</a>
+    </span>
+  </dd>
+    
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.2">xulrunner-1.9.2</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/xulrunner-1.9.2/1.9.2.10+build1+nobinonly-0ubuntu0.8.04.1">1.9.2.10+build1+nobinonly-0ubuntu0.8.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system update you need to restart Firefox and any<br />applications that use Xulrunner to make all the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="https://launchpad.net/bugs/640839">LP: 640839</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

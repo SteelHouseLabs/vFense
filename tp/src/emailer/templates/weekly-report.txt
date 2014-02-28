@@ -1,0 +1,2 @@
+{% for key, value in message_items %}{{ key }}: {{ value }}
+{% end %}

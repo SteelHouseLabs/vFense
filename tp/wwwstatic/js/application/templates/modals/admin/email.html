@@ -1,0 +1,54 @@
+<article>
+    <section class="row-fluid">
+        <div class="control-group span6">
+            <label class="control-label">Host:</label>
+            <input type="text" name="host" value="<%= data.host %>"/>
+        </div>
+        <div class="control-group span6">
+            <label class="control-label">Port:</label>
+            <input type="text" name="port" value="<%= data.port %>"/>
+        </div>
+    </section>
+    <section  class="row-fluid">
+        <div class="control-group span6">
+            <label class="control-label">User:</label>
+            <input type="text" name="user" value="<%= data.username %>"/>
+        </div>
+        <div class="control-group span6">
+            <label class="control-label">Password:</label>
+            <input type="password" name="password"/>
+        </div>
+    </section>
+    <section  class="row-fluid">
+        <div class="control-group span6">
+            <label class="control-label">From Email:</label>
+            <input type="text" name="from_email" value="<%= data.from_email %>"/>
+        </div>
+        <div class="control-group span6">
+            <label class="control-label">To Email:</label>
+            <input type="text" name="to_email" value="<%= data.to_email %>"/>
+        </div>
+    </section>
+    <section  class="row-fluid">
+        <div class="control-group span6">
+            <label class="checkbox control-label">TLS
+                <input type="checkbox" name="is_tls" <% if (data.is_tls) { print('CHECKED'); } %>/>
+            </label>
+        </div>
+        <div class="control-group span6">
+            <label class="checkbox control-label">SSL
+                <input type="checkbox" name="is_ssl" <% if (data.is_ssl) { print('CHECKED'); } %>/>
+            </label>
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span12">
+            <div class="alert alert-block fade in hide"></div>
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span12 alignRight">
+            <button class="btn btn-primary" name="submitEmail">Save</button>
+        </div>
+    </section>
+</article>

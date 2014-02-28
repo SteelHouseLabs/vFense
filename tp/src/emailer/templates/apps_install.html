@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>TopPatch Alert!</h1>
+    <h2>{{ message }}</h2>
+
+    {% for key, val in message_items.items() %}
+        {% if key == 'created_by' %}
+            <h2 style="margin-left: 0px;"> Operation Created By: {{ val }}</h2>
+        {% end %}
+        {% if key == 'created_time' %}
+            <h2 style="margin-left: 0px;"> Time Operation was Created: {{ val }}</h2>
+        {% end %}
+        {% if key == 'completed_time' %}
+            <h2 style="margin-left: 0px;"> Time Operation was Completed: {{ val }}</h2>
+        {% end %}
+        {% if key == 'agents' %}
+            {% for agent in val %}
+                <h2 style="margin-left: 40px;"> Alerts for Computer: {{ agent['computer_name'] }}</h2>
+                <h2 style="margin-left: 40px;"> Agent Picked Up Operation: {{ agent['picked_up_time'] }}</h2>
+                <h2 style="margin-left: 40px;"> Agent Completed Operation: {{ agent['completed_time'] }}</h2>
+                {% if agent['applications_failed'] %}
+                    <table border="1" cellpadding="1" cellspacing="1" style="width: 500px;" summary="Applications Failed">
+                        <caption>{{'Applications Failed For Computer '}} {{ agent['computer_name'] }}</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">{{ 'Application Name'   }}</th>
+                                <th scope="col">{{ 'Reason For Failure'   }}</th>
+                                <th scope="col">{{ 'Time Results Were Received'   }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for app in agent['applications_failed'] %}
+                                <tr>
+                                    <td>{{ app['app_name']  }}</td>
+                                    <td>{{ app['errors']  }}</td>
+                                    <td>{{ app['results_received_time']  }}</td>
+                                </tr>
+                            {% end %}
+                        </tbody>
+                    </table>
+                {% end %}
+                {% if agent['applications_passed'] %}
+                    <table border="1" cellpadding="1" cellspacing="1" style="width: 500px;" summary="Applications Passed">
+                        <caption>{{'Applications Passed For Computer '}} {{ agent['computer_name'] }}</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">{{ 'Application Name'   }}</th>
+                                <th scope="col">{{ 'Reason For Failure'   }}</th>
+                                <th scope="col">{{ 'Time Results Were Received'   }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for app in agent['applications_passed'] %}
+                                <tr>
+                                    <td>{{ app['app_name']  }}</td>
+                                    <td>{{ app['errors']  }}</td>
+                                    <td>{{ app['results_received_time']  }}</td>
+                                </tr>
+                            {% end %}
+                        </tbody>
+                    </table>
+
+                {% end %}
+            {% end %}
+        {% end %}
+    {% end %}
+{% end %}

@@ -1,0 +1,7 @@
+2013/10/19 12:45:05 [warn] 14556#0: low address bits of 192.168.8.0/16 are meaningless in /opt/TopPatch/conf/nginx/nginx-remediation_vault.conf:61
+2013/10/19 12:45:05 [emerg] 14556#0: BIO_new_file("/opt/TopPatch/tp/data/ssl/star_toppatch_com.pem") failed (SSL: error:02001002:system library:fopen:No such file or directory:fopen('/opt/TopPatch/tp/data/ssl/star_toppatch_com.pem','r') error:2006D080:BIO routines:BIO_new_file:no such file)
+2013/10/19 12:45:21 [warn] 15213#0: low address bits of 192.168.8.0/16 are meaningless in /opt/TopPatch/conf/nginx/nginx-remediation_vault.conf:61
+2013/10/19 12:45:21 [emerg] 15213#0: BIO_new_file("/opt/TopPatch/tp/data/ssl/star_toppatch_com.pem") failed (SSL: error:02001002:system library:fopen:No such file or directory:fopen('/opt/TopPatch/tp/data/ssl/star_toppatch_com.pem','r') error:2006D080:BIO routines:BIO_new_file:no such file)
+2013/10/19 12:46:36 [warn] 17809#0: low address bits of 192.168.8.0/16 are meaningless in /opt/TopPatch/conf/nginx/nginx-remediation_vault.conf:61
+2013/10/19 12:46:43 [warn] 17820#0: low address bits of 192.168.8.0/16 are meaningless in /opt/TopPatch/conf/nginx/nginx-remediation_vault.conf:61
+2013/10/19 12:46:44 [warn] 17824#0: low address bits of 192.168.8.0/16 are meaningless in /opt/TopPatch/conf/nginx/nginx-remediation_vault.conf:61

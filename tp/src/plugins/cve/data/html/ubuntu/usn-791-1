@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-791-1: Moodle vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-791-1: Moodle vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-791-1</h2>
+<p><em>24th June, 2009</em></p>
+<h3>moodle vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 8.10</li>
+
+    <li>Ubuntu 8.04 LTS</li>
+
+</ul>
+
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>moodle 
+    
+    </li>
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>Thor Larholm discovered that PHPMailer, as used by Moodle, did not<br />correctly escape email addresses.  A local attacker with direct access<br />to the Moodle database could exploit this to execute arbitrary commands<br />as the web server user. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2007-3215">CVE-2007-3215</a>)</p>
+
+<p>Nigel McNie discovered that fetching https URLs did not correctly escape<br />shell meta-characters.  An authenticated remote attacker could execute<br />arbitrary commands as the web server user, if curl was installed and<br />configured. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4796">CVE-2008-4796</a>, MSA-09-0003)</p>
+
+<p>It was discovered that Smarty (also included in Moodle), did not<br />correctly filter certain inputs.  An authenticated remote attacker could<br />exploit this to execute arbitrary PHP commands as the web server user.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4810">CVE-2008-4810</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4811">CVE-2008-4811</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-1669">CVE-2009-1669</a>)</p>
+
+<p>It was discovered that the unused SpellChecker extension in Moodle did not<br />correctly handle temporary files.  If the tool had been locally modified,<br />it could be made to overwrite arbitrary local files via symlinks.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5153">CVE-2008-5153</a>)</p>
+
+<p>Mike Churchward discovered that Moodle did not correctly filter Wiki page<br />titles in certain areas.  An authenticated remote attacker could exploit<br />this to cause cross-site scripting (XSS), which could be used to modify<br />or steal confidential data of other users within the same web domain.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5432">CVE-2008-5432</a>, MSA-08-0022)</p>
+
+<p>It was discovered that the HTML sanitizer, &quot;Login as&quot; feature, and logging<br />in Moodle did not correctly handle certain inputs.  An authenticated<br />remote attacker could exploit this to generate XSS, which could be used<br />to modify or steal confidential data of other users within the same<br />web domain.  (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5619">CVE-2008-5619</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-0500">CVE-2009-0500</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-0502">CVE-2009-0502</a>, MSA-08-0026,<br />MSA-09-0004, MSA-09-0007)</p>
+
+<p>It was discovered that the HotPot module in Moodle did not correctly<br />filter SQL inputs.  An authenticated remote attacker could execute<br />arbitrary SQL commands as the moodle database user, leading to a loss<br />of privacy or denial of service.  (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-6124">CVE-2008-6124</a>, MSA-08-0010)</p>
+
+<p>Kevin Madura discovered that the forum actions and messaging settings<br />in Moodle were not protected from cross-site request forgery (CSRF).<br />If an authenticated user were tricked into visiting a malicious<br />website while logged into Moodle, a remote attacker could change the<br />user&#39;s configurations or forum content.  (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-0499">CVE-2009-0499</a>, MSA-09-0008,<br />MSA-08-0023)</p>
+
+<p>Daniel Cabezas discovered that Moodle would leak usernames from the<br />Calendar Export tool.  A remote attacker could gather a list of users,<br />leading to a loss of privacy.  (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-0501">CVE-2009-0501</a>, MSA-09-0006)</p>
+
+<p>Christian Eibl discovered that the TeX filter in Moodle allowed any<br />function to be used.  An authenticated remote attacker could post<br />a specially crafted TeX formula to execute arbitrary TeX functions,<br />potentially reading any file accessible to the web server user, leading<br />to a loss of privacy.  (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-1171">CVE-2009-1171</a>, MSA-09-0009)</p>
+
+<p>Johannes Kuhn discovered that Moodle did not correctly validate user<br />permissions when attempting to switch user accounts.  An authenticated<br />remote attacker could switch to any other Moodle user, leading to a loss<br />of privacy.  (MSA-08-0003)</p>
+
+<p>Hanno Boeck discovered that unconfigured Moodle instances contained<br />XSS vulnerabilities.  An unauthenticated remote attacker could exploit<br />this to modify or steal confidential data of other users within the same<br />web domain.  (MSA-08-0004)</p>
+
+<p>Debbie McDonald, Mauno Korpelainen, Howard Miller, and Juan Segarra<br />Montesinos discovered that when users were deleted from Moodle, their<br />profiles and avatars were still visible.  An authenticated remote attacker<br />could exploit this to store information in profiles even after they were<br />removed, leading to spam traffic.  (MSA-08-0015, MSA-09-0001, MSA-09-0002)</p>
+
+<p>Lars Vogdt discovered that Moodle did not correctly filter certain inputs.<br />An authenticated remote attacker could exploit this to generate XSS from<br />which they could modify or steal confidential data of other users within<br />the same web domain.  (MSA-08-0021)</p>
+
+<p>It was discovered that Moodle did not correctly filter inputs for group<br />creation, mnet, essay question, HOST param, wiki param, and others.<br />An authenticated remote attacker could exploit this to generate XSS<br />from which they could modify or steal confidential data of other users<br />within the same web domain.  (MDL-9288, MDL-11759, MDL-12079, MDL-12793,<br />MDL-14806)</p>
+
+<p>It was discovered that Moodle did not correctly filter SQL inputs when<br />performing a restore.  An attacker authenticated as a Moodle administrator<br />could execute arbitrary SQL commands as the moodle database user,<br />leading to a loss of privacy or denial of service. (MDL-11857)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 8.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/moodle">moodle</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/moodle/1.8.2-1.2ubuntu2.1">1.8.2-1.2ubuntu2.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 8.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/moodle">moodle</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/moodle/1.8.2-1ubuntu4.2">1.8.2-1ubuntu4.2</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system upgrade you need to access the Moodle instance<br />and accept the database update to clear any invalid cached data.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2007-3215">CVE-2007-3215</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4796">CVE-2008-4796</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4810">CVE-2008-4810</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-4811">CVE-2008-4811</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5153">CVE-2008-5153</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5432">CVE-2008-5432</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-5619">CVE-2008-5619</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2008-6124">CVE-2008-6124</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-0499">CVE-2009-0499</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-0500">CVE-2009-0500</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-0501">CVE-2009-0501</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-0502">CVE-2009-0502</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-1171">CVE-2009-1171</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2009-1669">CVE-2009-1669</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

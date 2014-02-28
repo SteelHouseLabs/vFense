@@ -1,0 +1,71 @@
+<article class="row-fluid">
+    <section class="list">
+        <header class="clearfix">
+            <div class="pull-left">&nbsp;</div>
+            <div class="pull-right hidden-print">
+                <button class="btn btn-mini disabled">
+                    <span>Export</span>&nbsp;<i class="icon-download-alt"></i>
+                </button>
+                <button class="btn btn-mini" name="toggleSnapshot">Create Snapshot</button>
+                <button class="btn btn-mini" name="removeAll">Remove All</button>
+            </div>
+        </header>
+        <div class="legend">
+            <span>Order — <strong>SS Name</strong> — Description</span>
+                <span class="patches pull-right inlineBlock">
+                    <span>Date Created</span> /
+                    <span>Revert</span> /
+                    <span>Remove</span>
+                </span>
+        </div>
+        <div class="items">
+            <div id="newSnapshotDiv" class="item clearfix hide">
+                <div class="span3 noMargin">
+                    SS Name: <input type="text" placeholder="Snapshot Name" class="input-medium" name="snap_name"/>
+                </div>
+                <div class="span3">
+                    Description: <input type="text" placeholder="Description" class="input-medium" name="snap_description"/>
+                </div>
+                <div class="span2">
+                    <label class="checkbox">Memory
+                        <input type="checkbox" name="memory"/>
+                    </label>
+                </div>
+                <div class="span2">
+                    <label class="checkbox">Quiesce
+                        <input type="checkbox" name="quiesce"/>
+                    </label>
+                </div>
+                <div class="span2 alignRight">
+                    <button name="toggleSnapshot" class="btn btn-mini">Cancel</button>
+                    <button name="createSnapshot" class="btn btn-mini btn-primary">Create</button>
+                </div>
+            </div>
+            <% if (data && data.length != 0) { %>
+                <% _.each(data, function (snapshot) { %>
+                    <div class="item clearfix">
+                        <span class="span9">
+                            <%= snapshot.snap_order %> —
+                            <%= snapshot.snap_name %> —
+                            <%= snapshot.snap_description %>
+                        </span>
+                        <span class="span3 alignRight">
+                            <span><%= snapshot.created_time %></span>&nbsp;
+                            <button class="btn btn-link noPadding" name="revert" value="<%= snapshot.snap_name %>">
+                                <i class="icon-undo" style="color: green" title="Revert to Snapshot"></i>
+                            </button>&nbsp;
+                            <button class="btn btn-link noPadding" name="remove" value="<%= snapshot.snap_name %>">
+                                <i class="icon-remove" style="color: red" title="Remove Snapshot"></i>
+                            </button>
+                        </span>
+                    </div>
+                <% }); %>
+            <% } else { %>
+                <div class="item clearfix">
+                    <span class="span9 ">No snapshots available</span>
+                </div>
+            <% } %>
+        </div><br>
+        <div class="alert alert-block fade in hide"></div>
+    </section>
+</article>

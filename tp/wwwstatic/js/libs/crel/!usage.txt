@@ -1,0 +1,45 @@
+Use Cases:
+===============================================================================
+crel(element type);
+crel(element type, {elementAttributes});
+crel(element type, crel(child1), ..., crel(childN));
+crel(element type, {elementAttributes}, crel(child1), ..., crel(childN));
+
+Examples:
+===============================================================================
+crel('div')
+=   <div></div>
+
+
+crel('div', {class: 'test'})
+=   <div class="test"></div>
+
+
+crel('div',
+    crel('span'),
+    crel('a')
+)
+=   <div>
+=       <span></span>
+=       <a></a>
+=   </div>
+
+
+crel('div',
+    crel('span',
+        crel('a')
+    )
+)
+=   <div>
+=       <span>
+=           <a></a>
+=       </span>
+=   </div>
+
+
+crel('div', {class: 'test'},
+    crel('a')
+)
+=   <div class="test">
+=       <a></a>
+=   </div>

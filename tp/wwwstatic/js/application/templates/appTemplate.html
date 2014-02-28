@@ -1,0 +1,25 @@
+<div class="item linked clearfix" title="<%= model.get('name') %>">
+    <div class="row-fluid">
+        <a href="#patches/<%= type %>/<%= model.get('rv_id') || model.get('app_id') %>">
+            <span class="desc span5" style="overflow: hidden">
+                <input type="checkbox" name="hidden" value="<%= model.get('app_id') %>"/>
+                <strong><%= model.get('name') %></strong>
+            </span>
+            <span class="span2"><%= viewHelpers.formatDate(model.get('release_date')) %></span>
+            <span class="span1"><%= model.get('version') %></span>
+            <span class="span2"><%= model.get('rv_severity') %></span>
+            <span class="span2 alignRight">
+                <% if (type === 'custom') { %>
+                    <button class="btn btn-link noPadding" style="vertical-align: top;" data-toggle="remove">
+                        <i class="icon-remove" style="color: red"></i>
+                    </button>&nbsp;
+                    <span class="hide">
+                        <button class="btn btn-mini btn-danger" data-id="removeCustomApp" data-application="<%= model.get('app_id') %>">Delete</button>&nbsp;
+                        <button class="btn btn-mini" data-toggle="remove">Cancel</button>
+                    </span>
+                <% } %>
+                <i class="icon-caret-right"></i>
+            </span>
+        </a>
+    </div>
+</div>

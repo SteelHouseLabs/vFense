@@ -1,0 +1,391 @@
+<% if (data) { %>
+<style type="text/css">
+    .well DIV DL DT {
+        width: 45%;
+    }
+    .well DIV DL DD {
+        width: 50%;
+    }
+</style>
+<article class="row-fluid">
+    <header><strong>Tag Details</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <dl>
+            <dt>Tag Name:</dt><dd><%= data.tag_name %></dd>
+            <dt>Agents Up:</dt>
+                <dd><%= data.agents_up %>
+                    <% if(data.agents_up) { %>
+                        &nbsp;<span class="icon-ok" style="color: green"></span>
+                    <% } %>
+                </dd>
+            <dt>Agents Down:</dt>
+                <dd><%= data.agents_down %>
+                    <% if(data.agents_down) { %>
+                        &nbsp;<span class="icon-warning-sign" style="color: red"></span>
+                    <% } %>
+                </dd>
+            <dt>Reboots Pending:</dt>
+                <dd><%= data.reboots_pending %>
+                    <% if(data.reboots_pending) { %>
+                        &nbsp;<span class="icon-warning-sign" style="color: orange"></span>
+                    <% } %>
+                </dd>
+        </dl>
+    </section>
+</article>
+<article class="row-fluid">
+    <header><strong>Trends</strong></header>
+    <section class="well well-small noMargin clearfix">
+        <div id="installedGraph" class="span6"></div>
+        <div id="availableGraph" class="span6"></div>
+    </section>
+</article>
+<% } %>
+<article class="alert alert-block fade in hide"></article>
+<% if (patches && data) { %>
+<article class="accordion">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Nodes in Tag</strong>
+                <span class="pull-right">
+                    <span class="badge badge-inverse"><%= patches.node_count %></span>
+                </span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <header class="clearfix">
+                    <label class="checkbox inline">
+                        <input type="checkbox" class="toggle-all">Select / Deselect All
+                    </label>
+                    <div class="pull-right noMargin">
+                        <label class="checkbox inline"><small>Schedule Reboot</small></label>
+                        <input type="checkbox" name="schedule" value="once"/>&nbsp;
+                        <button name="reboot" class="btn btn-mini btn-primary">Reboot</button>
+                    </div>
+                    <input type="hidden" value="<% print(data.tag_id); %>" name="tag">
+                </header>
+                <div class="items">
+                    <% if (patches.nodes.length !== 0) {
+                        _.each(patches.nodes, function (node) { %>
+                            <div class="item clearfix">
+                                <div class="row-fluid">
+                                    <span class="desc span8">
+                                        <label class="checkbox inline">
+                                            <input type="checkbox" name="node" value="<%= node.id %>">
+                                            <%= node.display_name || node.computer_name || node.host_name || node.ip_address %>&nbsp;
+                                            <% if (node.agent_status && node.host_status) { %>
+                                                <i class="icon-ok" style="color: green;" title="Node is running."></i>
+                                            <% } else { %>
+                                                <i class="icon-warning-sign" style="color: red;" title="Node or Agent is down."></i>
+                                            <% } %>
+                                        </label>
+                                    </span>
+                                    <span class="span4 alignRight">
+                                        <a href="#nodes/<%= node.id %>">More information</a>
+                                    </span>
+                                </div>
+                            </div>
+                        <% });
+                     }  else { %>
+                        <div class="item clearfix">
+                            <em>Tag is empty</em>
+                        </div>
+                    <% } %>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Patches Available</strong>
+                    <span class="pull-right">
+                        <select class="btn btn-mini" name="severityFilter">
+                            <option>None</option>
+                            <option>Optional</option>
+                            <option>Recommended</option>
+                            <option>Critical</option>
+                        </select>
+                        <span class="badge badge-inverse"><%= patches.packages_available_count %></span>
+                    </span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <% if (patches.packages_available.length != 0) { %>
+                <form action="/submitForm" method="post" class="form-inline">
+                    <header class="clearfix">
+                        <label class="checkbox inline">
+                            <input type="checkbox" class="toggle-all">Select / Deselect All
+                        </label>
+                        <div class="pull-right noMargin">
+                            <label class="checkbox inline"><small>Schedule this patch</small></label>
+                            <input type="checkbox" name="schedule" value="once"/>&nbsp;
+                            <select type="button" class="btn btn-mini" name="operation">
+                                <option value="install">Install</option>
+                                <option value="hide">Hide</option>
+                            </select>
+                            <select type="button" class="btn btn-mini" name="throttle">
+                                <option>idle</option>
+                                <option value="below_normal">below normal</option>
+                                <option>normal</option>
+                                <option value="above_normal">above normal</option>
+                                <option>high</option>
+                                <!--<option value="real_time">real time</option>-->
+                            </select>
+                            <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                        </div>
+                        <input type="hidden" value="<% print(data.tag_id); %>" name="tag">
+                    </header>
+                    <div class="items">
+                        <% _.each(patches.packages_available, function (patch) { %>
+                            <div class="item clearfix" title="<%= patch.name %>">
+                                <div class="row-fluid">
+                                <span class="desc span8">
+                                    <label class="checkbox inline">
+                                        <input type="checkbox" name="patches" value="<%= patch.id %>">
+                                        <%= patch.name %>
+                                    </label>
+                                </span>
+                                <span class="span4 alignRight">
+                                    <a href="#patches/<%= patch.id %>">More information</a>
+                                </span>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </form>
+                <% }  else { %>
+                    <div class="items">
+                        <div class="item">
+                            <em>No patches to display</em>
+                        </div>
+                    </div>
+                <% } %>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Patches Done</strong>
+                <span class="pull-right">
+                    <span class="badge badge-inverse"><%= patches.packages_installed_count %></span>
+                </span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <% if (patches.packages_installed.length != 0) { %>
+                <form action="/submitForm" method="post" class="form-inline">
+                    <header class="clearfix">
+                        <label class="checkbox inline">
+                            <input type="checkbox" class="toggle-all">Select / Deselect All
+                        </label>
+                        <div class="pull-right noMargin">
+                            <select type="button" class="btn btn-mini" name="operation">
+                                <option value="install">Uninstall</option>
+                                <option value="hide">Hide</option>
+                            </select>
+                            <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                        </div>
+                        <input type="hidden" value="<% print(data.tag_id); %>" name="tag">
+                    </header>
+                    <div class="items">
+                        <% _.each(patches.packages_installed, function (patch) { %>
+                        <div class="item clearfix" title="<%= patch.name %>">
+                            <div class="row-fluid">
+                                <span class="desc span8">
+                                    <label class="checkbox inline">
+                                        <input type="checkbox" name="patches" value="<%= patch.id %>">
+                                        <%= patch.name %>
+                                    </label>
+                                </span>
+                                <span class="span4 alignRight">
+                                    <a href="#patches/<%= patch.id %>">More information</a>
+                                </span>
+                            </div>
+                        </div>
+                        <% }); %>
+                    </div>
+                </form>
+                <% }  else { %>
+                <div class="items">
+                    <div class="item">
+                        <em>No patches to display</em>
+                    </div>
+                </div>
+                <% } %>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Patches Pending</strong>
+                    <span class="badge badge-inverse pull-right"><%= patches.packages_pending_count %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner" id="pending">
+                <div class="items">
+                    <% if (patches.packages_pending.length != 0) { %>
+                        <% _.each(patches.packages_pending, function (patch) { %>
+                            <div class="item clearfix" title="<%= patch.name %>">
+                                <div class="row-fluid">
+                                    <span class="desc span8"><%= patch.name %></span>
+                                    <span class="span4 alignRight"><a href="#patches/<%= patch.id %>">More information</a></span>
+                                </div>
+                            </div>
+                        <% }); %>
+                    <% }  else { %>
+                        <div class="item" id="no-pending">
+                            <em>No patches to display</em>
+                        </div>
+                    <% } %>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <header>
+                <a class="accordion-toggle" href="#">
+                    <i class="icon-circle-arrow-down"></i>&nbsp;<strong>Patches Failed</strong>
+                    <span class="badge badge-inverse pull-right"><%= patches.packages_failed_count %></span>
+                </a>
+            </header>
+        </div>
+        <div class="accordion-body collapse">
+            <section class="list accordion-inner">
+                <% if (patches.packages_failed.length != 0) { %>
+                <form action="/submitForm" method="post" class="form-inline" id="failed">
+                    <header class="clearfix">
+                        <label class="checkbox inline">
+                            <input type="checkbox" class="toggle-all">Select / Deselect All
+                        </label>
+                        <div class="pull-right noMargin">
+                            <select type="button" class="btn btn-mini" name="operation">
+                                <option value="install">Reinstall</option>
+                                <option value="hide">Hide</option>
+                            </select>
+                            <input type="submit" class="btn btn-mini btn-primary" value="Submit">
+                        </div>
+                        <input type="hidden" value="<% print(data.tag_id); %>" name="tag">
+                    </header>
+                    <% _.each(patches.packages_failed, function (patch) { %>
+                        <div class="items">
+                            <div class="item clearfix" title="<%= patch.name %>">
+                                <div class="row-fluid">
+                                <span class="desc span8">
+                                    <label class="checkbox inline">
+                                        <input type="checkbox" name="patches" value="<%= patch.id %>">
+                                        <%= patch.name %>
+                                    </label>
+                                </span>
+                                <span class="span4 alignRight">
+                                    <a href="#patches/<%= patch.id %>">More information</a>
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                </form>
+                <% }  else { %>
+                    <div class="items">
+                        <div class="item">
+                            <em>No patches to display</em>
+                        </div>
+                    </div>
+                <% } %>
+            </section>
+        </div>
+</article>
+<% } else { %>
+    <br><div id="loading">Loading...</div>
+<% } %>
+<style>
+    div.ui-datepicker{
+        font-size:12px;
+    }
+</style>
+<div class="hide">
+    <form class="form-horizontal" id="schedule-form">
+        <label>Date:</label>
+        <input type="text" name="datepicker" class="input-medium"/>
+        <label>Time:</label>
+        <div class="inline">
+            <select name="hours" id="hours" class="span1">
+                <option>01</option>
+                <option>02</option>
+                <option>03</option>
+                <option>04</option>
+                <option>05</option>
+                <option>06</option>
+                <option>07</option>
+                <option>08</option>
+                <option>09</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
+            <select name="minutes" class="span1">
+                <option>00</option>
+                <option>15</option>
+                <option>30</option>
+                <option>45</option>
+            </select>
+            <select name="ampm" class="span1">
+                <option>AM</option>
+                <option>PM</option>
+            </select>
+        </div>
+        <label class="control-label">Offset:</label>
+        <select name="offset" class="input-medium">
+            <option value="default">None</option>
+            <option value="-12.0">(GMT -12:00) Eniwetok, Kwajalein</option>
+            <option value="-11.0">(GMT -11:00) Midway Island, Samoa</option>
+            <option value="-10.0">(GMT -10:00) Hawaii</option>
+            <option value="-9.0">(GMT -9:00) Alaska</option>
+            <option value="-8.0">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+            <option value="-7.0">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+            <option value="-6.0">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+            <option value="-5.0">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+            <option value="-4.0">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+            <option value="-3.5">(GMT -3:30) Newfoundland</option>
+            <option value="-3.0">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+            <option value="-2.0">(GMT -2:00) Mid-Atlantic</option>
+            <option value="-1.0">(GMT -1:00 hour) Azores, Cape Verde Islands</option>
+            <option value="0.0">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+            <option value="1.0">(GMT +1:00 hour) Brussels, Copenhagen, Madrid, Paris</option>
+            <option value="2.0">(GMT +2:00) Kaliningrad, South Africa</option>
+            <option value="3.0">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+            <option value="3.5">(GMT +3:30) Tehran</option>
+            <option value="4.0">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+            <option value="4.5">(GMT +4:30) Kabul</option>
+            <option value="5.0">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+            <option value="5.5">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+            <option value="5.75">(GMT +5:45) Kathmandu</option>
+            <option value="6.0">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+            <option value="7.0">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+            <option value="8.0">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+            <option value="9.0">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+            <option value="9.5">(GMT +9:30) Adelaide, Darwin</option>
+            <option value="10.0">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+            <option value="11.0">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+            <option value="12.0">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+        </select>
+        <label>Label:</label>
+        <input type="text" name="label" class="input-medium"/>
+    </form>
+</div>

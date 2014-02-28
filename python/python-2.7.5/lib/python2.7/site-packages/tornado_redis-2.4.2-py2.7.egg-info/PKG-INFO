@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: tornado-redis
+Version: 2.4.2
+Summary: Asynchronous Redis client for the Tornado Web Server.
+Home-page: http://github.com/leporo/tornado-redis
+Author: Vlad Glushchuk
+Author-email: vgluschuk@gmail.com
+License: http://www.apache.org/licenses/LICENSE-2.0
+Description: UNKNOWN
+Keywords: Redis,Tornado
+Platform: UNKNOWN

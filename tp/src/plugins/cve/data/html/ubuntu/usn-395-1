@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-395-1: Linux kernel vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-395-1: Linux kernel vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-395-1</h2>
+<p><em>13th December, 2006</em></p>
+<h3>linux-source-2.6.12/-2.6.15/-2.6.17 vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 6.10</li>
+
+    <li>Ubuntu 6.06 LTS</li>
+
+    <li>Ubuntu 5.10</li>
+
+</ul>
+
+
+
+
+
+<h3>Details</h3>
+<p>Mark Dowd discovered that the netfilter iptables module did not<br />correcly handle fragmented packets. By sending specially crafted<br />packets, a remote attacker could exploit this to bypass firewall<br />rules. This has only be fixed for Ubuntu 6.10; the corresponding fix<br />for Ubuntu 5.10 and 6.06 will follow soon. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-4572">CVE-2006-4572</a>)</p>
+
+<p>Dmitriy Monakhov discovered an information leak in the<br />__block_prepare_write() function. During error recovery, this function<br />did not properly clear memory buffers which could allow local users to<br />read portions of unlinked files. This only affects Ubuntu 5.10.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-4813">CVE-2006-4813</a>)</p>
+
+<p>ADLab Venustech Info Ltd discovered that the ATM network driver<br />referenced an already released pointer in some circumstances. By<br />sending specially crafted packets to a host over ATM, a remote<br />attacker could exploit this to crash that host. This does not affect<br />Ubuntu 6.10. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-4997">CVE-2006-4997</a>)</p>
+
+<p>Matthias Andree discovered that the NFS locking management daemon<br />(lockd) did not correctly handle mixing of &#39;lock&#39; and &#39;nolock&#39; option<br />mounts on the same client. A remote attacker could exploit this to<br />crash lockd and thus rendering the NFS imports inaccessible. This only<br />affects Ubuntu 5.10. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5158">CVE-2006-5158</a>)</p>
+
+<p>The task switching code did not save and restore EFLAGS of processes.<br />By starting a specially crafted executable, a local attacker could<br />exploit this to eventually crash many other running processes. This<br />does not affect Ubuntu 6.10. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5173">CVE-2006-5173</a>)</p>
+
+<p>James Morris discovered that the ip6fl_get_n() function incorrectly<br />handled flow labels. A local attacker could exploit this to crash the<br />kernel. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5619">CVE-2006-5619</a>)</p>
+
+<p>Fabio Massimo Di Nitto discovered that the sys_get_robust_list and<br />sys_set_robust_list system calls lacked proper lock handling on the<br />powerpc platform. A local attacker could exploit this to create<br />unkillable processes, drain all available CPU/memory, and render the<br />machine unrebootable. This only affects Ubuntu 6.10.  (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5648">CVE-2006-5648</a>)</p>
+
+<p>Fabio Massimo Di Nitto discovered a flaw in the alignment check<br />exception handling on the powerpc platform. A local attacker could<br />exploit this to cause a kernel panic and crash the machine.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5649">CVE-2006-5649</a>)</p>
+
+<p>Certain corrupted squashfs file system images caused a memory<br />allocation to be freed twice. By mounting a specially crafted squashfs<br />file system, a local attacker could exploit this to crash the kernel.<br />This does not affect Ubuntu 5.10. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5701">CVE-2006-5701</a>)</p>
+
+<p>An integer overflow was found in the get_fdb_entries() function of the<br />network bridging code. By executing a specially crafted ioctl, a local<br />attacker could exploit this to execute arbitrary code with root<br />privileges. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5751">CVE-2006-5751</a>)</p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 6.10:</dt>
+  
+    
+  <dd>linux-image-2.6.17-10-powerpc-smp <span>2.6.17.1-10.34</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.17-10-386 <span>2.6.17.1-10.34</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.17-10-sparc64-smp <span>2.6.17.1-10.34</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.17-10-sparc64 <span>2.6.17.1-10.34</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.17-10-generic <span>2.6.17.1-10.34</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.17-10-powerpc <span>2.6.17.1-10.34</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.17-10-server-bigiron <span>2.6.17.1-10.34</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.17-10-powerpc64-smp <span>2.6.17.1-10.34</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.17-10-server <span>2.6.17.1-10.34</span></dd>
+    
+  
+
+<dt>Ubuntu 6.06 LTS:</dt>
+  
+    
+  <dd>linux-image-2.6.15-27-powerpc-smp <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-amd64-xeon <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-source-2.6.15 <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-k7 <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-sparc64 <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-686 <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-amd64-k8 <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-powerpc <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-server-bigiron <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-amd64-generic <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-386 <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-powerpc64-smp <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-sparc64-smp <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-server <span>2.6.15-27.50</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.15-27-amd64-server <span>2.6.15-27.50</span></dd>
+    
+  
+
+<dt>Ubuntu 5.10:</dt>
+  
+    
+  <dd>linux-image-2.6.12-10-amd64-k8-smp <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-686 <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-amd64-generic <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-686-smp <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-patch-ubuntu-2.6.12 <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-k7-smp <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-amd64-k8 <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-sparc64-smp <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-amd64-xeon <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-k7 <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-sparc64 <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-powerpc <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-386 <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-powerpc64-smp <span>2.6.12-10.42</span></dd>
+    
+  
+    
+  <dd>linux-image-2.6.12-10-powerpc-smp <span>2.6.12-10.42</span></dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system upgrade you need to reboot your computer to<br />effect the necessary changes.</p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-4572">CVE-2006-4572</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-4813">CVE-2006-4813</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-4997">CVE-2006-4997</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5158">CVE-2006-5158</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5173">CVE-2006-5173</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5619">CVE-2006-5619</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5648">CVE-2006-5648</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5649">CVE-2006-5649</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5701">CVE-2006-5701</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2006-5751">CVE-2006-5751</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

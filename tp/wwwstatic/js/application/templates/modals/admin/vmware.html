@@ -1,0 +1,57 @@
+<% if(data) { %>
+    <article>
+        <form>
+            <section class="row-fluid">
+                <div class="control-group span6">
+                    <label class="control-label">Virtual Software:</label>
+                    <select name="virtual">
+                        <option value="install">VMware</option>
+                    </select>
+                </div>
+            </section>
+            <section class="row-fluid">
+                <div class="control-group span6">
+                    <label class="control-label">Virtual Host:</label>
+                    <div class="controls">
+                        <input type="text" name="vm_host" value="<%= data.host %>"/>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">Collecting Cycle:</label>
+                    <div class="controls">
+                        <select name="cycle">
+                            <option value="">Select One...</option>
+                            <% for (var i = 1; i <= 24; i++) { %>
+                                <option value="<% print(i + 'h'); %>" <% if (data.cycle == (i + 'h')) { print('SELECTED'); } %>><%= i %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+            </section>
+            <section class="row-fluid">
+                <div class="control-group span6">
+                    <label class="control-label">User:</label>
+                    <div class="controls">
+                        <input type="text" name="vm_user"  value="<%= data.username %>"/>
+                    </div>
+                </div>
+                <div class="control-group span6">
+                    <label class="control-label">Password:</label>
+                    <div class="controls">
+                        <input type="password" name="vm_password"  value=""/>
+                    </div>
+                </div>
+            </section>
+            <section class="row-fluid">
+                <div class="span12">
+                    <div class="alert alert-block fade in hide"></div>
+                </div>
+            </section>
+            <section class="row-fluid">
+                <div class="span12 alignRight">
+                    <input type="submit" value="Save" class="btn btn-primary" name="submit"/>
+                </div>
+            </section>
+        </form>
+    </article>
+<% } %>

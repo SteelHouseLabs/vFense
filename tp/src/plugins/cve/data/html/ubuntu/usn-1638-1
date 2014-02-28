@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+    <head>
+        <title>USN-1638-1: Firefox vulnerabilities | Ubuntu</title>
+        <link rel="shortcut icon" href="/usn/assets/light/images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/reset.css"/>
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/styles.css"/>
+        
+<style>
+dt {
+	font-weight: bold;
+	padding: 12px 0 8px 0px;
+}
+dd, dt {
+	line-height: 16px;
+	color: #333;
+}
+dd {
+	padding-left: 16px;
+}
+dd span {
+    padding-left: 10px;
+}
+</style>
+
+        <link rel="stylesheet" type="text/css" href="/usn/assets/light/css/forms.css"/>
+    </head>
+    <body>
+        <div id="container">
+            <div id="container-inner">
+                <div id="header">
+                    
+                    <h1 id="ubuntu-header"><a href="http://www.ubuntu.com/">Ubuntu</a></h1>
+                    
+                    
+    
+    <ul id="primary-links">
+<li><a href="http://www.ubuntu.com/cloud">Cloud</a></li>
+<li><a href="http://www.ubuntu.com/server">Server</a></li>
+<li><a href="http://www.ubuntu.com/desktop">Desktop</a></li>
+<li><a href="http://www.ubuntu.com/phone">Phone</a></li>
+<li><a href="http://www.ubuntu.com/tablet">Tablet</a></li>
+<li><a href="http://www.ubuntu.com/tv">TV</a></li>
+<li><a href="http://www.ubuntu.com/management">Management</a></li>
+<li><a href="http://www.ubuntu.com/download">Download</a></li>
+</ul>
+
+
+                </div>
+                <div id="menu-search">
+                    
+                    <div id="search-box">
+                        <form id="sitesearch" action="http://www.ubuntu.com/search/node" method="post">
+                          <input type="text" maxlength="128" name="search_theme_form" id="search-box-input"
+                                 value="Type to search" title="Enter the terms you wish to search for."
+                                 onblur="if(this.value==&#039;&#039;){this.value=&#039;Type to search&#039;;}"
+                                 onfocus="if(this.value==&#039;Type to search&#039;){this.value=&#039;&#039;}"
+                          />
+                          <button type="submit" name="op" id="search-box-button"><span>go</span></button>
+                          <input type="hidden" name="form_build_id" id="form-967ff0ccc1a2f6f6d92f3e8c0822866d" value="form-967ff0ccc1a2f6f6d92f3e8c0822866d" />
+                          <input type="hidden" name="form_token" id="a-unique-id" value="656a58b3b2c4f37a2af1d6b188a4a595" />
+                          <input type="hidden" name="form_id" id="edit-search-theme-form" value="search_theme_form" />
+                        </form>
+                    </div>
+                    
+                </div>
+                <div id="title">
+                    <h1>USN-1638-1: Firefox vulnerabilities</h1>
+                </div>
+
+                <div id="content" class="clearfix content-area">
+
+    
+<h2>Ubuntu Security Notice USN-1638-1</h2>
+<p><em>21st November, 2012</em></p>
+<h3>firefox vulnerabilities</h3>
+<p>A security issue affects these releases of Ubuntu and its 
+    derivatives:</p>
+<ul>
+
+    <li>Ubuntu 12.10</li>
+
+    <li>Ubuntu 12.04 LTS</li>
+
+    <li>Ubuntu 11.10</li>
+
+    <li>Ubuntu 10.04 LTS</li>
+
+</ul>
+
+
+<h3>Summary</h3>
+<p>Several security issues were fixed in Firefox.
+</p>
+
+
+
+<h3>Software description</h3>
+<ul>
+
+  
+    <li>firefox 
+    - Mozilla Open Source web browser
+    
+    </li>
+  
+
+  
+
+  
+
+  
+
+</ul>
+
+
+<h3>Details</h3>
+<p>Gary Kwong, Jesse Ruderman, Christian Holler, Bob Clary, Kyle Huey, Ed<br />Morley, Chris Lord, Boris Zbarsky, Julian Seward, Bill McCloskey, and<br />Andrew McCreight discovered multiple memory safety issues affecting<br />Firefox. If the user were tricked into opening a specially crafted page, an<br />attacker could possibly exploit these to cause a denial of service via<br />application crash, or potentially execute code with the privileges of the<br />user invoking Firefox. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5842">CVE-2012-5842</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5843">CVE-2012-5843</a>)</p>
+
+<p>Atte Kettunen discovered a buffer overflow while rendering GIF format<br />images. An attacker could exploit this to possibly execute arbitrary code<br />as the user invoking Firefox. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4202">CVE-2012-4202</a>)</p>
+
+<p>It was discovered that the evalInSandbox function&#39;s JavaScript sandbox<br />context could be circumvented. An attacker could exploit this to perform a<br />cross-site scripting (XSS) attack or steal a copy of a local file if the<br />user has installed an add-on vulnerable to this attack. With cross-site<br />scripting vulnerabilities, if a user were tricked into viewing a specially<br />crafted page, a remote attacker could exploit this to modify the contents,<br />or steal confidential data, within the same domain. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4201">CVE-2012-4201</a>)</p>
+
+<p>Jonathan Stephens discovered that combining vectors involving the setting<br />of Cascading Style Sheets (CSS) properties in conjunction with SVG text<br />could cause Firefox to crash. If a user were tricked into opening a<br />malicious web page, an attacker could cause a denial of service via<br />application crash or execute arbitrary code with the privliges of the user<br />invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5836">CVE-2012-5836</a>)</p>
+
+<p>It was discovered that if a javascript: URL is selected from the list of<br />Firefox &quot;new tab&quot; page, the script will inherit the privileges of the<br />privileged &quot;new tab&quot; page. This allows for the execution of locally<br />installed programs if a user can be convinced to save a bookmark of a<br />malicious javascript: URL. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4203">CVE-2012-4203</a>)</p>
+
+<p>Scott Bell discovered a memory corruption issue in the JavaScript engine.<br />If a user were tricked into opening a malicious website, an attacker could<br />exploit this to execute arbitrary JavaScript code within the context of<br />another website or arbitrary code as the user invoking the program.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4204">CVE-2012-4204</a>)</p>
+
+<p>Gabor Krizsanits discovered that XMLHttpRequest objects created within<br />sandboxes have the system principal instead of the sandbox principal. This<br />can lead to cross-site request forgery (CSRF) or information theft via an<br />add-on running untrusted code in a sandbox. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4205">CVE-2012-4205</a>)</p>
+
+<p>Peter Van der Beken discovered XrayWrapper implementation in Firefox does<br />not consider the compartment during property filtering. An attacker could<br />use this to bypass intended chrome-only restrictions on reading DOM object<br />properties via a crafted web site. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4208">CVE-2012-4208</a>)</p>
+
+<p>Bobby Holley discovered that cross-origin wrappers were allowing write<br />actions on objects when only read actions should have been properly<br />allowed. This can lead to cross-site scripting (XSS) attacks. With<br />cross-site scripting vulnerabilities, if a user were tricked into viewing a<br />specially crafted page, a remote attacker could exploit this to modify the<br />contents, or steal confidential data, within the same domain.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5841">CVE-2012-5841</a>)</p>
+
+<p>Masato Kinugawa discovered that when HZ-GB-2312 charset encoding is used<br />for text, the &quot;~&quot; character will destroy another character near the chunk<br />delimiter. This can lead to a cross-site scripting (XSS) attack in pages<br />encoded in HZ-GB-2312. With cross-site scripting vulnerabilities, if a user<br />were tricked into viewing a specially crafted page, a remote attacker could<br />exploit this to modify the contents, or steal confidential data, within<br />the same domain. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4207">CVE-2012-4207</a>)</p>
+
+<p>Masato Kinugawa discovered that scripts entered into the Developer Toolbar<br />could run in a chrome privileged context. An attacker could use this<br />vulnerability to conduct cross-site scripting (XSS) attacks or execute<br />arbitrary code as the user invoking Firefox. With cross-site scripting<br />vulnerabilities, if a user were tricked into viewing a specially crafted<br />page, a remote attacker could exploit this to modify the contents, or<br />steal confidential data, within the same domain. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5837">CVE-2012-5837</a>)</p>
+
+<p>Mariusz Mlynski discovered that the location property can be accessed by<br />binary plugins through top.location with a frame whose name attribute&#39;s<br />value is set to &quot;top&quot;. This can allow for possible cross-site scripting<br />(XSS) attacks through plugins. With cross-site scripting vulnerabilities,<br />if a user were tricked into viewing a specially crafted page, a remote<br />attacker could exploit this to modify the contents, or steal confidential<br />data, within the same domain. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4209">CVE-2012-4209</a>)</p>
+
+<p>Mariusz Mlynski discovered that when a maliciously crafted stylesheet is<br />inspected in the Style Inspector, HTML and CSS can run in a chrome<br />privileged context without being properly sanitized first. If a user were<br />tricked into opening a malicious web page, an attacker could execute<br />arbitrary code with the privliges of the user invoking the program.<br />(<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4210">CVE-2012-4210</a>)</p>
+
+<p>Abhishek Arya discovered multiple use-after-free and buffer overflow issues<br />in Firefox. If a user were tricked into opening a malicious page, an<br />attacker could exploit these to execute arbitrary code as the user invoking<br />the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4214">CVE-2012-4214</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4215">CVE-2012-4215</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4216">CVE-2012-4216</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5829">CVE-2012-5829</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5839">CVE-2012-5839</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5840">CVE-2012-5840</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4212">CVE-2012-4212</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4213">CVE-2012-4213</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4217">CVE-2012-4217</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4218">CVE-2012-4218</a>)</p>
+
+<p>Several memory corruption flaws were discovered in Firefox. If a user were<br />tricked into opening a malicious page, an attacker could exploit these to<br />execute arbitrary code as the user invoking the program. (<a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5830">CVE-2012-5830</a>,<br /><a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5833">CVE-2012-5833</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5835">CVE-2012-5835</a>, <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5838">CVE-2012-5838</a>)<br /></p>
+
+<h3>Update instructions</h3>
+<p> The problem can be corrected by updating your system to the following
+package version:</p>
+<dl>
+
+<dt>Ubuntu 12.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox">firefox</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox/17.0+build2-0ubuntu0.12.10.1">17.0+build2-0ubuntu0.12.10.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 12.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox">firefox</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox/17.0+build2-0ubuntu0.12.04.1">17.0+build2-0ubuntu0.12.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 11.10:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox">firefox</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox/17.0+build2-0ubuntu0.11.10.1">17.0+build2-0ubuntu0.11.10.1</a>
+    </span>
+  </dd>
+    
+  
+
+<dt>Ubuntu 10.04 LTS:</dt>
+  
+    
+  <dd>
+    <a href="https://launchpad.net/ubuntu/+source/firefox">firefox</a>
+    <span>
+        <a href="https://launchpad.net/ubuntu/+source/firefox/17.0+build2-0ubuntu0.10.04.1">17.0+build2-0ubuntu0.10.04.1</a>
+    </span>
+  </dd>
+    
+  
+
+</dl>
+<p>To update your system, please follow these instructions:
+<a href="https://wiki.ubuntu.com/Security/Upgrades">https://wiki.ubuntu.com/Security/Upgrades</a>.
+</p>
+<p>After a standard system update you need to restart Firefox to make all<br />the necessary changes.<br /></p>
+
+
+
+<h3>References</h3>
+<p>
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4201">CVE-2012-4201</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4202">CVE-2012-4202</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4203">CVE-2012-4203</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4204">CVE-2012-4204</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4205">CVE-2012-4205</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4207">CVE-2012-4207</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4208">CVE-2012-4208</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4209">CVE-2012-4209</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4210">CVE-2012-4210</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4212">CVE-2012-4212</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4213">CVE-2012-4213</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4214">CVE-2012-4214</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4215">CVE-2012-4215</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4216">CVE-2012-4216</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4217">CVE-2012-4217</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-4218">CVE-2012-4218</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5829">CVE-2012-5829</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5830">CVE-2012-5830</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5833">CVE-2012-5833</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5835">CVE-2012-5835</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5836">CVE-2012-5836</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5837">CVE-2012-5837</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5838">CVE-2012-5838</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5839">CVE-2012-5839</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5840">CVE-2012-5840</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5841">CVE-2012-5841</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5842">CVE-2012-5842</a>, 
+
+        <a href="http://people.ubuntu.com/~ubuntu-security/cve/CVE-2012-5843">CVE-2012-5843</a>, 
+
+        <a href="https://launchpad.net/bugs/1080211">LP: 1080211</a>
+        
+
+</p>
+
+
+
+
+
+                </div>
+
+            </div>
+            <div id="footer" class="clearfix">
+              
+                <div class="footer-div">
+                    <p class="footer-title">Ubuntu</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/ubuntu/features">Features</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/whats-new">What's new?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-is-it-free">Why is it free?</a></li>
+                        <li><a href="http://www.ubuntu.com/ubuntu/why-use-ubuntu">Why use Ubuntu?</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Business</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/business/desktop/overview">Desktop</a></li>
+                        <li><a href="http://www.ubuntu.com/business/server/overview">Server</a></li>
+                        <li><a href="http://www.ubuntu.com/business/cloud/overview">Cloud</a></li>
+                        <li><a href="http://www.ubuntu.com/business/services/overview">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/business/case-studies">Case studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Download</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/download/ubuntu/download">Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/download/server/download">Ubuntu Server</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Support</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/support/community">Community</a></li>
+                        <li><a href="http://www.ubuntu.com/support/training">Training</a></li>
+                        <li><a href="http://www.ubuntu.com/support/services">Services</a></li>
+                        <li><a href="http://www.ubuntu.com/usn">Security notices</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Project</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/project/about-ubuntu">About Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/canonical-and-ubuntu">Canonical and Ubuntu</a></li>
+                        <li><a href="http://www.ubuntu.com/project/open-source">Open source</a></li>
+                        <li><a href="http://www.ubuntu.com/project/derivatives">Derivatives</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Community</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/community/conduct">Code of conduct</a></li>
+                        <li><a href="http://www.ubuntu.com/community/get-involved">Get involved</a></li>
+                        <li><a href="http://www.ubuntu.com/community/report-problem">Report a problem</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntu-and-debian">Ubuntu and Debian</a></li>
+                        <li><a href="http://www.ubuntu.com/community/ubuntuvalues">Ubuntu values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Partners</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/partners/programme">Partner programme</a></li>
+                        <li><a href="http://partners.canonical.com/">Find a partner</a></li>
+                        <li><a href="https://certification.canonical.com/">Hardware certification</a></li>
+                    </ul>
+                </div>
+                <div class="footer-div">
+                    <p class="footer-title">Further links</p>
+                    <ul>
+                        <li><a href="http://www.ubuntu.com/contact-us">Contact us</a></li>
+                        <li><a href="http://www.ubuntu.com/aboutus/trademarkpolicy">Trademark policy</a></li>
+                        <li><a href="http://www.ubuntu.com/legal">Legal information</a></li>
+                        <li><a href="http://www.canonical.com/about-canonical/careers">Careers</a></li>
+                        <li><a href="http://www.ubuntu.com/rss.xml" class="newsfeed">News feed</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+            <div id="copyright">
+                <a href="http://www.ubuntu.com"></a>
+                <p>&copy; 2010, 2011 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-1018242-4']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+        
+    </body>
+</html>

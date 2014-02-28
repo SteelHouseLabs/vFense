@@ -1,0 +1,48 @@
+{
+    "bitwise": true,
+    "camelcase": false,
+    "curly": true,
+    "eqeqeq": true,
+    "forin": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "noempty": true,
+    "nonew": true,
+    "plusplus": true,
+    "regexp": true,
+    "undef": true,
+    "unused": true,
+    "strict": true,
+    "trailing": true,
+
+    "indent": 4,
+    "quotmark": "single",
+
+    "browser": true,
+
+    "predef": {
+	    "require": false,
+        "define": false,
+        "Modernizr": false,
+
+        "DEBUG": false,
+
+        // Qunit Rules
+        "test": false,
+        "asyncTest": false,
+        "expect": false,
+        "module": false,
+        "ok": false,
+        "equal": false,
+        "notEqual": false,
+        "deepEqual": false,
+        "notDeepEqual": false,
+        "strictEqual": false,
+        "notStrictEqual": false,
+        "raises": false,
+        "start": false,
+        "stop": false
+    }
+}

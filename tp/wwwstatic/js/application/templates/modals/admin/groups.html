@@ -1,0 +1,103 @@
+<article class="row-fluid">
+    <section class="span12 list">
+        <div class="alert alert-block fade in hide">
+            <span class="help-inline"></span>
+        </div>
+        <header class="clearfix">
+            <div class="pull-left span6">
+                <strong class="span5">Edit groups for customer: </strong>
+                <span class="span6">
+                    <select id="customerContext" name="customers">
+                        <%= viewHelpers.getOptions(customers, currentCustomer) %>
+                    </select>
+                </span>
+            </div>
+            <div class="pull-right hidden-print">
+                <button class="btn btn-mini" name="addGroup">Create New Group</button>
+            </div>
+        </header>
+        <div class="accordion items">
+            <div id="newGroupDiv" class="item clearfix hide">
+                    <div class="accordion-inner">
+                    <!--<div name="aclOptions" class="span12">
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Admin</small>
+                                <input type="checkbox" value="Admin">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Install</small>
+                                <input type="checkbox" value="Install">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Uninstall</small>
+                                <input type="checkbox" value="Uninstall">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Reboot</small>
+                                <input type="checkbox" value="Reboot">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Schedule</small>
+                                <input type="checkbox" value="Schedule">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Snapshot Creation</small>
+                                <input type="checkbox" value="Snapshot Creation">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Snapshot Removal</small>
+                                <input type="checkbox" value="Snapshot Removal">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Snapshot Revert</small>
+                                <input type="checkbox" value="Snapshot Revert">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Tag Creation</small>
+                                <input type="checkbox" value="Tag Creation">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Tag Removal</small>
+                                <input type="checkbox" value="Tag Removal">
+                            </label>
+                        </div>
+                        <div class="span3 noMargin">
+                            <label class="checkbox">
+                                <small>Wake On Lan</small>
+                                <input type="checkbox" value="Wake On Lan">
+                            </label>
+                        </div>
+                    </div>-->
+                    <span class="span12 alignRight">
+                        <span class="alert fade in hide inline"></span>
+                        <input name="groupname" type="text" placeholder="New Group Name" class="input-medium"/>
+                        <button name="submitGroup" class="btn btn-mini btn-primary">Create</button>
+                        <button name="cancelNewGroup" class="btn btn-mini">Cancel</button>
+                    </span>
+                </div>
+            </div>
+            <% if (!data.length) { %>
+                <div class="item">No groups available.</div>
+            <% } %>
+        </div>
+    </section>
+</article>

@@ -1,0 +1,74 @@
+<% if (header) { %>
+    <% if (left) { %>
+        <div class="input-prepend noMargin">
+            <span class="add-on"><i class="icon-search"></i></span>
+            <input type="text" name="search" class="input-small" value=""/>
+        </div>
+        <label style="display: inline">
+            <input type="checkbox" id="showHidden"/><small>Show Hidden</small>
+        </label>
+    <% } else { %>
+        <div class="pull-right">
+            <small>Sort By:</small>
+            <select name="sort">
+                <option value="name">Name</option>
+                <option value="release_date">Release Date</option>
+                <option value="severity">Severity</option>
+                <option value="version">Version</option>
+            </select>
+            <select name="order">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+            </select>
+            <small>Filter By:</small>
+            <select name="filter">
+                <option value="">None</option>
+                <option value="available" <% if (query.status === 'available') { print('SELECTED'); } %>>Available</option>
+                <option value="installed" <% if (query.status === 'installed') { print('SELECTED'); } %>>Installed</option>
+                <option value="pending"   <% if (query.status === 'pending') { print('SELECTED'); } %>>Pending</option>
+            </select>
+            <button class="btn btn-mini" id="upload">
+                <i class="icon-cloud-upload" style="color: #0088cc"></i>&nbsp;Upload Package
+            </button>
+            <button class="btn btn-mini" id="hide">Hide / Show</button>
+        </div>
+    <% } %>
+<% } else if (legend) { %>
+    <span class="span5">
+        <input type="checkbox" data-toggle="all"/>
+        <strong>Application Name</strong>
+    </span>
+    <span class="span2">Release Date</span>
+    <span class="span1">Version</span>
+    <div class="span2">
+        <div id="displaySeverity">
+            Severity&nbsp;
+            <button class="btn btn-link noPadding" id="toggleSeverityFilter">
+                <i class="icon-filter" style="position: relative; top: -1px;"></i>
+            </button>
+        </div>
+        <div id="controls" class="hide">
+            <select id="severity" style="width: auto;">
+                <option value="none">None</option>
+                <option <% if (query.severity === 'Critical') { print('SELECTED'); } %>>Critical</option>
+                <option <% if (query.severity === 'Recommended') { print('SELECTED'); } %>>Recommended</option>
+                <option <% if (query.severity === 'Optional') { print('SELECTED'); } %>>Optional</option>
+            </select>
+        </div>
+    </div>
+    <% if (tab === 'custom') { %>
+        <div class="span2 alignRight">
+            Options
+        </div>
+    <% } %>
+<% } else { %>
+    <div class="tabbable">
+        <ul class="nav nav-tabs" style="margin-bottom: 0;">
+            <li <% if (tab === 'os') { print('class="active"'); } %>><a href="api/v1/apps/os" data-type="os">OS</a></li>
+            <li <% if (tab === 'custom') { print('class="active"'); } %>><a href="api/v1/apps/custom" data-type="custom">Custom</a></li>
+            <li <% if (tab === 'supported') { print('class="active"'); } %>><a href="api/v1/apps/supported" data-type="supported">Supported</a></li>
+            <li <% if (tab === 'remediationvault') { print('class="active"'); } %>><a href="api/v1/apps/remediationvault" data-type="remediationvault">agent</a></li>
+        </ul>
+        <div class="tab-content" style="border: 1px solid #dddddd; border-top: none;"></div>
+    </div>
+<% } %>

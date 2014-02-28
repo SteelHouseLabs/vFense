@@ -1,0 +1,88 @@
+<% if (type === 'create' || type === 'modify') { %>
+<form class="row-fluid" id="saveNotification" data-type="<%= type %>">
+    <div class="control-group span6 noMargin">
+        <label class="control-label">Rule Name:</label>
+        <div class="controls">
+            <input type="text" id="rule_name" name="rule_name" data-type="input" value="<%= data.ruleName || '' %>" required/>
+        </div>
+    </div>
+    <div class="control-group span6">
+        <label class="control-label">Description:</label>
+        <div class="controls">
+            <input type="text" id="rule_description" name="rule_description" data-type="input" value="<%= data.ruleDescription || '' %>" required/>
+        </div>
+    </div>
+    <div class="control-group span6 noMargin">
+        <label class="control-label">Notification per:</label>
+        <div class="controls">
+            User&nbsp;<input type="radio" name="type" value="user" <% if (data.control === 'user' || !data.control) { print('CHECKED'); } %>>
+            Group&nbsp;<input type="radio" name="type" value="group" <% if (data.control === 'group') { print('CHECKED'); } %>>
+        </div>
+    </div>
+    <div class="control-group span6 <% if (data.control === 'group') { print('hide'); } %>" id="userDiv">
+        <label class="control-label">User:</label>
+        <div class="controls">
+            <input type="hidden" id="users" name="username" value="<%= data.controlData || '' %>"/>
+        </div>
+    </div>
+    <div class="control-group span6 <% if (data.control === 'user' || !data.control) { print('hide'); } %>" id="groupDiv">
+        <label class="control-label">Group:</label>
+        <div class="controls">
+            <input type="hidden" id="groups" name="groupname" value="<%= data.controlData || '' %>"/>
+        </div>
+    </div>
+    <div class="control-group span6 noMargin">
+        <label class="control-label">Notification Type:</label>
+        <div class="controls">
+            <select name="operation_type" data-type="input" >
+                <option value="-1">Select one...</option>
+                <option value="install" <% if (data.operationType === 'install') { print('SELECTED'); } %>>Install</option>
+                <option value="uninstall" <% if (data.operationType === 'uninstall') { print('SELECTED'); } %>>Uninstall</option>
+                <option value="reboot" <% if (data.operationType === 'reboot') { print('SELECTED'); } %>>Reboot</option>
+                <option value="shutdown" <% if (data.operationType === 'shutdown') { print('SELECTED'); } %>>Shutdown</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group span6">
+        <label class="control-label">Threshold:</label>
+        <div class="controls">
+            <select name="rv_threshold" data-type="input" >
+                <option value="-1">None</option>
+                <option value="pass"<% if (data.appThreshold === 'pass' || data.rebootThreshold === 'pass' || data.shutdownThreshold === 'pass') { print('SELECTED'); } %>>Pass</option>
+                <option value="fail"<% if (data.appThreshold === 'fail' || data.rebootThreshold === 'fail' || data.shutdownThreshold === 'fail') { print('SELECTED'); } %>>Fail</option>
+            </select>
+        </div>
+    </div>
+    <div class="span12 noMargin alignRight">
+        <% if (type === 'modify') { %>
+            <button class="btn" href="#main" data-toggle="tab">Cancel</button>
+            <button class="btn btn-primary">Save</button>
+        <% } else { %>
+            <button class="btn btn-primary">Create</button>
+        <% } %>
+    </div>
+</form>
+<% } else if (type === 'main') { %>
+    <div class="item linked clearfix">
+        <div class="row-fluid">
+            <span class="span3"><%= model.get('rule_name') %></span>
+            <span class="span2"><%= model.get('created_by') %></span>
+            <span class="span3"><%= model.get('notification_type') %></span>
+            <span class="span2"><%= model.get('rule_description') %></span>
+            <span class="span2 alignRight">
+                <button class="btn btn-link noPadding" data-action="toggleDelete"><i class="icon-remove" style="color: red;"></i></button>
+                <span class="hide">
+                    <button class="btn btn-mini btn-danger" data-action="delete" data-id="<%= model.get('notification_id') %>">Delete</button>
+                    <button class="btn btn-mini" data-action="toggleDelete">Cancel</button>
+                </span>&nbsp;
+                <a href="#modify" data-action="modify" style="display: inline-block" data-id="<%= model.get('notification_id') %>"><i class="icon-edit" style="color: #daa520;"></i></a>
+            </span>
+        </div>
+    </div>
+<% } else { %>
+<ul class="nav nav-tabs" style="">
+    <li class="active"><a href="#main" data-toggle="tab">Main</a></li>
+    <li><a href="#create" data-toggle="tab">Create</a></li>
+</ul>
+<div class="tab-content"></div>
+<% } %>

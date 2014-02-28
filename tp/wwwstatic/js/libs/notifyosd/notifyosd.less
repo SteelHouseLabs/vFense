@@ -1,0 +1,159 @@
+// Styles based on specifications listed at:
+// https://wiki.ubuntu.com/NotifyOSD
+// as of 02/15/2013
+
+.notifyOSD {
+    z-index: 10000;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+
+    &.spec {
+        // Ubuntu spec demands that the font be
+        // the standard application size and family.
+        // Using this class will achieve that spec.
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    position: fixed;
+    top: 0.5em;
+    right: 0.5em;
+    overflow: hidden;
+
+    &.left {
+        right: inherit;
+        left: 0.5em;
+    }
+
+    &.bottom {
+        top: inherit;
+        bottom: 0.5em;
+    }
+
+    &.unitTest {
+        visibility: hidden;
+        position: absolute;
+        margin-top: -10000px;
+    }
+
+    color: #FFF;
+
+    .bubble {
+        position: relative;
+        background-color: rgba(19,19,19,0.8);
+        border-radius: 0.375em;
+        box-shadow: 0 0 0.5em #000;
+        // Gausian Blur??
+        min-width: 22em; // +2em padding = 24em min width
+        max-width: 22em; // +2em padding = 24em max width
+        min-height: 3em; // +2em padding = 5em min height
+        margin: 0.5em;
+        padding: 1em;
+
+        overflow: hidden;
+
+        .icon {
+            font-size: 3em;
+            line-height: 1em;
+            height: 1em;
+            width: 1em;
+            margin-right: 0.333333333em;
+            position: absolute;
+            padding: 0;
+
+            text-align: center; // In case of font based icon
+
+            // Color should be a vertical gradient:
+            // top: #ececec
+            // bottom: #9b9b9b
+            color: average(#ececec, #9b9b9b);
+
+            // If the icon is the only child, then it is also the last child
+            // However if it is the last child, it may not be the only child
+            // JS Note: Always prepend the icon into the bubble!
+            &:last-child {
+                position: relative;
+                margin: auto; // Center the icon
+            }
+
+            &~.title, &~.body {
+                margin-left: 4em;
+            }
+
+            IMG, SVG {
+                display: block;
+                width: 100%;
+                padding: 0;
+                margin: 0 auto;
+            }
+        }
+
+        .title {
+            font-weight: bold;
+            line-height: 1em;
+            max-height: 3em;
+        }
+
+        .body {
+            // setting font-size to 0.9rem caused
+            // alignment issues with the icon.
+            // Leaving font-size alone is just easier
+            color: #eaeaea;
+            line-height: 1em;
+            max-height: 10em; // max 10 lines
+            overflow: hidden;
+        }
+
+        .title, .body {
+            text-shadow: 0 0 0.125em #000;
+        }
+
+        .icon, .title, .body {
+            z-index: 2010;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &:empty {
+                display: none;
+            }
+        }
+
+        &.alert, &.warning {
+            .icon {
+                // Color should be a vertical gradient:
+                // top: #ff6363
+                // bottom: #cc0000
+                color: average(#ff6363, #cc0000);
+            }
+        }
+    }
+
+    .bubble + .bubble {
+        margin-top: 0.5em;
+    }
+
+    &.develop {
+        overflow: visible;
+        position: relative;
+        top: inherit;
+        right: inherit;
+        left: inherit;
+        bottom: inherit;
+
+        &.inline .bubble {
+            float: left;
+        }
+        &.highlight {
+            .bubble {
+                .icon {
+                    background-color: #c71585;
+                }
+                .body {
+                    background-color: #8b0000;
+                }
+                .title {
+                    background-color: #006400;
+                }
+            }
+        }
+    }
+}

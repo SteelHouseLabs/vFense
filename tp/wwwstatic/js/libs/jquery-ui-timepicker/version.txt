@@ -1,0 +1,4 @@
+jquery-ui-timepicker.js
+Home:       https://github.com/trentrichardson/jQuery-Timepicker-Addon
+GitHub:     https://github.com/trentrichardson/jQuery-Timepicker-Addon/tags
+Version:    1.3.0
