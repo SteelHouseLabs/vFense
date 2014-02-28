@@ -39,7 +39,7 @@ for queue in RQ_WORKER_QUEUES:
 
 #################################################################
 RVL_PORTS = range(9020, 9030)
-RVLISTENER = 'src/rvlistener.py'
+RVLISTENER = 'src/vFense_listener.py'
 for port in RVL_PORTS:
     pid_file = '%sRVL_PID_%s.pid' % (PID_DIR, str(port))
     rvl = 'RvListener port %s' % (str(port))
@@ -49,7 +49,7 @@ for port in RVL_PORTS:
 
 ##################################################################
 RVW_PORTS = range(9060, 9061)
-RVWEB = 'src/rvweb.py'
+RVWEB = 'src/vFense_web.py'
 for port in RVW_PORTS:
     pid_file = '%sRVW_PID_%s.pid' % (PID_DIR, str(port))
     rvw = 'RvWeb port %s' % (str(port))
@@ -92,12 +92,6 @@ if not os.path.exists('/opt/TopPatch/var/rethinkdb/'):
     os.mkdir('/opt/TopPatch/var/rethinkdb/')
 if not os.path.exists('/opt/TopPatch/var/log/'):
     os.mkdir('/opt/TopPatch/var/log/')
-if not os.path.exists('/opt/TopPatch/var/lib/'):
-    os.mkdir('/opt/TopPatch/var/lib/')
-    os.mkdir('/opt/TopPatch/var/lib/ssl')
-    os.mkdir('/opt/TopPatch/var/lib/ssl/client')
-    os.mkdir('/opt/TopPatch/var/lib/ssl/client/csr')
-    os.mkdir('/opt/TopPatch/var/lib/ssl/client/keys')
 
 SERVICES.append((RVSCHEDULER, RVSCHEDULER_PIDFILE, 'RvScheduler'))
 ALLSERVICES.append((RVSCHEDULER, RVSCHEDULER_PIDFILE, 'RvScheduler'))
