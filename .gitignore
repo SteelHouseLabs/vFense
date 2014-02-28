@@ -1,6 +1,5 @@
 *.pyc
 *.pyo
-var/
 conf/nginx/vFense.conf
 var/rethinkdb
 var/scheduler
