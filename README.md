@@ -1,4 +1,4 @@
-vFense 0.7.0
+vFense 0.7.0 Bumble Bee
 ==
 
 HowTo Install vFense Server Application
