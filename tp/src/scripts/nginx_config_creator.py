@@ -1,4 +1,4 @@
-NGINX_CONFIG_FILE = '/opt/TopPatch/conf/nginx/nginx-remediation_vault.conf'
+NGINX_CONFIG_FILE = '/opt/TopPatch/conf/nginx/vFense.conf'
 base_nginx_config = """server {
     listen         80;
     server_name    %(server_name)s localhost;
@@ -94,7 +94,7 @@ server {
     }
 
     location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
-        root                    /opt/toppatch-ui;
+        root                    /opt/TopPatch/tp/wwwstatic;
         expires                 max;
         add_header              Pragma public;
         add_header              Cache-Control "public, must-revalidate, proxy-revalidate";
