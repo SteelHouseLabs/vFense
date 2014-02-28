@@ -1,10 +1,10 @@
 #! /bin/sh
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-NAME=TopPatchServer
-DESC=TopPatchServer
+NAME=vFense
+DESC=vFense
 TOPPATCHDIR=/opt/TopPatch
-DAEMON=/opt/TopPatch/tp/src/daemon/TopPatchd
+DAEMON=/opt/TopPatch/tp/src/daemon/vFensed
 USER=toppatch
 
 set -e

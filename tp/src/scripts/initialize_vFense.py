@@ -36,7 +36,7 @@ REDIS_START = '/opt/TopPatch/tp/src/daemon/redis_init'
 REDIS_PID_FILE = '/opt/TopPatch/var/tmp/redis-6379.pid'
 RETHINK_PID_FILE = '/opt/TopPatch/var/tmp/rethinkdb.pid'
 TOPPATCH_HOME = '/opt/TopPatch/'
-
+print 'FPPP'
 parser = argparse.ArgumentParser(description='Initialize Rv Options')
 parser.add_argument(
     '--dnsname', dest='dns_name', default=None,
@@ -115,6 +115,8 @@ def initialize_db():
         os.mkdir('/opt/TopPatch/tp/src/plugins/cve/data/xml', 0773)
     if not os.path.exists('/opt/TopPatch/tp/src/plugins/cve/data/html/ubuntu'):
         os.makedirs('/opt/TopPatch/tp/src/plugins/cve/data/html/ubuntu', 0773)
+    if not os.path.exists('/usr/lib/libpcre.so.1'):
+        os.symlink('/opt/TopPatch/lib/libpcre.so.1', '/usr/lib') 
 
     os.chdir(RETHINK_PATH)
     rethink_init = subprocess.Popen(['./rethinkdb', 'create',

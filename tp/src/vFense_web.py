@@ -53,15 +53,10 @@ from server.api.users_api import *
 from server.api.groups_api import *
 from server.api.customer_api import *
 from server.api.permissions_api import *
-##from server.api.toppatchretriever import *
 from server.api.monit_api import *
 from scripts.create_indexes import initialize_indexes_and_create_tables
 
 from tornado.options import define, options
-
-#import newrelic.agent
-#newrelic.agent.initialize('/opt/TopPatch/conf/newrelic.ini')
-
 
 define("port", default=9000, help="run on port", type=int)
 define("debug", default=True, help="enable debugging features", type=bool)
