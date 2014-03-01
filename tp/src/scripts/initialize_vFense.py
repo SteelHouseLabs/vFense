@@ -1,5 +1,7 @@
 import os
+import sys
 import re
+import pwd
 import argparse
 import shutil
 import signal
@@ -36,7 +38,12 @@ REDIS_START = '/opt/TopPatch/tp/src/daemon/redis_init'
 REDIS_PID_FILE = '/opt/TopPatch/var/tmp/redis-6379.pid'
 RETHINK_PID_FILE = '/opt/TopPatch/var/tmp/rethinkdb.pid'
 TOPPATCH_HOME = '/opt/TopPatch/'
-print 'FPPP'
+
+
+if os.getuid() != 0:
+    print 'MUST BE ROOT IN ORDER TO RUN'
+    sys.exit(1)
+
 parser = argparse.ArgumentParser(description='Initialize Rv Options')
 parser.add_argument(
     '--dnsname', dest='dns_name', default=None,
@@ -117,6 +124,43 @@ def initialize_db():
         os.makedirs('/opt/TopPatch/tp/src/plugins/cve/data/html/ubuntu', 0773)
     if not os.path.exists('/usr/lib/libpcre.so.1'):
         os.symlink('/opt/TopPatch/lib/libpcre.so.1', '/usr/lib') 
+    if not os.path.exists('/etc/init.d/vFense'):
+        subprocess.Popen(
+            [
+                'ln', '-s',
+                '/opt/TopPatch/tp/src/daemon/vFense',
+                '/etc/init.d/vFense'
+            ],
+        )
+        subprocess.Popen(
+            [
+                'update-rc.d', 'vFense',
+                'defaults'
+            ],
+        )
+    if not os.path.exists('/etc/init.d/nginx'):
+        subprocess.Popen(
+            [
+                'ln', '-s',
+                '/opt/TopPatch/tp/src/daemon/nginx',
+                '/etc/init.d/nginx'
+            ],
+        )
+        subprocess.Popen(
+            [
+                'update-rc.d', 'nginx',
+                'defaults'
+            ],
+        )
+    try:
+        tp_exists = pwd.getpwnam('toppatch')
+
+    except Exception as e:
+        subprocess.Popen(
+            [
+                'adduser', 'toppatch',
+            ],
+        )
 
     os.chdir(RETHINK_PATH)
     rethink_init = subprocess.Popen(['./rethinkdb', 'create',
@@ -130,7 +174,6 @@ def initialize_db():
                                           '--web-static-directory',
                                           RETHINK_WEB])
         rethink_start.poll()
-        #rethink_start.wait()
         completed = True
         sleep(2)
         while not db_connect():
@@ -259,5 +302,16 @@ if __name__ == '__main__':
     initialized = False
     if db_initialized:
         print 'RV environment has been succesfully initialized\n'
+        subprocess.Popen(
+            [
+                'chown', '-R', 'toppatch.toppatch', '/opt/TopPatch'
+            ],
+        )
+        subprocess.Popen(
+            [
+                'chown', '-R', 'root.toppatch', '/opt/TopPatch/sbin/nginx'
+            ],
+        )
+
     else:
         print 'RV Failed to initialize, please contact TopPatch support'
