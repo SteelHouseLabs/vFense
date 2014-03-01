@@ -58,12 +58,12 @@ parser.add_argument(
     help='Pass the password to use for the admin User. Default is a random generated password'
 )
 parser.add_argument(
-    '--rvl_count', dest='rvl_count', default=10,
-    help='The number of rvlistener daemons to run at once, cannot surpass 40'
+    '--listener_count', dest='listener_count', default=10,
+    help='The number of vFense_listener daemons to run at once, cannot surpass 40'
 )
 parser.add_argument(
-    '--rvweb_count', dest='rvweb_count', default=1,
-    help='The number of rvweb daemons to run at once, cannot surpass 40'
+    '--web_count', dest='web_count', default=1,
+    help='The number of vFense_web daemons to run at once, cannot surpass 40'
 )
 parser.add_argument(
     '--server_cert', dest='server_cert', default='server.crt',
@@ -96,8 +96,8 @@ ncc.nginx_config_builder(
     nginx_server_name,
     args.server_cert,
     args.server_key,
-    rvlistener_count=int(args.rvl_count),
-    rvweb_count=int(args.rvweb_count)
+    rvlistener_count=int(args.listener_count),
+    rvweb_count=int(args.web_count)
 )
 
 def initialize_db():
