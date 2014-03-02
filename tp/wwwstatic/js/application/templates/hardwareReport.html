@@ -1,0 +1,77 @@
+<article class="row-fluid">
+    <section class="list">
+        <div class="legend row-fluid">
+            <strong class="span2">Computer Name</strong>
+            <span class="span2">Component</span>
+            <span class="span2">Name</span>
+            <span class="span1">Size</span>
+            <span class="span2">File System/Cores</span>
+            <span class="span2">Speed (Mhz)/Free size</span>
+            <span class="span1">Arch</span>
+        </div>
+        <div class="items">
+            <% if (models.length) { %>
+                <% _.each(models, function (model) { %>
+                    <div class="item">
+                        <span class="span2"><%= model.get('computer-name') %></span>
+						<span class="span2">Disk</span>
+                        <% if (model.get('disk').length) { %>
+                            <% _.each(model.get('disk'), function (disk, index) { %>
+								<% if (index) { %>
+									<span class="span4 noMargin"></span>
+								<% } %>
+                                <span class="span2"><%= disk.name %></span>
+                                <span class="span1"><%= helpers.getDriveSize(disk.size_kb)  %></span>
+                                <span class="span2"><%= disk.file_system %></span>
+                                <span class="span2"><%= helpers.getDriveSize(disk.free_size_kb)  %></span>
+                            <% }); %>
+                        <% } else { %>
+                            <span class="span7">No Disk info available</span>
+                        <% } %>
+                        <hr class="span12 noMargin"/>
+						<span class="span2 noMargin"></span>
+						<span class="span2">CPU</span>
+						<% if (model.get('cpu').length) { %>
+							<% _.each(model.get('cpu'), function (cpu, index) { %>
+								<% if (index) { %>
+									<span class="span4 noMargin"></span>
+								<% } %>
+							    <span class="span2"><%= cpu.name %></span>
+								<span class="span1"><%= cpu.cache_kb + ' kb'  %></span>
+								<span class="span2"><%= cpu.cores  %></span>
+								<span class="span2"><%= cpu.speed_mhz %></span>
+								<span class="span1"><%= cpu.bit_type %></span>	
+							<% }); %>
+						<% } else {  %>
+							<span class="span7">No CPU info available</span>
+						<% } %>
+                        <hr class="span12 noMargin"/>
+						<span class="span2 noMargin"></span>
+						<span class="span2">Display</span>
+						<% if (model.get('display').length) { %>
+							<% _.each(model.get('display'), function (display, index) { %>
+								<% if (index) { %>
+									<span class="span4 noMargin"></span>
+								<% } %>
+							    <span class="span2"><%= display.name %></span>
+								<span class="span1"><%= helpers.getDriveSize(display.ram_kb)  %></span>
+                                <span class="span2"></span>
+								<span class="span2"><%= display.speed_mhz %></span>
+							<% }); %>
+						<% } else {  %>
+							<span class="span7">No CPU info available</span>
+						<% } %>
+                        <hr class="span12 noMargin"/>
+						<span class="span2 noMargin"></span>
+						<span class="span2">RAM</span>
+                        <span class="span2"></span>
+						<span class="span4"><%= helpers.getDriveSize(model.get('ram')) %></span>
+					</div>
+                <% }); %>
+            <% } else { %>
+                <div class="item">No data available</div>
+            <% } %>
+        </div>
+    </section>
+</article>
+

@@ -305,13 +305,13 @@ define(
                                 crel('option', {value: 'needed'}, 'Only if needed'),
                                 crel('option', {value: 'force'}, 'Forced')
                             ));
-                            $cpuThrottle = $(crel('select', {'data-id': 'cpu_throttle'},
+                            /*$cpuThrottle = $(crel('select', {'data-id': 'cpu_throttle'},
                                 crel('option', {value: 'idle'}, 'Idle'),
                                 crel('option', {value: 'below normal'}, 'Below Normal'),
                                 crel('option', {value: 'normal', selected: 'selected'}, 'Normal'),
                                 crel('option', {value: 'above normal'}, 'Above Normal'),
                                 crel('option', {value: 'high'}, 'High')
-                            ));
+                            ));*/
                             $netThrottle = $(crel('input',
                                 {
                                     class: 'input-small',
