@@ -6,4 +6,3 @@ var/scheduler
 var/redis
 var/packages
 var/tmp
-/var/log/*.log
