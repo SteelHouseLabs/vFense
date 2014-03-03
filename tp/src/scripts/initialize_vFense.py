@@ -44,7 +44,7 @@ if os.getuid() != 0:
     print 'MUST BE ROOT IN ORDER TO RUN'
     sys.exit(1)
 
-parser = argparse.ArgumentParser(description='Initialize Rv Options')
+parser = argparse.ArgumentParser(description='Initialize vFense Options')
 parser.add_argument(
     '--dnsname', dest='dns_name', default=None,
     help='Pass the DNS Name of the patching Server'
