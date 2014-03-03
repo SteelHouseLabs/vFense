@@ -312,14 +312,14 @@ define(
                                 crel('option', {value: 'above normal'}, 'Above Normal'),
                                 crel('option', {value: 'high'}, 'High')
                             ));
-                            $netThrottle = $(crel('input',
+                            /*$netThrottle = $(crel('input',
                                 {
                                     class: 'input-small',
                                     type: 'text',
                                     placeholder: 'net throttle-kb',
                                     'data-id': 'net_throttle'
                                 }
-                            ));
+                            ));*/
                         } else {
                             titles.splice(1, 0, 'Installed Date');
                             spans.splice(1, 0, 'span2');
