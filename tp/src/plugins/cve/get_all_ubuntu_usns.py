@@ -125,12 +125,10 @@ def get_details(soup_details):
 
 def write_content_to_file(file_location, url):
     usn_file = open(file_location, 'wb')
-    print url
     usn_page = requests.get(url)
     usn_page.close()
     completed = False
     content = None
-    print usn_page
     if usn_page.ok:
         content = usn_page.text.encode('utf-8')
         #content = usn_page.text
@@ -220,10 +218,8 @@ def process_usn_page(usn_uri):
 def  begin_usn_home_page_processing(next_page=None, full_parse=False):
     if next_page:
         url = MAIN_USN_URL + '/' + next_page
-        print url
         main_page = requests.get(url)
     else:
-        print MAIN_USN_URL
         main_page = requests.get(MAIN_USN_URL)
 
     if main_page.ok:

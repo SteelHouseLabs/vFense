@@ -216,7 +216,7 @@ def initialize_db():
             print "Updating Microsoft Security Bulletin Ids..."
             parse_bulletin_and_updatedb()
             print "Done Updating Microsoft Security Bulletin Ids..."
-            print "Updating Ubuntu Security Bulletin Ids..."
+            print "Updating Ubuntu Security Bulletin Ids...( This can take a couple of minutes )"
             begin_usn_home_page_processing(full_parse=True)
             print "Done Updating Ubuntu Security Bulletin Ids..."
 
@@ -301,7 +301,7 @@ if __name__ == '__main__':
     db_initialized, msg = initialize_db()
     initialized = False
     if db_initialized:
-        print 'RV environment has been succesfully initialized\n'
+        print 'vFense environment has been succesfully initialized\n'
         subprocess.Popen(
             [
                 'chown', '-R', 'toppatch.toppatch', '/opt/TopPatch'
@@ -314,4 +314,4 @@ if __name__ == '__main__':
         )
 
     else:
-        print 'RV Failed to initialize, please contact TopPatch support'
+        print 'vFense Failed to initialize, please contact TopPatch support'
